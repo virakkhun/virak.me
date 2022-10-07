@@ -17,6 +17,7 @@ import TvAsset from '../components/assets/tv'
 import SideProject from '../components/side'
 import Avatar from '../public/images/Avatar.png'
 import Diagram from '../public/images/diagram.png'
+import Banner from '../public/images/banner.png'
 
 const Home: NextPage = () => {
 	return (
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
 				<meta property='og:url' content={useRouter().pathname} />
-				<meta property='og:image' content='../public/images/Avatar.png' />
+				<meta property='og:image' content={`${Banner}`} />
 				<meta property='og:site_name' content={`Virak Khun's Portfolio`} />
 				<meta property='og:type' content='Website' />
 			</Head>
