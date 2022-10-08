@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 			<Head>
 				<title>Virak Khun | Portfolio</title>
 				<meta property='og:site_name' content={`Virak Khun's Portfolio`} />
-				<meta property='og:title' content='Virak - Portfolio' />
+				<meta property='og:title' content='Virak Khun | Portfolio' />
 				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
 				<meta property='og:type' content='website' />
 				<meta
@@ -41,11 +41,12 @@ const Home: NextPage = () => {
 					property='og:image'
 					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
 				/>
-				<meta name='twitter:title' content='PETER MCKINNON' />
+				<meta name='twitter:title' content='Virak Khun | Portfolio' />
 				<meta
 					name='twitter:image'
 					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
 				/>
+				<meta name='twitter:author' content='@virak' />
 				<meta name='twitter:url' content='https://virak-portfolio.vercel.app' />
 				<meta name='twitter:card' content='summary' />
 				<meta
@@ -151,4 +152,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
