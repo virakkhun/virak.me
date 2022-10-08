@@ -1,7 +1,13 @@
 import Image from 'next/image'
+import useIntersectionObserver from '../hooks/useIntersectionObserver'
 import BackpackWithNoShadow from '../public/images/backpack-no-shadow.png'
 
 const About = () => {
+	useIntersectionObserver({
+		className: 'rotation',
+		target: '.backpack',
+	})
+
 	return (
 		<>
 			<div
@@ -35,7 +41,7 @@ const About = () => {
 						</div>
 					</div>
 					<div className='w-1/2 flex justify-center items-center'>
-						<div className='w-56 h-56'>
+						<div className='w-56 h-56 backpack'>
 							<Image src={BackpackWithNoShadow} alt='Backpack with Shadow' />
 						</div>
 					</div>

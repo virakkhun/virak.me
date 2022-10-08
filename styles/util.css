@@ -67,3 +67,27 @@ a {
 	transform: translateY(0%);
 	opacity: 1;
 }
+
+.backpack {
+	transform: translateX(50%);
+	opacity: 0;
+}
+
+.backpack.rotation {
+	transition: all 400ms ease-out;
+	transition-delay: 1s;
+	transform: translateX(0%);
+	opacity: 1;
+}
+
+.side {
+	transform: translateY(50%);
+	opacity: 0;
+}
+
+.side.fadeUp {
+	transition: all 400ms ease-out;
+	transition-delay: 1s;
+	transform: translateY(0%);
+	opacity: 1;
+}

@@ -2,6 +2,7 @@ interface Props {
 	ghTitle: string
 	ghRepoName: string
 	ghLink: string
+	className?: string
 	children: JSX.Element
 }
 
@@ -9,10 +10,13 @@ const SideProject: React.FC<Props> = ({
 	ghLink,
 	ghRepoName,
 	ghTitle,
+	className,
 	children,
 }) => {
 	return (
-		<div className='mt-4 border border-action/20 p-2 rounded-md bg-gradient-to-br from-default/20 to-secondary/30 backdrop-blur-2xl'>
+		<div
+			className={`mt-4 border border-action/20 p-2 rounded-md bg-gradient-to-br from-default/20 to-secondary/30 backdrop-blur-2xl ${className}`}
+		>
 			<div className='flex justify-between items-center p-2 rounded-md border border-action/10 bg-gradient-to-tl from-default/20 to-secondary/30 backdrop-blur-2xl'>
 				<p className='text-lg font-bold text-default'>{ghTitle}</p>
 				<a href={ghLink} target='_blank' rel='noreferrer'>
@@ -28,7 +32,6 @@ const SideProject: React.FC<Props> = ({
 			<div className='border-b border-action/10 my-4'></div>
 			<div className='flex justify-between items-center'>
 				<p className='text-sm'>{ghRepoName}</p>
-
 				{children}
 			</div>
 		</div>

@@ -8,7 +8,6 @@ import {
 	SiPrisma,
 } from 'react-icons/si'
 import { FaVuejs } from 'react-icons/fa'
-import { useRouter } from 'next/router'
 
 import Head from 'next/head'
 import Image from 'next/image'
@@ -18,21 +17,45 @@ import SideProject from '../components/side'
 import Avatar from '../public/images/Avatar.png'
 import Diagram from '../public/images/diagram.png'
 import Banner from '../public/images/banner.png'
+import useIntersectionObserver from '../hooks/useIntersectionObserver'
 
 const Home: NextPage = () => {
+	useIntersectionObserver({
+		className: 'fadeUp',
+		target: '.side',
+		threshold: 0.5,
+	})
 	return (
 		<>
 			<Head>
-				<title>Virak - Portfolio</title>
+				<title>Virak Khun | Portfolio</title>
+				<meta property='og:site_name' content={`Virak Khun's Portfolio`} />
 				<meta property='og:title' content='Virak - Portfolio' />
+				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
+				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
-				<meta property='og:url' content={useRouter().pathname} />
-				<meta property='og:image' content={`${Banner}`} />
-				<meta property='og:site_name' content={`Virak Khun's Portfolio`} />
-				<meta property='og:type' content='Website' />
+				<meta
+					property='og:image'
+					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+				/>
+				<meta name='twitter:title' content='PETER MCKINNON' />
+				<meta
+					name='twitter:image'
+					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+				/>
+				<meta name='twitter:url' content='https://virak-portfolio.vercel.app' />
+				<meta name='twitter:card' content='summary' />
+				<meta
+					name='twitter:description'
+					content='A Full Stack Developer based in Phnom Penh, Cambodia'
+				/>
+				<meta
+					name='description'
+					content='A Full Stack Developer based in Phnom Penh, Cambodia'
+				/>
 			</Head>
 			<div className='md:mt-24 mt-5 h-screen relative'>
 				<div className='flex flex-col justify-center items-center gap-6 w-full'>
@@ -41,7 +64,7 @@ const Home: NextPage = () => {
 					</div>
 					<div className='text-center flex flex-col gap-2 text-action'>
 						<p className='text-2xl font-bold'>Virak Khun</p>
-						<p className='p-2 rounded-md bg-gradient-to-r from-primary/20 to-action/20 border border-action/20 backdrop-blur-md'>
+						<p className='p-2 rounded-md bg-gradient-to-r from-secondary/50 to-action/20 border border-action/20 backdrop-blur-md'>
 							A Full Stack Developer based in Phnom Penh
 						</p>
 					</div>
@@ -57,7 +80,7 @@ const Home: NextPage = () => {
 						<p>Bringing UX to life, using the cutting edge technology.</p>
 						<p>
 							Providing SEO out of the box, guarantee with Beautiful UI and
-							smooth user interactivities.
+							smooth user interactivity.
 						</p>
 					</div>
 				</div>
@@ -89,6 +112,7 @@ const Home: NextPage = () => {
 						ghLink='https://github.com/virakkhun/bloG'
 						ghRepoName='\blog'
 						ghTitle='mini blog'
+						className='side'
 					>
 						<div className='flex items-center gap-2 text-sm'>
 							<SiReact />
@@ -100,6 +124,7 @@ const Home: NextPage = () => {
 						ghRepoName='\blog-backend'
 						ghTitle='backend for mini blog'
 						ghLink='https://github.com/virakkhun/bloG-backend'
+						className='side'
 					>
 						<div className='flex items-center gap-2 text-sm'>
 							<SiFastify />
@@ -112,6 +137,7 @@ const Home: NextPage = () => {
 						ghLink='https://github.com/virakkhun/c-bookstore'
 						ghRepoName='\c-bookstore'
 						ghTitle='a mini library'
+						className='side'
 					>
 						<div className='flex items-center gap-2 text-sm'>
 							<FaVuejs />
