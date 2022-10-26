@@ -27,4 +27,4 @@ jobs:
     - name: Build 
       run: npm run build
     - name: Start Server
-      run: pm2 start yarn --name "portfolio" --interpreter bash -- start
+      run: pm2 restart portfolio
