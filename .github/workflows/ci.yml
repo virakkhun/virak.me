@@ -39,6 +39,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Clean Up
+      run: |
+        ls -l
+        rm .next node_modules
     
     - name: Install Deps
       run: npm install
