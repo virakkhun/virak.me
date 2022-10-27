@@ -42,7 +42,7 @@ jobs:
     - name: Clean Up
       run: |
         ls -l
-        rm .next node_modules
+        rm .next
     
     - name: Install Deps
       run: npm install
