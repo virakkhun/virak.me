@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import {
 	SiTypescript,
 	SiRedux,
@@ -16,10 +15,12 @@ import TvAsset from '../components/assets/tv'
 import SideProject from '../components/side'
 import Avatar from '../public/images/Avatar.png'
 import Diagram from '../public/images/diagram.png'
-import Banner from '../public/images/banner.png'
 import useIntersectionObserver from '../hooks/useIntersectionObserver'
+import type { NextPageWithLayout } from './_app'
+import { ReactElement } from 'react'
+import Layout from '../components/layouts/layout'
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
 	useIntersectionObserver({
 		className: 'fadeUp',
 		target: '.side',
@@ -151,4 +152,9 @@ const Home: NextPage = () => {
 	)
 }
 
+Home.getLayout = function getLayout(home: ReactElement) {
+	return <Layout>{home}</Layout>
+}
+
 export default Home
+
