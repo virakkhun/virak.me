@@ -39,7 +39,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - uses: actions/cache@v3
+    
+    - name: Install Deps
+      run: npm install
+    - name: Build 
+      run: npm run build
+
+    - name: Cache build
+      uses: actions/cache@v3
       with:
         path: |
           ~/.npm
@@ -48,9 +55,5 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
     
-    - name: Install Deps
-      run: npm install
-    - name: Build 
-      run: npm run build
     - name: Start Server
       run: pm2 restart portfolio
