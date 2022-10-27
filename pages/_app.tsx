@@ -1,25 +1,21 @@
-import '../styles/globals.css'
-import '../styles/util.css'
+import type { ReactElement, ReactNode } from 'react'
+import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
-import Layout from '../components/layouts/layout'
+import '../styles/globals.css'
+import '../styles/util.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
-	return (
-		<div className='relative'>
-			<ThemeProvider
-				attribute='class'
-				enableSystem={true}
-				themes={['dark', 'light', 'system']}
-				defaultTheme='dark'
-			>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
-			</ThemeProvider>
-		</div>
-	)
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+	getLayout?: (page: ReactElement) => ReactNode
 }
 
-export default MyApp
+type AppPropsWithLayout = AppProps & {
+	Component: NextPageWithLayout
+}
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+	const getLayout = Component.getLayout ?? ((page) => page)
+
+	return getLayout(<Component {...pageProps} />)
+}
 

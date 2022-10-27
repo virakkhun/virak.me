@@ -1,10 +1,10 @@
-import Link from 'next/link'
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { IoMdMail } from 'react-icons/io'
 
 const Footer = () => {
 	return (
-		<div className='md:w-full w-4/5 mx-auto md:mt-24 mb-5 mt-5 flex md:flex-row flex-col md:justify-between justify-center md:items-start items-center md:gap-0 gap-2'>
-			<div className='flex gap-2'>
+		<div className='md:w-full w-4/5 mx-auto md:mt-24 mb-5 mt-5 flex flex-col justify-center items-center gap-4'>
+			<div className='w-full flex gap-2 justify-center'>
 				<a
 					href='https://facebook.com/virakkhun.dev'
 					target='_blank'
@@ -22,15 +22,14 @@ const Footer = () => {
 				<a href='#' target='_blank' rel='noreferrer'>
 					<FaTwitter className='w-6 h-6 cursor-pointer fill-primary dark:fill-action' />
 				</a>
+				<a href='mailto:virak.dev.2000@gmail.com' rel='noreferrer'>
+					<IoMdMail className='w-6 h-6 cursor-pointer fill-primary dark:fill-action' />
+				</a>
 			</div>
-			<div>
-				<span>Authorized by</span>
-				<span className='font-bold pl-2 dark:text-default text-primary'>
-					virak@info.com
-				</span>
-			</div>
+			<p className='text-sm bold'>Copyright ©{new Date().getFullYear()}</p>
 		</div>
 	)
 }
 
 export default Footer
+
