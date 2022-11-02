@@ -58,5 +58,5 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Start Server
-        run: pm2 restart portfolio
+        run: pm2 restart portfolio && pm2 save --force
 
