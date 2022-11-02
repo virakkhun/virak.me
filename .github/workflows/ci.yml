@@ -44,6 +44,11 @@ jobs:
 
       - name: Install Deps
         run: npm install
+
+      - name: Setup Env
+        run: |
+          echo "CLIENT_ID=${{ secrets.CLIENT_ID }}"
+
       - name: Build
         run: npm run build
 
