@@ -47,7 +47,7 @@ jobs:
 
       - name: Setup Env
         run: |
-          echo "CLIENT_ID=${{ secrets.CLIENT_ID }}"
+          echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> .env
 
       - name: Build
         run: npm run build
