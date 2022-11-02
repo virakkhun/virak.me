@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 
@@ -26,6 +27,13 @@ const Footer = () => {
 					<IoMdMail className='w-6 h-6 cursor-pointer fill-primary dark:fill-action' />
 				</a>
 			</div>
+
+			<Link href='/fav'>
+				<button className='uppercase underline underline-offset-4'>
+					my unsplash
+				</button>
+			</Link>
+
 			<p className='text-sm bold'>Copyright ©{new Date().getFullYear()}</p>
 		</div>
 	)
