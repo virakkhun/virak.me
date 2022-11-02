@@ -9,7 +9,7 @@ const BlogIndex: NextPageWithLayout = () => {
 		<>
 			<Head>
 				<title>Blog</title>
-				<meta property='og:site_name' content={`Virak Khun's Portfolio`} />
+				<meta property='og:site_name' content="Virak Khun's Portfolio" />
 				<meta property='og:title' content='Virak Khun | Portfolio' />
 				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
 				<meta property='og:type' content='website' />
@@ -39,7 +39,7 @@ const BlogIndex: NextPageWithLayout = () => {
 				/>
 			</Head>
 			<div className='w-full h-screen flex flex-col justify-center items-center'>
-				<div className='dark:bg-default text-default dark:text-primary bg-primary w-1/2 h-1/2 rounded-md flex flex-col items-center justify-center  gap-6'>
+				<div className='dark:bg-default text-default dark:text-primary bg-primary lg:w-1/2 md:w-3/4 w-4/5 h-1/2 rounded-md flex flex-col items-center justify-center  gap-6'>
 					<p>There is no blog currently!.</p>
 					<p className='font-bold text-xl'>Coming Soon, like really soon ...</p>
 
