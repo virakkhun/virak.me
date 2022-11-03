@@ -49,6 +49,10 @@ jobs:
         run: |
           echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> .env
 
+      - name: List Dir
+        run: |
+          ls -la
+
       - name: Build
         run: npm run build
 
