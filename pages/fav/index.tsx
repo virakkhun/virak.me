@@ -1,11 +1,12 @@
 import SharedLayout from '../../components/layouts/shared-layout'
+import Link from 'next/link'
+import Head from 'next/head'
 import type { NextPageWithLayout } from '../_app'
 import type { Unsplash } from '../../utils/types/unsplash.type'
 import { ReactElement, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import { fetchApi } from '../../utils/FetchApi'
 import { BsPatchCheckFill, BsMap } from 'react-icons/bs'
-import Link from 'next/link'
 import { IoMdHome } from 'react-icons/io'
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -30,6 +31,34 @@ const FavIndex: NextPageWithLayout<{ data: Unsplash }> = ({ data }) => {
 
 	return (
 		<>
+			<Head>
+				<title>Photography</title>
+				<meta property='og:site_name' content="Virak Khun's Portfolio" />
+				<meta property='og:title' content='Virak Khun | Portfolio' />
+				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
+				<meta property='og:type' content='website' />
+				<meta
+					property='og:description'
+					content='I do photography on free time.'
+				/>
+				<meta
+					property='og:image'
+					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+				/>
+				<meta name='twitter:title' content='Virak Khun | Portfolio' />
+				<meta
+					name='twitter:image'
+					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+				/>
+				<meta name='twitter:author' content='@virak' />
+				<meta name='twitter:url' content='https://virak-portfolio.vercel.app' />
+				<meta name='twitter:card' content='summary' />
+				<meta
+					name='twitter:description'
+					content='I do photography on free time.'
+				/>
+				<meta name='description' content='I do photography on free time.' />
+			</Head>
 			<Link href='/'>
 				<button className='mt-5'>
 					<IoMdHome className='w-5 h-5' />

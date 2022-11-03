@@ -15,7 +15,7 @@ const BlogIndex: NextPageWithLayout = () => {
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
-					content='A Full Stack Developer based in Phnom Penh, Cambodia'
+					content='Blog content for sharing with others.'
 				/>
 				<meta
 					property='og:image'
