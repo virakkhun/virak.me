@@ -39,7 +39,7 @@ const FavIndex: NextPageWithLayout<{ data: Unsplash }> = ({ data }) => {
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
-					content='I do photography on free time.'
+					content='I enjoy doing photography in my free time.'
 				/>
 				<meta
 					property='og:image'
@@ -57,7 +57,10 @@ const FavIndex: NextPageWithLayout<{ data: Unsplash }> = ({ data }) => {
 					name='twitter:description'
 					content='I do photography on free time.'
 				/>
-				<meta name='description' content='I do photography on free time.' />
+				<meta
+					name='description'
+					content='I enjoy doing photography in my free time.'
+				/>
 			</Head>
 			<Link href='/'>
 				<button className='mt-5'>
@@ -110,13 +113,13 @@ const FavIndex: NextPageWithLayout<{ data: Unsplash }> = ({ data }) => {
 
 					<div className='mt-4'>
 						<div className='flex items-center gap-4'>
-							<div className='bg-secondary/50 shadow-lg rounded-md p-4 flex items-center gap-2'>
+							<div className='bg-secondary/50 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
 								<p className='text-default'>Total Downloads</p>
 								<p className='px-2 py-1 rounded-md bg-secondary/10 backdrop-blur-md'>
 									{data.downloads}
 								</p>
 							</div>
-							<div className='bg-secondary/50 shadow-lg rounded-md p-4 flex items-center gap-2'>
+							<div className='bg-secondary/50 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
 								<p className='text-default'>Total Photos</p>
 								<p className='px-2 py-1 rounded-md bg-secondary/10 backdrop-blur-md'>
 									{data.total_photos}
@@ -126,13 +129,13 @@ const FavIndex: NextPageWithLayout<{ data: Unsplash }> = ({ data }) => {
 					</div>
 
 					<div className='mt-4'>
-						<div className='flex md:flex-row flex-col items-center gap-2'>
+						<div className='flex flex-col gap-2'>
 							{data.photos.map((i, index) => (
 								<div key={index}>
 									<img
 										src={i.urls.regular}
 										alt={i.urls.regular}
-										className={`rounded-md shadow-xl ${
+										className={`rounded-md shadow-xl w-full ${
 											index === 1 ? 'hidden' : 'block'
 										}`}
 									/>

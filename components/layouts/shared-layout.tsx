@@ -14,7 +14,7 @@ const SharedLayout: React.FC<Props> = ({ children }) => {
 				themes={['dark', 'light', 'system']}
 				defaultTheme='dark'
 			>
-				<div className='md:container mx-auto'>
+				<div className='md:container mx-auto md:px-0 px-4'>
 					<main>{children}</main>
 					<Footer />
 				</div>

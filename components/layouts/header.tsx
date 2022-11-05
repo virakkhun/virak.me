@@ -8,30 +8,14 @@ const Header = () => {
 	const { theme, setTheme } = useTheme()
 	return (
 		<>
-			<div className='sticky top-2 md:w-full w-4/5 mx-auto md:my-10 z-50 my-5 flex justify-between items-center py-4 px-4 dark:bg-action/10 bg-primary/10 backdrop-blur-md rounded-md border dark:border-white/10 border-primary/10 filter-dark'>
-				<div className='flex items-end gap-4'>
-					<a href='#'>
-						<IoMdHome className='w-6 h-6 dark:fill-action fill-primary' />
-					</a>
-					<a
-						href='#about'
-						className='text-sm hover:text-primary/90 duration-300 transition-all'
-					>
-						About
-					</a>
-					<a
-						href='#side'
-						className='text-sm hover:text-primary/90 duration-300 transition-all'
-					>
-						Projects
-					</a>
+			<div className='md:w-full w-4/5 mx-auto my-2 z-50 flex justify-between items-center py-4 px-4'>
+				<p className='font-bold'>VK</p>
+				<div className='flex justify-between items-center gap-6'>
 					<Link href='/blog'>
-						<button className='text-sm hover:text-primary/90 duration-300 transition-all'>
+						<button className='text-lg font-semibold hover:text-pink-600/90 duration-200 transition-all'>
 							Blog
 						</button>
 					</Link>
-				</div>
-				<div className='flex justify-between items-center gap-3'>
 					<a href='https://github.com/virakkhun'>
 						<FaGithub className='w-6 h-6 dark:fill-action fill-primary' />
 					</a>
