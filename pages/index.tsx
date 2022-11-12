@@ -1,12 +1,6 @@
-import {
-	SiTypescript,
-	SiRedux,
-	SiReact,
-	SiFastify,
-	SiMongodb,
-	SiPrisma,
-} from 'react-icons/si'
-import { FaVuejs } from 'react-icons/fa'
+import { ReactElement } from 'react'
+import { Home, SideProjects } from '../utils/types/home.type'
+import type { NextPageWithLayout } from './_app'
 
 import Head from 'next/head'
 import Image from 'next/image'
@@ -16,16 +10,26 @@ import SideProject from '../components/side'
 import Avatar from '../public/images/Avatar.png'
 import Diagram from '../public/images/diagram.png'
 import useIntersectionObserver from '../hooks/useIntersectionObserver'
-import type { NextPageWithLayout } from './_app'
-import { ReactElement } from 'react'
 import Layout from '../components/layouts/layout'
+export { getServerSideProps } from '../store/getHomeData'
 
-const Home: NextPageWithLayout = () => {
+const Home: NextPageWithLayout<{
+	res: {
+		data: Home
+	}
+	side: {
+		data: SideProjects[]
+	}
+}> = ({ res, side }) => {
 	useIntersectionObserver({
 		className: 'fadeUp',
 		target: '.side',
-		threshold: 0.5,
+		threshold: 0.3,
 	})
+
+	const data = res.data
+	const projects = side.data
+
 	return (
 		<>
 			<Head>
@@ -65,9 +69,9 @@ const Home: NextPageWithLayout = () => {
 						<Image src={Avatar} alt='avatar' />
 					</div>
 					<div className='text-center flex flex-col gap-2 text-action'>
-						<p className='text-2xl font-bold'>Virak Khun</p>
+						<p className='text-2xl font-bold'>{data.attributes.author_name}</p>
 						<p className='p-2 rounded-md bg-gradient-to-r from-secondary/50 to-action/20 border border-action/20 backdrop-blur-md'>
-							A Full Stack Developer based in Phnom Penh
+							{data.attributes.description}
 						</p>
 					</div>
 					<div className='relative w-56 h-56 ml-24'>
@@ -79,11 +83,7 @@ const Home: NextPageWithLayout = () => {
 						</p>
 					</div>
 					<div className='text-center md:w-4/6 w-4/5 mx-auto text-action/80 font-bold'>
-						<p>Bringing UX to life, using the cutting edge technology.</p>
-						<p>
-							Providing SEO out of the box, guarantee with Beautiful UI and
-							smooth user interactivity.
-						</p>
+						<p>{data.attributes.description_1}</p>
 					</div>
 				</div>
 				<TvAsset
@@ -97,7 +97,7 @@ const Home: NextPageWithLayout = () => {
 				/>
 			</div>
 			<div className='md:mt-24 mt-5 h-screen w-4/5 mx-auto flex justify-center'>
-				<About />
+				<About text={data.attributes.about} />
 			</div>
 			<div
 				className='md:mt-24 mt-5 h-screen w-4/5 mx-auto flex justify-center items-start flex-col'
@@ -110,42 +110,27 @@ const Home: NextPageWithLayout = () => {
 					</div>
 				</div>
 				<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-3 w-full'>
-					<SideProject
-						ghLink='https://github.com/virakkhun/bloG'
-						ghRepoName='\blog'
-						ghTitle='mini blog'
-						className='side'
-					>
-						<div className='flex items-center gap-2 text-sm'>
-							<SiReact />
-							<SiTypescript />
-							<SiRedux />
+					{projects.map((p) => (
+						<div key={p.id}>
+							<SideProject
+								ghLink={p.attributes.github_link}
+								ghRepoName={p.attributes.project_name}
+								ghTitle={p.attributes.name}
+								className='side'
+							>
+								<div className='flex items-center gap-2 text-sm'>
+									{p.attributes.stack.stack.map((s, i) => (
+										<span
+											key={i}
+											className='py-0.5 px-1 rounded-full dark:bg-white/50 bg-primary/50 text-white'
+										>
+											{s}
+										</span>
+									))}
+								</div>
+							</SideProject>
 						</div>
-					</SideProject>
-					<SideProject
-						ghRepoName='\blog-backend'
-						ghTitle='backend for mini blog'
-						ghLink='https://github.com/virakkhun/bloG-backend'
-						className='side'
-					>
-						<div className='flex items-center gap-2 text-sm'>
-							<SiFastify />
-							<SiTypescript />
-							<SiMongodb />
-							<SiPrisma />
-						</div>
-					</SideProject>
-					<SideProject
-						ghLink='https://github.com/virakkhun/c-bookstore'
-						ghRepoName='\c-bookstore'
-						ghTitle='a mini library'
-						className='side'
-					>
-						<div className='flex items-center gap-2 text-sm'>
-							<FaVuejs />
-							<SiTypescript />
-						</div>
-					</SideProject>
+					))}
 				</div>
 			</div>
 		</>

@@ -30,8 +30,8 @@ const SideProject: React.FC<Props> = ({
 				</a>
 			</div>
 			<div className='border-b border-action/10 my-4'></div>
-			<div className='flex justify-between items-center'>
-				<p className='text-sm'>{ghRepoName}</p>
+			<div className='flex flex-col gap-2 justify-between items-center'>
+				<p className='font-bold'>{ghRepoName}</p>
 				{children}
 			</div>
 		</div>
@@ -39,3 +39,4 @@ const SideProject: React.FC<Props> = ({
 }
 
 export default SideProject
+
