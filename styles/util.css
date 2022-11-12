@@ -98,7 +98,7 @@ a {
 }
 
 .side.fadeUp {
-	transition: all 400ms ease-out;
+	transition: all 200ms ease-out;
 	transform: translateY(0%);
 	opacity: 1;
 }

@@ -28,7 +28,7 @@ const Footer = () => {
 				</a>
 			</div>
 
-			<Link href='/fav'>
+			<Link href='/hobbies'>
 				<button className='uppercase underline underline-offset-4'>
 					my unsplash
 				</button>

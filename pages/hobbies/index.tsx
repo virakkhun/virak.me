@@ -15,13 +15,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		{
 			Authorization: string
 		}
-	>('https://api.unsplash.com/users/khunvirak', {
+	>(process.env.UNSPLASH_URL!, 'GET', {
 		Authorization: `Client-ID ${process.env.CLIENT_ID}`,
 	})
 
 	return {
 		props: {
-			data: data,
+			data,
 		},
 	}
 }
