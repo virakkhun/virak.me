@@ -48,6 +48,9 @@ jobs:
       - name: Setup Env
         run: |
           echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> .env
+          echo "TOKEN=${{ secrets.TOKEN }}" >> .env
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+          echo "UNSPLASH_URL=${{ secrets.UNSPLASH_URL }}" >> .env
 
       - name: List Dir
         run: |
