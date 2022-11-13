@@ -1,10 +1,14 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import { ReactElement } from 'react'
 import BlogLayout from '../../components/layouts/blog-layout'
+import Blog from '../../components/blog'
 import type { NextPageWithLayout } from '../_app'
+import { ReactElement } from 'react'
+import { Blog as SchemaBlog } from '../../utils/types/blogs.type'
+export { getServerSideProps } from '../../store/getAllBlogs'
 
-const BlogIndex: NextPageWithLayout = () => {
+const BlogIndex: NextPageWithLayout<{
+	data: SchemaBlog[]
+}> = ({ data }) => {
 	return (
 		<>
 			<Head>
@@ -38,16 +42,18 @@ const BlogIndex: NextPageWithLayout = () => {
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
 			</Head>
-			<div className='w-full h-screen flex flex-col justify-center items-center'>
-				<div className='dark:bg-default text-default dark:text-primary bg-primary lg:w-1/2 md:w-3/4 w-4/5 h-1/2 rounded-md flex flex-col items-center justify-center  gap-6'>
-					<p>There is no blog currently!.</p>
-					<p className='font-bold text-xl'>Coming Soon, like really soon ...</p>
-
-					<Link href='/'>
-						<button className='px-4 py-2 rounded-full bg-primary text-white'>
-							home
-						</button>
-					</Link>
+			<div className='flex flex-col items-center justify-center gap-10 mt-10'>
+				<div className='text-center flex justify-center items-center flex-col gap-2'>
+					<h1 className='font-bold text-2xl'>Blogs</h1>
+					<p className='font-semibold'>
+						A blog where get you to understand in a easy way.
+					</p>
+					<div className='h-2 w-20 rounded-full bg-slate-500'></div>
+				</div>
+				<div className='grid grid-cols-3 gap-3'>
+					{data.map((d) => (
+						<Blog attributes={d.attributes} id={d.id} key={d.id} />
+					))}
 				</div>
 			</div>
 		</>
