@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import BlogLayout from '../../../components/layouts/blog-layout'
+import ReactMarkdown from 'react-markdown'
+import remark from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 import { ReactElement } from 'react'
 import { GetServerSideProps } from 'next'
 import { fetchApi } from '../../../utils/FetchApi'
 import { BlogDetail } from '../../../utils/types/blogs.type'
 import type { NextPageWithLayout } from '../../_app'
-import ReactMarkdown from 'react-markdown'
 
 export const getServerSideProps: GetServerSideProps = async (event) => {
 	const data = await fetchApi<BlogDetail>(
@@ -53,24 +55,29 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
 			</Head>
-			<div className='mx-auto w-3/4 mt-6'>
-				<p>[Beta]</p>
-				<p className='font-bold'>{data.attributes.title}</p>
+			<div className='mx-auto w-3/4 my-6'>
+				<p className='font-bold'>Introducing {data.attributes.title}</p>
 				<img
 					src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
 					alt={data.attributes.thumnail.data.attributes.alternativeText}
+					className='rounded-md'
 				/>
 				<p>{data.attributes.author}</p>
 				<div className='flex items-center gap-2'>
 					{data.attributes.tags.map((t, i) => (
-						<span key={i} className='bg-lime-100 text-primary'>
+						<span
+							key={i}
+							className='bg-lime-100 text-primary text-sm rounded-full'
+						>
 							#{t}
 						</span>
 					))}
 				</div>
-				<ReactMarkdown>
-					{data.attributes.blog_detail.data.attributes.detail}
-				</ReactMarkdown>
+				<div className='mt-6 bg-slate-900/50 p-4 rounded-md'>
+					<ReactMarkdown remarkPlugins={[remark]} rehypePlugins={[rehypeRaw]}>
+						{data.attributes.blog_detail.data.attributes.detail}
+					</ReactMarkdown>
+				</div>
 			</div>
 		</>
 	)
