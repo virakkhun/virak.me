@@ -27,7 +27,7 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 			<Head>
 				<title>{`${data.attributes.title} | Detail`}</title>
 				<meta property='og:site_name' content="Virak Khun's Portfolio" />
-				<meta property='og:title' content='Virak Khun | Portfolio' />
+				<meta property='og:title' content={`${data.attributes.title}`} />
 				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
 				<meta property='og:type' content='website' />
 				<meta
@@ -55,23 +55,30 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
 			</Head>
-			<div className='mx-auto w-3/4 my-6'>
-				<p className='font-bold'>Introducing {data.attributes.title}</p>
-				<img
-					src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
-					alt={data.attributes.thumnail.data.attributes.alternativeText}
-					className='rounded-md'
-				/>
-				<p>{data.attributes.author}</p>
-				<div className='flex items-center gap-2'>
-					{data.attributes.tags.map((t, i) => (
-						<span
-							key={i}
-							className='bg-lime-100 text-primary text-sm rounded-full'
-						>
-							#{t}
-						</span>
-					))}
+			<div className='mx-auto md:w-3/4 w-full md:px-0 px-2 my-6'>
+				<p className='font-bold mb-2'>
+					<span>Introducing</span>{' '}
+					<span className='text-2xl'>{data.attributes.title}</span>
+				</p>
+				<div className='relative w-full'>
+					<img
+						src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
+						alt={data.attributes.thumnail.data.attributes.alternativeText}
+						className='rounded-md'
+					/>
+					<div className='bg-primary/40 backdrop-blur-md py-2 flex items-center justify-between bottom-0 absolute w-full px-3'>
+						<p>{data.attributes.author}</p>
+						<div className='flex items-center gap-2'>
+							{data.attributes.tags.map((t, i) => (
+								<span
+									key={i}
+									className='bg-lime-100 text-primary text-sm rounded-full px-1'
+								>
+									#{t}
+								</span>
+							))}
+						</div>
+					</div>
 				</div>
 				<div className='mt-6 bg-slate-900/50 p-4 rounded-md'>
 					<ReactMarkdown remarkPlugins={[remark]} rehypePlugins={[rehypeRaw]}>
