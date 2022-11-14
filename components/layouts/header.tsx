@@ -1,8 +1,7 @@
 import { useTheme } from 'next-themes'
-import Link from 'next/link'
 import { FaGithub, FaSun } from 'react-icons/fa'
-import { IoMdHome } from 'react-icons/io'
 import { RiMoonClearFill } from 'react-icons/ri'
+import Link from 'next/link'
 
 const Header = () => {
 	const { theme, setTheme } = useTheme()
