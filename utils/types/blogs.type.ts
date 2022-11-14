@@ -2,6 +2,7 @@ export interface Blog {
 	id: number
 	attributes: {
 		title: string
+		description: string
 		thumnail: Thumnail
 		author: string
 		tags: string[]

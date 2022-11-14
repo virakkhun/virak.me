@@ -18,6 +18,8 @@ const Blog: React.FC<Blog> = ({ attributes, id }) => {
 							<p className='font-bold text-white text-2xl'>
 								{attributes.title}
 							</p>
+							<p>{attributes.description}</p>
+							<div className='border-b border-b-primary/40 my-2' />
 							<div className='flex items-center justify-between'>
 								<p className='px-3 py-1 bg-black rounded-full w-fit text-white text-sm'>
 									{attributes.author}
