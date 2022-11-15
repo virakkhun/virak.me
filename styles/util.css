@@ -104,11 +104,15 @@ a {
 }
 
 pre {
-	@apply bg-secondary/30 backdrop-blur-md rounded-md py-3 my-2;
+	@apply relative;
+}
+
+pre div {
+	@apply shadow-lg shadow-black/10;
 }
 
 ul {
-	@apply bg-secondary/30 flex flex-col gap-3 rounded-md p-3;
+	@apply bg-slate-700 flex flex-col gap-3 rounded-md p-3;
 }
 
 ul li {
@@ -116,11 +120,11 @@ ul li {
 }
 
 table {
-	@apply bg-secondary/50 md:w-1/3 w-3/4 md:mx-0 mx-auto;
+	@apply bg-slate-600/50 md:w-1/3 w-3/4 md:mx-0 mx-auto;
 }
 
 table thead tr th {
-	@apply border border-gray-400 bg-secondary/90 py-2;
+	@apply border border-gray-400 bg-slate-700 py-2;
 }
 
 table tbody tr td {
@@ -141,5 +145,9 @@ h5 {
 
 p a {
 	@apply text-violet-500 hover:text-violet-300 transition-all duration-200;
+}
+
+.codeStyle {
+	@apply border border-white/10;
 }
 
