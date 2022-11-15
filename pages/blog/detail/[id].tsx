@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import BlogLayout from '../../../components/layouts/blog-layout'
 
 import ReactMarkdown from 'react-markdown'
 import { Components } from 'react-markdown'
@@ -16,23 +15,12 @@ import rehypeRaw from 'rehype-raw'
 import rangeParser from 'parse-numeric-range'
 import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
-import React, { ReactElement, useEffect } from 'react'
-import { GetServerSideProps } from 'next'
-import { fetchApi } from '../../../utils/FetchApi'
-import { BlogDetail } from '../../../utils/types/blogs.type'
-import type { NextPageWithLayout } from '../../_app'
-
-export const getServerSideProps: GetServerSideProps = async (event) => {
-	const data = await fetchApi<BlogDetail>(
-		`${process.env.BASE_URL}/blogs/${event.params!.id}?populate=*`,
-		'GET',
-		{ Authorization: `Bearer ${process.env.TOKEN}` },
-	)
-
-	return {
-		props: data,
-	}
-}
+import React, { CSSProperties } from 'react'
+import { NextPage } from 'next'
+import { trpc } from '../../../utils/trpc'
+import { useRouter } from 'next/router'
+import Loading from '../../../components/loading'
+import { CodeProps } from 'react-markdown/lib/ast-to-react'
 
 const languages: { name: string; obj: any }[] = [
 	{
@@ -69,11 +57,15 @@ languages.forEach((l) => {
 	SyntaxHighlighter.registerLanguage(l.name, l.obj)
 })
 
-const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
+const BlogDetail: NextPage = () => {
+	const router = useRouter()
+	const { id } = router.query
+	const { data } = trpc.getBlogsDetail.useQuery({ id: id as string })
+
 	const syntaxTheme = nord
 
 	const MarkdownComponents: Components = {
-		code({ node, inline, className, ...props }) {
+		code({ node, inline, className, style, children, ...props }) {
 			const match = /language-(\w+)/.exec(className || '')
 			const hasMeta = node.data?.meta as string
 			const meta = node.data?.meta as string
@@ -108,12 +100,16 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 					useInlineStyles={true}
 					lineProps={applyHighlights}
 					{...props}
-				/>
+				>
+					{String(children).replace(/\n$/, '')}
+				</SyntaxHighlighter>
 			) : (
 				<code className={className} {...props} />
 			)
 		},
 	}
+
+	if (!data) return <Loading text='Blog Detail | Loading...' />
 
 	return (
 		<>
@@ -125,7 +121,7 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
-					content='Blog content for sharing with others.'
+					content={data.attributes.blog_detail.data.attributes.detail}
 				/>
 				<meta
 					property='og:image'
@@ -154,11 +150,13 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 					<span className='text-2xl'>{data.attributes.title}</span>
 				</p>
 				<div className='relative w-full'>
-					<img
-						src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
-						alt={data.attributes.thumnail.data.attributes.alternativeText}
-						className='rounded-md'
-					/>
+					<div className='overflow-hidden'>
+						<img
+							src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
+							alt={data.attributes.thumnail.data.attributes.alternativeText}
+							className='rounded-md w-full hover:scale-110 transition-all duration-300'
+						/>
+					</div>
 					<div className='bg-primary/40 backdrop-blur-md py-2 flex items-center justify-between bottom-0 absolute w-full px-3'>
 						<p>{data.attributes.author}</p>
 						<div className='flex items-center gap-2'>
@@ -173,7 +171,7 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 						</div>
 					</div>
 				</div>
-				<div className='mt-6 bg-slate-900 p-4 rounded-md'>
+				<div className='mt-6 dark:bg-slate-900 bg-slate-800 text-white  p-4 rounded-md'>
 					<ReactMarkdown
 						remarkPlugins={[remark]}
 						rehypePlugins={[rehypeRaw]}
@@ -186,10 +184,5 @@ const BlogDetail: NextPageWithLayout<{ data: BlogDetail }> = ({ data }) => {
 		</>
 	)
 }
-
-BlogDetail.getLayout = function getLayout(page: ReactElement) {
-	return <BlogLayout>{page}</BlogLayout>
-}
-
 export default BlogDetail
 
