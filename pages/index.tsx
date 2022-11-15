@@ -1,7 +1,3 @@
-import { ReactElement } from 'react'
-import { Home, SideProjects } from '../utils/types/home.type'
-import type { NextPageWithLayout } from './_app'
-
 import Head from 'next/head'
 import Image from 'next/image'
 import About from '../components/about'
@@ -10,25 +6,23 @@ import SideProject from '../components/side'
 import Avatar from '../public/images/Avatar.png'
 import Diagram from '../public/images/diagram.png'
 import useIntersectionObserver from '../hooks/useIntersectionObserver'
-import Layout from '../components/layouts/layout'
-export { getServerSideProps } from '../store/getHomeData'
+import { NextPage } from 'next'
+import { trpc } from '../utils/trpc'
+import Loading from '../components/loading'
 
-const Home: NextPageWithLayout<{
-	res: {
-		data: Home
-	}
-	side: {
-		data: SideProjects[]
-	}
-}> = ({ res, side }) => {
+const Home: NextPage = () => {
 	useIntersectionObserver({
 		className: 'fadeUp',
 		target: '.side',
 		threshold: 0.3,
 	})
 
-	const data = res.data
-	const projects = side.data
+	const { data } = trpc.getHomeData.useQuery()
+
+	if (!data) return <Loading text='Loading ...' />
+
+	const projects = data.SideProjects
+	const home = data.Home
 
 	return (
 		<>
@@ -69,9 +63,9 @@ const Home: NextPageWithLayout<{
 						<Image src={Avatar} alt='avatar' />
 					</div>
 					<div className='text-center flex flex-col gap-2 text-action'>
-						<p className='text-2xl font-bold'>{data.attributes.author_name}</p>
+						<p className='text-2xl font-bold'>{home.attributes.author_name}</p>
 						<p className='p-2 rounded-md bg-gradient-to-r from-secondary/50 to-action/20 border border-action/20 backdrop-blur-md'>
-							{data.attributes.description}
+							{home.attributes.description}
 						</p>
 					</div>
 					<div className='relative w-56 h-56 ml-24'>
@@ -83,7 +77,7 @@ const Home: NextPageWithLayout<{
 						</p>
 					</div>
 					<div className='text-center md:w-4/6 w-4/5 mx-auto text-action/80 font-bold'>
-						<p>{data.attributes.description_1}</p>
+						<p>{home.attributes.description_1}</p>
 					</div>
 				</div>
 				<TvAsset
@@ -97,7 +91,7 @@ const Home: NextPageWithLayout<{
 				/>
 			</div>
 			<div className='md:mt-24 mt-5 h-screen w-4/5 mx-auto flex justify-center'>
-				<About text={data.attributes.about} />
+				<About text={home.attributes.about} />
 			</div>
 			<div
 				className='md:mt-24 mt-5 h-screen w-4/5 mx-auto flex justify-center items-start flex-col'
@@ -135,10 +129,6 @@ const Home: NextPageWithLayout<{
 			</div>
 		</>
 	)
-}
-
-Home.getLayout = function getLayout(home: ReactElement) {
-	return <Layout>{home}</Layout>
 }
 
 export default Home

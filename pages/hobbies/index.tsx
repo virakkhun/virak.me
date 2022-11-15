@@ -1,33 +1,17 @@
-import SharedLayout from '../../components/layouts/shared-layout'
 import Link from 'next/link'
 import Head from 'next/head'
-import type { NextPageWithLayout } from '../_app'
-import type { Unsplash } from '../../utils/types/unsplash.type'
-import { ReactElement, useState } from 'react'
-import { GetServerSideProps } from 'next'
-import { fetchApi } from '../../utils/FetchApi'
+import { useState } from 'react'
 import { BsPatchCheckFill, BsMap } from 'react-icons/bs'
 import { IoMdHome } from 'react-icons/io'
+import { trpc } from '../../utils/trpc'
+import { NextPage } from 'next'
+import Loading from '../../components/loading'
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const data = await fetchApi<
-		Unsplash,
-		{
-			Authorization: string
-		}
-	>(process.env.UNSPLASH_URL!, 'GET', {
-		Authorization: `Client-ID ${process.env.CLIENT_ID}`,
-	})
-
-	return {
-		props: {
-			data,
-		},
-	}
-}
-
-const FavIndex: NextPageWithLayout<{ data: Unsplash }> = ({ data }) => {
+const FavIndex: NextPage = () => {
+	const { data } = trpc.getUnsplashInfo.useQuery()
 	const [isAmbient, setIsAmbient] = useState(false)
+
+	if (!data) return <Loading text='Loading...' />
 
 	return (
 		<>
@@ -148,10 +132,5 @@ const FavIndex: NextPageWithLayout<{ data: Unsplash }> = ({ data }) => {
 		</>
 	)
 }
-
-FavIndex.getLayout = function getLayout(page: ReactElement) {
-	return <SharedLayout>{page}</SharedLayout>
-}
-
 export default FavIndex
 

@@ -1,0 +1,32 @@
+.spinner {
+	width: 50px;
+	height: 50px;
+	background: linear-gradient(90deg, #009fff, #ec2f4b);
+}
+
+@keyframes rotate {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#spinner5 {
+	position: relative;
+	animation: deform 2s linear infinite;
+}
+
+@keyframes deform {
+	0% {
+		border-radius: 0%;
+		transform: rotate(0deg) scale(1);
+	}
+	50% {
+		border-radius: 100%;
+		transform: rotate(180deg) scale(0.8);
+	}
+	100% {
+		border-radius: 0%;
+		transform: rotate(360deg) scale(1);
+	}
+}
+

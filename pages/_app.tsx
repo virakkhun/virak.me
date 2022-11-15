@@ -1,20 +1,27 @@
-import type { ReactElement, ReactNode } from 'react'
-import type { NextPage } from 'next'
-import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import '../styles/util.css'
+import '../styles/animation.css'
+import { trpc } from '../utils/trpc'
+import { ThemeProvider } from 'next-themes'
+import type { AppProps, AppType } from 'next/app'
+import Layout from '../components/layouts/layout'
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-	getLayout?: (page: ReactElement) => ReactNode
+const App: AppType = ({ Component, pageProps }: AppProps) => {
+	return (
+		<>
+			<ThemeProvider
+				attribute='class'
+				enableSystem={true}
+				themes={['dark', 'light', 'system']}
+				defaultTheme='dark'
+			>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</ThemeProvider>
+		</>
+	)
 }
 
-type AppPropsWithLayout = AppProps & {
-	Component: NextPageWithLayout
-}
-
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
-	const getLayout = Component.getLayout ?? ((page) => page)
-
-	return getLayout(<Component {...pageProps} />)
-}
+export default trpc.withTRPC(App)
 

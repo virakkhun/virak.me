@@ -1,14 +1,13 @@
 import Head from 'next/head'
-import BlogLayout from '../../components/layouts/blog-layout'
 import Blog from '../../components/blog'
-import type { NextPageWithLayout } from '../_app'
-import { ReactElement } from 'react'
-import { Blog as SchemaBlog } from '../../utils/types/blogs.type'
-export { getServerSideProps } from '../../store/getAllBlogs'
+import Loading from '../../components/loading'
+import { NextPage } from 'next'
+import { trpc } from '../../utils/trpc'
 
-const BlogIndex: NextPageWithLayout<{
-	data: SchemaBlog[]
-}> = ({ data }) => {
+const BlogIndex: NextPage = () => {
+	const { data } = trpc.getBlogs.useQuery()
+
+	if (!data) return <Loading text='Blog | Loading...' />
 	return (
 		<>
 			<Head>
@@ -58,10 +57,6 @@ const BlogIndex: NextPageWithLayout<{
 			</div>
 		</>
 	)
-}
-
-BlogIndex.getLayout = function getLayout(page: ReactElement) {
-	return <BlogLayout>{page}</BlogLayout>
 }
 
 export default BlogIndex

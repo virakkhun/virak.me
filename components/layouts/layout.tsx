@@ -21,7 +21,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 				themes={['dark', 'light', 'system']}
 				defaultTheme='dark'
 			>
-				<div className='md:container mx-auto relative'>
+				<div className='md:container mx-auto relative md:px-0 px-4'>
 					<div className='fixed h-screen left-2 top-0 py-2'>
 						<div
 							style={{ height: `${percent}%` }}
