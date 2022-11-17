@@ -1,3 +1,3 @@
 ###### Virak Khun's Portfolio
 ---
-[![Build][build-badge]][build]
+![ci](https://github.com/virakkhun/personal-portfolio/workflows/ci.yaml/badge.svg)
