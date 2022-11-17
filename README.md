@@ -1,1 +1,3 @@
-# Virak Khun's Portfolio
+###### Virak Khun's Portfolio
+---
+[![Build][build-badge]][build]
