@@ -6,4 +6,4 @@ Hi! 👋
 
 Welcome to my personal portfolio 🪨
 
-If you interested the way I implemented this project. Please check it out 🪐
+[check here](https://virak.me) 🪐
