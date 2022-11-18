@@ -13,14 +13,18 @@ import javascript from 'react-syntax-highlighter/dist/cjs/languages/prism/javasc
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
 import rehypeRaw from 'rehype-raw'
 import rangeParser from 'parse-numeric-range'
-import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import {
+	coldarkDark,
+	a11yDark,
+	nord,
+} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
-import React, { CSSProperties } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NextPage } from 'next'
 import { trpc } from '../../../utils/trpc'
 import { useRouter } from 'next/router'
+import { cryptoKit } from '../../../utils/kits/crypto'
 import Loading from '../../../components/loading'
-import { CodeProps } from 'react-markdown/lib/ast-to-react'
 
 const languages: { name: string; obj: any }[] = [
 	{
@@ -60,9 +64,34 @@ languages.forEach((l) => {
 const BlogDetail: NextPage = () => {
 	const router = useRouter()
 	const { id } = router.query
-	const { data } = trpc.getBlogsDetail.useQuery({ id: id as string })
+	const serialize = cryptoKit().decrypt(
+		id as string,
+		`${process.env.ENCRYPT_KEY}`,
+	)
 
-	const syntaxTheme = nord
+	const { data } = trpc.getBlogsDetail.useQuery({
+		id: serialize,
+	})
+
+	const availableTheme = [
+		{
+			name: 'coldarkDark',
+			theme: coldarkDark,
+		},
+		{
+			name: 'a11yDark',
+			theme: a11yDark,
+		},
+		{
+			name: 'nord',
+			theme: nord,
+		},
+	]
+	const [syntaxTheme, setTheme] = useState(coldarkDark)
+
+	const switchTheme = (idx: number) => {
+		setTheme(availableTheme[idx].theme)
+	}
 
 	const MarkdownComponents: Components = {
 		code({ node, inline, className, style, children, ...props }) {
@@ -147,31 +176,44 @@ const BlogDetail: NextPage = () => {
 			<div className='mx-auto md:w-3/4 w-full md:px-0 px-2 my-6'>
 				<p className='font-bold mb-2'>
 					<span>Introducing</span>{' '}
-					<span className='text-2xl'>{data.attributes.title}</span>
+					<span className='text-2xl text-green-600'>
+						{data.attributes.title}
+					</span>
 				</p>
 				<div className='relative w-full'>
 					<div className='overflow-hidden'>
 						<img
 							src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
 							alt={data.attributes.thumnail.data.attributes.alternativeText}
-							className='rounded-md w-full hover:scale-110 transition-all duration-300'
+							className='rounded-tr-md rounded-tl-md w-full hover:scale-110 transition-all duration-300'
 						/>
 					</div>
-					<div className='bg-primary/40 backdrop-blur-md py-2 flex items-center justify-between bottom-0 absolute w-full px-3'>
-						<p>{data.attributes.author}</p>
-						<div className='flex items-center gap-2'>
-							{data.attributes.tags.map((t, i) => (
-								<span
-									key={i}
-									className='bg-lime-100 text-primary text-sm rounded-full px-1'
-								>
-									#{t}
-								</span>
-							))}
-						</div>
+				</div>
+
+				<div className='bg-black/90 backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
+					<p>{data.attributes.author}</p>
+					<div className='flex items-center gap-2'>
+						{data.attributes.tags.map((t, i) => (
+							<span
+								key={i}
+								className='bg-lime-100 text-primary text-sm rounded-full px-1'
+							>
+								#{t}
+							</span>
+						))}
 					</div>
 				</div>
-				<div className='mt-6 dark:bg-slate-900 bg-slate-800 text-white  p-4 rounded-md'>
+
+				<div className='mt-4 py-2 rounded-md bg-white/20 px-4 text-sm flex justify-between items-center'>
+					<p className='text-orange-500'>
+						Published: {new Date(data.attributes.publishedAt).toDateString()}
+					</p>
+					<p className='text-orange-300'>
+						Updated: {new Date(data.attributes.updatedAt).toDateString()}
+					</p>
+				</div>
+
+				<div className='mt-6 dark:bg-slate-900 bg-slate-800 text-white  p-4 rounded-md relative'>
 					<ReactMarkdown
 						remarkPlugins={[remark]}
 						rehypePlugins={[rehypeRaw]}
@@ -179,6 +221,18 @@ const BlogDetail: NextPage = () => {
 					>
 						{data.attributes.blog_detail.data.attributes.detail}
 					</ReactMarkdown>
+
+					<div className='absolute bottom-3 right-2'>
+						{availableTheme.map((a, i) => (
+							<button
+								key={i}
+								onClick={() => switchTheme(i)}
+								className='px-3 py-1 bg-black/30 mx-1 text-sm text-green-900 rounded-full capitalize'
+							>
+								{a.name}
+							</button>
+						))}
+					</div>
 				</div>
 			</div>
 		</>
