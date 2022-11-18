@@ -49,7 +49,7 @@ const BlogIndex: NextPage = () => {
 					</p>
 					<div className='h-2 w-20 rounded-full bg-slate-500'></div>
 				</div>
-				<div className='grid md:grid-cols-3 grid-cols-1 gap-3'>
+				<div className='grid md:grid-cols-3 grid-cols-1 gap-6'>
 					{data.map((d) => (
 						<Blog attributes={d.attributes} id={d.id} key={d.id} />
 					))}

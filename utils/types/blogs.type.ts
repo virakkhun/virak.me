@@ -34,6 +34,8 @@ export interface BlogDetail {
 				}
 			}
 		}
+		publishedAt: string
+		updatedAt: string
 	}
 }
 

@@ -27,7 +27,6 @@ export const getBlogsDetail = publicProcedure
 			'GET',
 			{ Authorization: `Bearer ${process.env.TOKEN}` },
 		)
-
 		return data
 	})
 
