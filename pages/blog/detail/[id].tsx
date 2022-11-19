@@ -1,8 +1,12 @@
 import Head from 'next/head'
 
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rangeParser from 'parse-numeric-range'
+import remarkGfm from 'remark-gfm'
+import remarkParse from 'remark-parse'
+import rehypeStringify from 'rehype-stringify'
 import { Components } from 'react-markdown'
-import remark from 'remark-gfm'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
 import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx'
 import typscript from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript'
@@ -11,8 +15,6 @@ import markdown from 'react-syntax-highlighter/dist/cjs/languages/prism/markdown
 import json from 'react-syntax-highlighter/dist/cjs/languages/prism/json'
 import javascript from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript'
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
-import rehypeRaw from 'rehype-raw'
-import rangeParser from 'parse-numeric-range'
 import {
 	coldarkDark,
 	a11yDark,
@@ -212,8 +214,8 @@ const BlogDetail: NextPage = () => {
 
 				<div className='mt-6 dark:bg-slate-900 bg-slate-800 text-white  p-4 rounded-md relative'>
 					<ReactMarkdown
-						remarkPlugins={[remark]}
-						rehypePlugins={[rehypeRaw]}
+						remarkPlugins={[remarkGfm, remarkParse]}
+						rehypePlugins={[rehypeRaw, rehypeStringify]}
 						components={MarkdownComponents}
 					>
 						{data.attributes.blog_detail.data.attributes.detail}
@@ -224,7 +226,9 @@ const BlogDetail: NextPage = () => {
 							<button
 								key={i}
 								onClick={() => switchTheme(i)}
-								className='px-3 py-1 bg-black/30 mx-1 text-sm text-green-900 rounded-full capitalize'
+								className={`px-3 py-1 bg-black/30 mx-1 text-sm rounded-full capitalize ${
+									syntaxTheme === a.theme ? 'text-gray-300' : 'text-green-900'
+								}`}
 							>
 								{a.name}
 							</button>

@@ -151,3 +151,11 @@ p a {
 	@apply border border-white/10;
 }
 
+.section-header {
+	@apply text-lg font-bold text-teal-900;
+}
+
+.section-header::before {
+	content: '🔗';
+}
+
