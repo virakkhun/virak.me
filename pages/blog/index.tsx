@@ -47,9 +47,9 @@ const BlogIndex: NextPage = () => {
 					<p className='font-semibold'>
 						A blog where get you to understand in a easy way.
 					</p>
-					<div className='h-2 w-20 rounded-full bg-slate-500'></div>
+					<div className='h-2 w-20 rounded-full bg-slate-500' />
 				</div>
-				<div className='grid md:grid-cols-3 grid-cols-1 gap-6'>
+				<div className='grid lg:grid-cols-3 md:grid-cols-2 lg:w-full md:w-4/5 mx-auto grid-cols-1 gap-6'>
 					{data.map((d) => (
 						<Blog attributes={d.attributes} id={d.id} key={d.id} />
 					))}

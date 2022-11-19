@@ -34,7 +34,8 @@ const useIntersectionObserver = ({
 				observer.observe(t)
 			})
 		}
-	})
+	}, [target, className, rootMargin, threshold])
 }
 
 export default useIntersectionObserver
+

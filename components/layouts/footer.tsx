@@ -29,9 +29,7 @@ const Footer = () => {
 			</div>
 
 			<Link href='/hobbies'>
-				<button className='uppercase underline underline-offset-4'>
-					my unsplash
-				</button>
+				<a className='uppercase underline underline-offset-4'>my unsplash</a>
 			</Link>
 
 			<p className='text-sm bold'>Copyright ©{new Date().getFullYear()}</p>
