@@ -9,7 +9,7 @@ const Blog: React.FC<Blog> = ({ attributes, id }) => {
 		<>
 			<Link href={`/blog/detail/${blogId}`}>
 				<a>
-					<div className='bg-black shadow-xl flex flex-col gap-2 border border-white/10'>
+					<div className='dark:bg-black/80 bg-gray-600 text-white shadow-xl flex flex-col gap-2 border dark:border-white/10 border-black/10'>
 						<div className='overflow-hidden'>
 							<img
 								src={`https://portfolio-cms.virak.me${attributes.thumnail.data.attributes.url}`}

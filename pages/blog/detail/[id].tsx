@@ -19,12 +19,13 @@ import {
 	nord,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 import { trpc } from '../../../utils/trpc'
 import { useRouter } from 'next/router'
 import { cryptoKit } from '../../../utils/kits/crypto'
 import Loading from '../../../components/loading'
+import { dateKit } from '../../../utils/kits/date_kit'
 
 const languages: { name: string; obj: any }[] = [
 	{
@@ -204,13 +205,9 @@ const BlogDetail: NextPage = () => {
 					</div>
 				</div>
 
-				<div className='mt-4 py-2 rounded-md bg-white/20 px-4 text-sm flex justify-between items-center'>
-					<p className='text-orange-500'>
-						Published: {new Date(data.attributes.publishedAt).toDateString()}
-					</p>
-					<p className='text-orange-300'>
-						Updated: {new Date(data.attributes.updatedAt).toDateString()}
-					</p>
+				<div className='mt-4 py-2 text-sm flex justify-between items-center text-gray-800'>
+					<p>{`Posted ${dateKit.format(data.attributes.publishedAt)}`}</p>
+					<p>{`Updated ${dateKit.format(data.attributes.updatedAt)}`}</p>
 				</div>
 
 				<div className='mt-6 dark:bg-slate-900 bg-slate-800 text-white  p-4 rounded-md relative'>

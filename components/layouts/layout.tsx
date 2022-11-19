@@ -21,12 +21,12 @@ const Layout: React.FC<Props> = ({ children }) => {
 				themes={['dark', 'light', 'system']}
 				defaultTheme='dark'
 			>
-				<div className='md:container mx-auto relative md:px-0 px-4'>
+				<div className='max-w-7xl md:container mx-auto relative md:px-0 px-4'>
 					<div className='fixed h-screen left-2 top-0 py-2'>
 						<div
 							style={{ height: `${percent}%` }}
 							className={`w-1 rounded-lg bg-gradient-to-b from-action/30 to-primary/60 backdrop-blur-md`}
-						></div>
+						/>
 					</div>
 					<div
 						className='fixed right-2'

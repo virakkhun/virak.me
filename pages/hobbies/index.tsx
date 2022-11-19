@@ -1,10 +1,8 @@
-import Link from 'next/link'
-import Head from 'next/head'
 import { useState } from 'react'
 import { BsPatchCheckFill, BsMap } from 'react-icons/bs'
-import { IoMdHome } from 'react-icons/io'
 import { trpc } from '../../utils/trpc'
 import { NextPage } from 'next'
+import Head from 'next/head'
 import Loading from '../../components/loading'
 
 const FavIndex: NextPage = () => {
@@ -46,12 +44,7 @@ const FavIndex: NextPage = () => {
 					content='I enjoy doing photography in my free time.'
 				/>
 			</Head>
-			<Link href='/'>
-				<button className='mt-5'>
-					<IoMdHome className='w-5 h-5' />
-				</button>
-			</Link>
-			<div className={`mt-5 ${isAmbient ? 'filter-150' : ''}`}>
+			<div className={`mt-5 px-4 ${isAmbient ? 'filter-150' : ''}`}>
 				<div className='flex justify-between items-center mb-2'>
 					<p className='uppercase text-2xl font-bold'>My Unsplash</p>
 					<button
@@ -59,7 +52,7 @@ const FavIndex: NextPage = () => {
 						onClick={() => setIsAmbient(!isAmbient)}
 					>
 						<span>Ambient Light</span>
-						<div className='w-8 h-4 rounded-full bg-default relative'>
+						<div className='w-8 h-4 rounded-full dark:bg-default bg-primary relative'>
 							<div
 								className={`absolute top-0 bg-white w-4 h-4 rounded-full ${
 									isAmbient ? 'right-0' : 'left-0'
@@ -68,7 +61,7 @@ const FavIndex: NextPage = () => {
 						</div>
 					</button>
 				</div>
-				<div className='rounded-md bg-secondary/20 backdrop-blur-md p-4 w-full relative'>
+				<div className='rounded-md dark:bg-secondary/20 bg-gray-600 text-white backdrop-blur-md p-4 w-full relative'>
 					<div className='flex items-center gap-4'>
 						<a href={data.links.html} target='_blank' rel='noreferrer'>
 							<img
@@ -97,13 +90,13 @@ const FavIndex: NextPage = () => {
 
 					<div className='mt-4'>
 						<div className='flex items-center gap-4'>
-							<div className='bg-secondary/50 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
+							<div className='dark:bg-secondary/50 bg-gray-700 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
 								<p className='text-default'>Total Downloads</p>
 								<p className='px-2 py-1 rounded-md bg-secondary/10 backdrop-blur-md'>
 									{data.downloads}
 								</p>
 							</div>
-							<div className='bg-secondary/50 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
+							<div className='dark:bg-secondary/50 bg-gray-700 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
 								<p className='text-default'>Total Photos</p>
 								<p className='px-2 py-1 rounded-md bg-secondary/10 backdrop-blur-md'>
 									{data.total_photos}
