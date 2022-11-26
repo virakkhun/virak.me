@@ -18,16 +18,16 @@ const Header = () => {
 						</a>
 					</Link>
 					<a href='https://github.com/virakkhun'>
-						<FaGithub className='w-6 h-6 dark:fill-action fill-primary' />
+						<FaGithub className='w-6 h-6 dark:fill-lightAction fill-primary' />
 					</a>
 					<button
-						className='w-6 h-6 rounded-full dark:bg-action bg-primary relative filter-100'
+						className='w-6 h-6 rounded-full dark:bg-lightPrimary bg-primary relative filter-100'
 						onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 					>
 						{theme === 'dark' ? (
-							<FaSun className='w-6 h-5 absolute top-0.5 left-0 fill-primary' />
+							<FaSun className='w-6 h-5 absolute top-0.5 left-0 dark:fill-primary fill-lightPrimary' />
 						) : (
-							<RiMoonClearFill className='w-6 h-5 absolute top-0.5 right-0 fill-white transition-all duration-500' />
+							<RiMoonClearFill className='w-6 h-5 absolute top-0.5 right-0 dark:fill-primary fill-lightPrimary' />
 						)}
 					</button>
 				</div>

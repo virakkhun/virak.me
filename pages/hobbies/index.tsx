@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BsPatchCheckFill, BsMap } from 'react-icons/bs'
+import { FaUnsplash } from 'react-icons/fa'
 import { trpc } from '../../utils/trpc'
 import { NextPage } from 'next'
 import Head from 'next/head'
@@ -21,7 +22,7 @@ const FavIndex: NextPage = () => {
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
-					content='I enjoy doing photography in my free time.'
+					content='This is my photos on https://unsplash.com/.'
 				/>
 				<meta
 					property='og:image'
@@ -41,10 +42,10 @@ const FavIndex: NextPage = () => {
 				/>
 				<meta
 					name='description'
-					content='I enjoy doing photography in my free time.'
+					content='This is my photos on https://unsplash.com/.'
 				/>
 			</Head>
-			<div className={`mt-5 px-4 ${isAmbient ? 'filter-150' : ''}`}>
+			<div className={`mt-5 md:px-4 ${isAmbient ? 'filter-150' : ''}`}>
 				<div className='flex justify-between items-center mb-2'>
 					<p className='uppercase text-2xl font-bold'>My Unsplash</p>
 					<button
@@ -52,7 +53,7 @@ const FavIndex: NextPage = () => {
 						onClick={() => setIsAmbient(!isAmbient)}
 					>
 						<span>Ambient Light</span>
-						<div className='w-8 h-4 rounded-full dark:bg-default bg-primary relative'>
+						<div className='w-8 h-4 rounded-full dark:bg-default bg-lightDefault relative'>
 							<div
 								className={`absolute top-0 bg-white w-4 h-4 rounded-full ${
 									isAmbient ? 'right-0' : 'left-0'
@@ -61,7 +62,7 @@ const FavIndex: NextPage = () => {
 						</div>
 					</button>
 				</div>
-				<div className='rounded-md dark:bg-secondary/20 bg-gray-600 text-white backdrop-blur-md p-4 w-full relative'>
+				<div className='rounded-md dark:bg-default bg-lightDefault dark:text-lightDefault text-default p-4 w-full relative'>
 					<div className='flex items-center gap-4'>
 						<a href={data.links.html} target='_blank' rel='noreferrer'>
 							<img
@@ -73,13 +74,13 @@ const FavIndex: NextPage = () => {
 						<div className='flex flex-col gap-2'>
 							<p className='font-bold'>{data.name}</p>
 							<p className='flex items-center gap-1'>
-								<BsPatchCheckFill className='w-3 h-3 fill-default' />
+								<BsPatchCheckFill className='w-3 h-3 dark:fill-lightDefault fill-default' />
 								<span className='text-sm'>
 									{data.for_hire ? 'Available for hire' : 'Not Available'}
 								</span>
 							</p>
 							<p className='flex items-center gap-2'>
-								<BsMap className='w-3 h-3 fill-default' />
+								<BsMap className='w-3 h-3 dark:fill-lightDefault fill-default' />
 								<span className='text-sm'>{data.location}</span>
 							</p>
 						</div>
@@ -88,17 +89,24 @@ const FavIndex: NextPage = () => {
 						<p>{data.bio}</p>
 					</div>
 
+					<a
+						href='https://unsplash.com/@khunvirak'
+						className='flex items-center gap-2 absolute top-2 right-2'
+					>
+						<FaUnsplash className='dark:fill-action fill-lightAction w-5 h-5' />
+					</a>
+
 					<div className='mt-4'>
 						<div className='flex items-center gap-4'>
-							<div className='dark:bg-secondary/50 bg-gray-700 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
+							<div className='dark:bg-secondary bg-lightSecondary shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
 								<p className='text-default'>Total Downloads</p>
-								<p className='px-2 py-1 rounded-md bg-secondary/10 backdrop-blur-md'>
+								<p className='px-2 py-1 rounded-md dark:bg-default bg-lightDefault backdrop-blur-md'>
 									{data.downloads}
 								</p>
 							</div>
-							<div className='dark:bg-secondary/50 bg-gray-700 shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
+							<div className='dark:bg-secondary bg-lightSecondary  shadow-lg rounded-md p-4 flex md:flex-row flex-col md:w-auto w-full items-center gap-2'>
 								<p className='text-default'>Total Photos</p>
-								<p className='px-2 py-1 rounded-md bg-secondary/10 backdrop-blur-md'>
+								<p className='px-2 py-1 rounded-md dark:bg-default bg-lightDefault backdrop-blur-md'>
 									{data.total_photos}
 								</p>
 							</div>
@@ -106,14 +114,14 @@ const FavIndex: NextPage = () => {
 					</div>
 
 					<div className='mt-4'>
-						<div className='flex flex-col gap-2'>
+						<div className='grid md:grid-cols-2 grid-cols-1 gap-2'>
 							{data.photos.map((i, index) => (
 								<div key={index}>
 									<img
 										src={i.urls.regular}
 										alt={i.urls.regular}
-										className={`rounded-md shadow-xl w-full ${
-											index === 1 ? 'hidden' : 'block'
+										className={`rounded-md shadow-xl aspect-video object-cover ${
+											index === 2 ? 'hidden' : 'block'
 										}`}
 									/>
 								</div>

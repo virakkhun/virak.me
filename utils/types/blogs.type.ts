@@ -31,6 +31,7 @@ export interface BlogDetail {
 				id: number
 				attributes: {
 					detail: string
+					table: string[]
 				}
 			}
 		}

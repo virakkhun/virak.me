@@ -13,6 +13,12 @@ body {
 	font-family: 'General Sans', sans-serif;
 }
 
+*,
+body {
+	transition: color 300ms ease;
+	transition: background-color 300ms ease;
+}
+
 body::-webkit-scrollbar {
 	width: 4px;
 	background-color: #3f3f3f1a;
@@ -29,16 +35,16 @@ a {
 }
 
 .filter-100 {
-	filter: drop-shadow(0 0 4rem rgb(255, 255, 255));
+	filter: drop-shadow(0 0 1rem rgb(255, 255, 255));
 }
 
 .filter-150 {
-	filter: drop-shadow(0 0 4rem rgb(110, 110, 110));
+	filter: drop-shadow(0 0 1rem rgb(110, 110, 110));
 	transition: all 500ms ease-in-out;
 }
 
 .filter-200 {
-	filter: drop-shadow(0 0 8rem rgb(255, 255, 255));
+	filter: drop-shadow(0 0 1rem rgb(255, 255, 255));
 }
 
 .filter-900 {
@@ -65,7 +71,7 @@ a {
 }
 
 .cursor-app {
-	filter: drop-shadow(0 0 2rem #fefe);
+	filter: drop-shadow(0 0 1rem #fefe);
 	transition: top 500ms ease-out;
 	transition: left 500ms ease-out;
 }
@@ -151,11 +157,11 @@ p a {
 	@apply border border-white/10;
 }
 
-.section-header {
-	@apply text-lg font-bold text-teal-900;
+.section {
+	@apply uppercase mt-4 border-t border-dotted border-spacing-2 dark:border-secondary text-lg font-bold dark:text-green-400 dark:hover:text-green-800 text-yellow-200 hover:text-yellow-400;
 }
 
 .section-header::before {
-	content: '🔗';
+	content: '🔗 ';
 }
 

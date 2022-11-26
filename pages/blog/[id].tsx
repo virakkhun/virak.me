@@ -23,11 +23,11 @@ import {
 
 import React, { useState } from 'react'
 import { NextPage } from 'next'
-import { trpc } from '../../../utils/trpc'
+import { trpc } from '../../utils/trpc'
 import { useRouter } from 'next/router'
-import { cryptoKit } from '../../../utils/kits/crypto'
-import Loading from '../../../components/loading'
-import { dateKit } from '../../../utils/kits/date_kit'
+import { cryptoKit } from '../../utils/kits/crypto'
+import Loading from '../../components/loading'
+import { dateKit } from '../../utils/kits/date_kit'
 
 const languages: { name: string; obj: any }[] = [
 	{
@@ -149,7 +149,7 @@ const BlogDetail: NextPage = () => {
 				<title>{`${data.attributes.title} | Detail`}</title>
 				<meta property='og:site_name' content="Virak Khun's Portfolio" />
 				<meta property='og:title' content={`${data.attributes.title}`} />
-				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
+				<meta property='og:url' content={`https://virak.me/blog/${id}`} />
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
@@ -157,15 +157,15 @@ const BlogDetail: NextPage = () => {
 				/>
 				<meta
 					property='og:image'
-					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+					content={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
 				/>
 				<meta name='twitter:title' content='Virak Khun | Portfolio' />
 				<meta
 					name='twitter:image'
-					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+					content={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
 				/>
 				<meta name='twitter:author' content='@virak' />
-				<meta name='twitter:url' content='https://virak-portfolio.vercel.app' />
+				<meta name='twitter:url' content={`https://virak.me/blog/${id}`} />
 				<meta name='twitter:card' content='summary' />
 				<meta
 					name='twitter:description'
@@ -176,52 +176,44 @@ const BlogDetail: NextPage = () => {
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
 			</Head>
-			<div className='mx-auto md:w-3/4 w-full md:px-0 px-2 my-6'>
-				<p className='font-bold mb-2'>
-					<span>Introducing</span>{' '}
-					<span className='text-2xl text-green-600'>
-						{data.attributes.title}
-					</span>
-				</p>
-				<div className='relative w-full'>
-					<div className='overflow-hidden'>
-						<img
-							src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
-							alt={data.attributes.thumnail.data.attributes.alternativeText}
-							className='rounded-tr-md rounded-tl-md w-full hover:scale-110 transition-all duration-300'
-						/>
+			<div className='mx-auto w-full md:px-4 my-6 flex gap-4 items-start'>
+				<div className='md:w-4/5 w-full py-2 px-4 dark:bg-default bg-lightSecondary rounded-xl'>
+					<div className='font-bold mb-2'>
+						<p className='text-sm'>Introducing</p>
+						<p className='text-2xl text-green-600'>{data.attributes.title}</p>
 					</div>
-				</div>
-
-				<div className='bg-black/90 backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
-					<p>{data.attributes.author}</p>
-					<div className='flex items-center gap-2'>
-						{data.attributes.tags.map((t, i) => (
-							<span
-								key={i}
-								className='bg-lime-100 text-primary text-sm rounded-full px-1'
-							>
-								#{t}
-							</span>
-						))}
+					<div className='relative w-full'>
+						<div className='overflow-hidden'>
+							<img
+								src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
+								alt={data.attributes.thumnail.data.attributes.alternativeText}
+								className='rounded-tr-md rounded-tl-md w-full hover:scale-110 transition-all duration-300'
+							/>
+						</div>
 					</div>
-				</div>
 
-				<div className='mt-4 py-2 text-sm flex justify-between items-center text-gray-800'>
-					<p>{`Posted ${dateKit.format(data.attributes.publishedAt)}`}</p>
-					<p>{`Updated ${dateKit.format(data.attributes.updatedAt)}`}</p>
-				</div>
+					<div className='dark:bg-action bg-lightAction rounded-md backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
+						<p className='dark:text-lightDefault text-default'>
+							{data.attributes.author}
+						</p>
+						<div className='flex items-center gap-2'>
+							{data.attributes.tags.map((t, i) => (
+								<span
+									key={i}
+									className='bg-lime-100 text-primary text-sm rounded-full px-1'
+								>
+									#{t}
+								</span>
+							))}
+						</div>
+					</div>
 
-				<div className='mt-6 dark:bg-slate-900 bg-slate-800 text-white  p-4 rounded-md relative'>
-					<ReactMarkdown
-						remarkPlugins={[remarkGfm, remarkParse]}
-						rehypePlugins={[rehypeRaw, rehypeStringify]}
-						components={MarkdownComponents}
-					>
-						{data.attributes.blog_detail.data.attributes.detail}
-					</ReactMarkdown>
+					<div className='mt-4 py-2 text-sm flex justify-between items-center dark:text-action text-lightAction'>
+						<p>{`Posted ${dateKit.format(data.attributes.publishedAt)}`}</p>
+						<p>{`Updated ${dateKit.format(data.attributes.updatedAt)}`}</p>
+					</div>
 
-					<div className='absolute bottom-3 right-2'>
+					<div className='mt-4'>
 						{availableTheme.map((a, i) => (
 							<button
 								key={i}
@@ -232,6 +224,33 @@ const BlogDetail: NextPage = () => {
 							>
 								{a.name}
 							</button>
+						))}
+					</div>
+
+					<div className='mt-6 dark:text-lightDefault text-default rounded-md relative'>
+						<ReactMarkdown
+							remarkPlugins={[remarkGfm, remarkParse]}
+							rehypePlugins={[rehypeRaw, rehypeStringify]}
+							components={MarkdownComponents}
+						>
+							{data.attributes.blog_detail.data.attributes.detail}
+						</ReactMarkdown>
+					</div>
+				</div>
+				<div className='md:w-1/5 md:block hidden sticky top-5 pl-8'>
+					<p className='uppercase dark:text-lightDefault text-default text-sm mb-2'>
+						contents
+					</p>
+					<div className='border-l dark:border-lightDefault border-default flex flex-col gap-2 dark:text-lightSecondary text-secondary pl-2'>
+						{data.attributes.blog_detail.data.attributes.table.map((t, idx) => (
+							<React.Fragment key={idx}>
+								<a
+									href={`#${t}`}
+									className='hover:text-green-500 duration-300 transition-colors'
+								>
+									{t}
+								</a>
+							</React.Fragment>
 						))}
 					</div>
 				</div>

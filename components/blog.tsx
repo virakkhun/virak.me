@@ -7,9 +7,9 @@ const Blog: React.FC<Blog> = ({ attributes, id }) => {
 
 	return (
 		<>
-			<Link href={`/blog/detail/${blogId}`}>
+			<Link href={`/blog/${blogId}`}>
 				<a>
-					<div className='dark:bg-black/80 bg-gray-600 text-white shadow-xl flex flex-col gap-2 border dark:border-white/10 border-black/10'>
+					<div className='dark:bg-black/80 bg-lightAction rounded-xl dark:text-lightDefault text-default shadow-xl flex flex-col gap-2 border dark:border-lightAction/20 border-action/20'>
 						<div className='overflow-hidden'>
 							<img
 								src={`https://portfolio-cms.virak.me${attributes.thumnail.data.attributes.url}`}
@@ -22,9 +22,9 @@ const Blog: React.FC<Blog> = ({ attributes, id }) => {
 								{attributes.title}
 							</p>
 							<p>{attributes.description}</p>
-							<div className='border-b border-b-white/10 my-2' />
+							<div className='border-b dark:border-b-lightAction/20 border-b-primary/20 my-2' />
 							<div className='flex items-center justify-between'>
-								<p className='px-3 py-1 bg-gray-900 rounded-full w-fit text-white text-sm'>
+								<p className='px-3 py-1 dark:bg-primary bg-lightPrimary rounded-full w-fit dark:text-lightDefault text-default text-sm'>
 									{attributes.author}
 								</p>
 								<div className='flex items-center gap-2'>
