@@ -18,7 +18,7 @@ const FavIndex: NextPage = () => {
 				<title>Photography</title>
 				<meta property='og:site_name' content="Virak Khun's Portfolio" />
 				<meta property='og:title' content='Virak Khun | Portfolio' />
-				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
+				<meta property='og:url' content='https://virak.me' />
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
@@ -34,8 +34,8 @@ const FavIndex: NextPage = () => {
 					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
 				/>
 				<meta name='twitter:author' content='@virak' />
-				<meta name='twitter:url' content='https://virak-portfolio.vercel.app' />
-				<meta name='twitter:card' content='summary' />
+				<meta name='twitter:url' content='https://virak.me' />
+				<meta name='twitter:card' content='summary_large_image' />
 				<meta
 					name='twitter:description'
 					content='I do photography on free time.'
@@ -44,6 +44,8 @@ const FavIndex: NextPage = () => {
 					name='description'
 					content='This is my photos on https://unsplash.com/.'
 				/>
+				<link rel='canonical' href='https://virak.me/hobbies' />
+				<link rel='alternate' href='https://virak.me/hobbies' />
 			</Head>
 			<div className={`mt-5 md:px-4 ${isAmbient ? 'filter-150' : ''}`}>
 				<div className='flex justify-between items-center mb-2'>
