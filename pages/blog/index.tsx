@@ -41,10 +41,12 @@ const BlogIndex: NextPage = () => {
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
 			</Head>
-			<div className='flex flex-col items-center justify-center gap-10 mt-10'>
+			<div className='flex flex-col items-center justify-center gap-10 mt-10 px-4'>
 				<div className='text-center flex justify-center items-center flex-col gap-2'>
-					<h1 className='font-bold text-2xl'>Blogs</h1>
-					<p className='font-semibold'>
+					<h1 className='font-bold text-2xl dark:text-lightPrimary text-primary'>
+						Blogs
+					</h1>
+					<p className='font-semibold dark:text-lightDefault text-default'>
 						A blog where get you to understand in a easy way.
 					</p>
 					<div className='h-2 w-20 rounded-full bg-slate-500' />

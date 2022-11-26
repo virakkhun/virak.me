@@ -11,20 +11,20 @@ const Footer = () => {
 					target='_blank'
 					rel='noreferrer'
 				>
-					<FaFacebook className='w-6 h-6 cursor-pointer fill-primary dark:fill-action' />
+					<FaFacebook className='w-6 h-6 cursor-pointer fill-primary dark:fill-lightPrimary' />
 				</a>
 				<a
 					href='https://kh.linkedin.com/in/khun-virak-9025b1210'
 					target='_blank'
 					rel='noreferrer'
 				>
-					<FaLinkedin className='w-6 h-6 cursor-pointer fill-primary dark:fill-action' />
+					<FaLinkedin className='w-6 h-6 cursor-pointer fill-primary dark:fill-lightPrimary' />
 				</a>
 				<a href='#' target='_blank' rel='noreferrer'>
-					<FaTwitter className='w-6 h-6 cursor-pointer fill-primary dark:fill-action' />
+					<FaTwitter className='w-6 h-6 cursor-pointer fill-primary dark:fill-lightPrimary' />
 				</a>
 				<a href='mailto:virak.dev.2000@gmail.com' rel='noreferrer'>
-					<IoMdMail className='w-6 h-6 cursor-pointer fill-primary dark:fill-action' />
+					<IoMdMail className='w-6 h-6 cursor-pointer fill-primary dark:fill-lightPrimary' />
 				</a>
 			</div>
 

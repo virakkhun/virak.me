@@ -15,13 +15,15 @@ const SideProject: React.FC<Props> = ({
 }) => {
 	return (
 		<div
-			className={`mt-4 border border-action/20 p-2 rounded-md bg-gradient-to-br from-default/20 to-secondary/30 backdrop-blur-2xl ${className}`}
+			className={`mt-4 border border-secondary/20 p-2 rounded-md bg-gradient-to-br from-primary/50 to-secondary/50 backdrop-blur-2xl ${className}`}
 		>
-			<div className='flex justify-between items-center p-2 rounded-md border border-action/10 bg-gradient-to-tl from-default/20 to-secondary/30 backdrop-blur-2xl'>
-				<p className='text-lg font-bold text-default'>{ghTitle}</p>
+			<div className='flex justify-between items-center p-2 rounded-md border border-action/10 bg-gradient-to-tl from-default/50 to-secondary/50 backdrop-blur-2xl'>
+				<p className='text-lg font-bold dark:text-lightDefault text-default'>
+					{ghTitle}
+				</p>
 				<a href={ghLink} target='_blank' rel='noreferrer'>
 					<svg
-						className='fill-primary dark:fill-action h-6 w-6 cursor-pointer'
+						className='fill-primary dark:fill-lightAction h-6 w-6 cursor-pointer'
 						xmlns='http://www.w3.org/2000/svg'
 						viewBox='0 0 496 512'
 					>
@@ -29,9 +31,11 @@ const SideProject: React.FC<Props> = ({
 					</svg>
 				</a>
 			</div>
-			<div className='border-b border-action/10 my-4'></div>
+			<div className='border-b border-action/10 my-4' />
 			<div className='flex flex-col gap-2 justify-between items-center'>
-				<p className='font-bold'>{ghRepoName}</p>
+				<p className='font-bold dark:text-lightDefault text-default'>
+					{ghRepoName}
+				</p>
 				{children}
 			</div>
 		</div>

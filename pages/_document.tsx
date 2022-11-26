@@ -4,10 +4,11 @@ export default function Document() {
 	return (
 		<Html lang='en'>
 			<Head />
-			<body className='bg-default dark:bg-primary'>
+			<body className='bg-lightPrimary dark:bg-primary'>
 				<Main />
 				<NextScript />
 			</body>
 		</Html>
 	)
 }
+

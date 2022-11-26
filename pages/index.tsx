@@ -62,21 +62,23 @@ const Home: NextPage = () => {
 					<div className='w-40 h-40 filter-100-hover'>
 						<Image src={Avatar} alt='avatar' />
 					</div>
-					<div className='text-center flex flex-col gap-2 text-action'>
-						<p className='text-2xl font-bold'>{home.attributes.author_name}</p>
-						<p className='p-2 rounded-md bg-gradient-to-r from-secondary/50 to-action/20 border border-action/20 backdrop-blur-md'>
+					<div className='text-center flex flex-col gap-2'>
+						<p className='text-2xl font-bold dark:text-lightDefault text-default'>
+							{home.attributes.author_name}
+						</p>
+						<p className='dark:text-lightDefault text-defaultp-2 rounded-md bg-gradient-to-r from-secondary/50 to-action/20 border border-action/20 backdrop-blur-md'>
 							{home.attributes.description}
 						</p>
 					</div>
 					<div className='relative w-56 h-56 ml-24'>
 						<TvAsset isShadow={true} style='w-full h-full' />
-						<p className='flex flex-col items-center gap-1 absolute top-24 text-secondary left-3 very-small-text'>
+						<p className='flex flex-col items-center gap-1 absolute top-24 dark:text-lightDefault text-default left-3 very-small-text'>
 							<span>TypeScript</span>
 							<span>Nuxt 🥷 Next</span>
 							<span>Express</span>
 						</p>
 					</div>
-					<div className='text-center md:w-4/6 w-4/5 mx-auto text-action/80 font-bold'>
+					<div className='text-center md:w-4/6 w-4/5 mx-auto dark:text-lightDefault text-default font-bold'>
 						<p>{home.attributes.description_1}</p>
 					</div>
 				</div>
