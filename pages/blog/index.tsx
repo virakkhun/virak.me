@@ -14,7 +14,7 @@ const BlogIndex: NextPage = () => {
 				<title>Blog</title>
 				<meta property='og:site_name' content="Virak Khun's Portfolio" />
 				<meta property='og:title' content='Virak Khun | Portfolio' />
-				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
+				<meta property='og:url' content='https://virak.me' />
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
@@ -22,16 +22,16 @@ const BlogIndex: NextPage = () => {
 				/>
 				<meta
 					property='og:image'
-					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+					content={data[0].attributes.thumnail.data.attributes.url}
 				/>
 				<meta name='twitter:title' content='Virak Khun | Portfolio' />
 				<meta
 					name='twitter:image'
-					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+					content={data[0].attributes.thumnail.data.attributes.url}
 				/>
 				<meta name='twitter:author' content='@virak' />
-				<meta name='twitter:url' content='https://virak-portfolio.vercel.app' />
-				<meta name='twitter:card' content='summary' />
+				<meta name='twitter:url' content='https://virak.me' />
+				<meta name='twitter:card' content='summary_large_image' />
 				<meta
 					name='twitter:description'
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
@@ -40,6 +40,8 @@ const BlogIndex: NextPage = () => {
 					name='description'
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
+				<link rel='canonical' href='https://virak.me/blog' />
+				<link rel='alternate' href='https://virak.me/blog' />
 			</Head>
 			<div className='flex flex-col items-center justify-center gap-10 mt-10 px-4'>
 				<div className='text-center flex justify-center items-center flex-col gap-2'>

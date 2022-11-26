@@ -166,7 +166,7 @@ const BlogDetail: NextPage = () => {
 				/>
 				<meta name='twitter:author' content='@virak' />
 				<meta name='twitter:url' content={`https://virak.me/blog/${id}`} />
-				<meta name='twitter:card' content='summary' />
+				<meta name='twitter:card' content='summary_large_image' />
 				<meta
 					name='twitter:description'
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
@@ -175,6 +175,8 @@ const BlogDetail: NextPage = () => {
 					name='description'
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
+				<link rel='canonical' href={`https://virak.me/blog/${id}`} />
+				<link rel='alternate' href={`https://virak.me/blog/${id}`} />
 			</Head>
 			<div className='mx-auto w-full md:px-4 my-6 flex gap-4 items-start'>
 				<div className='md:w-4/5 w-full py-2 px-4 dark:bg-default bg-lightSecondary rounded-xl'>

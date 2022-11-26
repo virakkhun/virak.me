@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 				<title>Virak Khun | Portfolio</title>
 				<meta property='og:site_name' content={`Virak Khun's Portfolio`} />
 				<meta property='og:title' content='Virak Khun | Portfolio' />
-				<meta property='og:url' content='https://virak-portfolio.vercel.app' />
+				<meta property='og:url' content='https://virak.me' />
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
@@ -46,8 +46,8 @@ const Home: NextPage = () => {
 					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
 				/>
 				<meta name='twitter:author' content='@virak' />
-				<meta name='twitter:url' content='https://virak-portfolio.vercel.app' />
-				<meta name='twitter:card' content='summary' />
+				<meta name='twitter:url' content='https://virak.me' />
+				<meta name='twitter:card' content='summary_large_image' />
 				<meta
 					name='twitter:description'
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
@@ -56,6 +56,8 @@ const Home: NextPage = () => {
 					name='description'
 					content='A Full Stack Developer based in Phnom Penh, Cambodia'
 				/>
+				<link rel='canonical' href='https://virak.me' />
+				<link rel='alternate' href='https://virak.me' />
 			</Head>
 			<div className='md:mt-24 mt-5 h-screen relative'>
 				<div className='flex flex-col justify-center items-center gap-6 w-full'>
