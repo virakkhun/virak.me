@@ -150,7 +150,7 @@ const BlogDetail: NextPage = () => {
 				<meta property='og:site_name' content="Virak Khun's Portfolio" />
 				<meta property='og:title' content={`${data.attributes.title}`} />
 				<meta property='og:url' content={`https://virak.me/blog/${id}`} />
-				<meta property='og:type' content='website' />
+				<meta property='og:type' content='article' />
 				<meta
 					property='og:description'
 					content={data.attributes.blog_detail.data.attributes.detail}
@@ -169,11 +169,11 @@ const BlogDetail: NextPage = () => {
 				<meta name='twitter:card' content='summary_large_image' />
 				<meta
 					name='twitter:description'
-					content='A Full Stack Developer based in Phnom Penh, Cambodia'
+					content={data.attributes.blog_detail.data.attributes.detail}
 				/>
 				<meta
 					name='description'
-					content='A Full Stack Developer based in Phnom Penh, Cambodia'
+					content={data.attributes.blog_detail.data.attributes.detail}
 				/>
 				<link rel='canonical' href={`https://virak.me/blog/${id}`} />
 				<link rel='alternate' href={`https://virak.me/blog/${id}`} />
@@ -185,16 +185,16 @@ const BlogDetail: NextPage = () => {
 						<p className='text-2xl text-green-600'>{data.attributes.title}</p>
 					</div>
 					<div className='relative w-full'>
-						<div className='overflow-hidden'>
+						<div className='overflow-hidden rounded-tr-md rounded-tl-md'>
 							<img
 								src={`https://portfolio-cms.virak.me${data.attributes.thumnail.data.attributes.url}`}
 								alt={data.attributes.thumnail.data.attributes.alternativeText}
-								className='rounded-tr-md rounded-tl-md w-full hover:scale-110 transition-all duration-300'
+								className='w-full hover:scale-110 transition-all duration-300'
 							/>
 						</div>
 					</div>
 
-					<div className='dark:bg-action bg-lightAction rounded-md backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
+					<div className='dark:bg-action bg-lightAction rounded-br-md rounded-bl-md backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
 						<p className='dark:text-lightDefault text-default'>
 							{data.attributes.author}
 						</p>
@@ -213,20 +213,6 @@ const BlogDetail: NextPage = () => {
 					<div className='mt-4 py-2 text-sm flex justify-between items-center dark:text-action text-lightAction'>
 						<p>{`Posted ${dateKit.format(data.attributes.publishedAt)}`}</p>
 						<p>{`Updated ${dateKit.format(data.attributes.updatedAt)}`}</p>
-					</div>
-
-					<div className='mt-4'>
-						{availableTheme.map((a, i) => (
-							<button
-								key={i}
-								onClick={() => switchTheme(i)}
-								className={`px-3 py-1 bg-black/30 mx-1 text-sm rounded-full capitalize ${
-									syntaxTheme === a.theme ? 'text-gray-300' : 'text-green-900'
-								}`}
-							>
-								{a.name}
-							</button>
-						))}
 					</div>
 
 					<div className='mt-6 dark:text-lightDefault text-default rounded-md relative'>
@@ -254,6 +240,31 @@ const BlogDetail: NextPage = () => {
 								</a>
 							</React.Fragment>
 						))}
+					</div>
+					<p className='uppercase dark:text-lightDefault text-default text-sm mb-2 mt-6'>
+						code themes
+					</p>
+					<div className='pl-2 border-l dark:border-lightDefault border-default'>
+						{availableTheme.map((a, i) => (
+							<button
+								key={i}
+								onClick={() => switchTheme(i)}
+								className={`px-3 py-1 bg-black/30 mx-1 text-[10px] rounded-full capitalize ${
+									syntaxTheme === a.theme ? 'text-gray-300' : 'text-green-900'
+								}`}
+							>
+								{a.name}
+							</button>
+						))}
+					</div>
+
+					<div className='pl-2 border-l dark:border-lightDefault border-default mt-6 hover:dark:text-green-800 transition-colors duration-200'>
+						<button
+							className='border-b border-dotted border-spacing-2 dark:border-lightDefault border-default'
+							onClick={() => router.back()}
+						>
+							Back
+						</button>
 					</div>
 				</div>
 			</div>

@@ -61,14 +61,14 @@ const Home: NextPage = () => {
 			</Head>
 			<div className='md:mt-24 mt-5 h-screen relative'>
 				<div className='flex flex-col justify-center items-center gap-6 w-full'>
-					<div className='w-40 h-40 filter-100-hover'>
+					<div className='w-40 h-40'>
 						<Image src={Avatar} alt='avatar' />
 					</div>
 					<div className='text-center flex flex-col gap-2'>
-						<p className='text-2xl font-bold dark:text-lightDefault text-default'>
+						<p className='text-[2.5rem] font-extrabold dark:text-lightDefault text-default'>
 							{home.attributes.author_name}
 						</p>
-						<p className='dark:text-lightDefault text-defaultp-2 rounded-md bg-gradient-to-r from-secondary/50 to-action/20 border border-action/20 backdrop-blur-md'>
+						<p className='dark:text-lightDefault text-default text-[1.2rem] font-bold rounded-md bg-gradient-to-r from-secondary/50 to-action/20 border border-action/20 backdrop-blur-md p-2'>
 							{home.attributes.description}
 						</p>
 					</div>
@@ -80,7 +80,7 @@ const Home: NextPage = () => {
 							<span>Express</span>
 						</p>
 					</div>
-					<div className='text-center md:w-4/6 w-4/5 mx-auto dark:text-lightDefault text-default font-bold'>
+					<div className='text-center md:w-4/6 w-4/5 mx-auto dark:text-lightDefault text-default font-bold text-[1.5rem]'>
 						<p>{home.attributes.description_1}</p>
 					</div>
 				</div>
@@ -101,11 +101,13 @@ const Home: NextPage = () => {
 				className='md:mt-24 mt-5 h-screen w-4/5 mx-auto flex justify-center items-start flex-col'
 				id='side'
 			>
-				<div className='flex items-center gap-2 max-w-fit text-center bg-gradient-to-br from-action/20 to-primary/20 p-1 rounded shadow-xl border border-action/20'>
-					<a href='#side'>#side</a>
-					<div className='w-5 h-5'>
-						<Image src={Diagram} alt='Diagram' />
+				<div className='w-full flex flex-col justify-center items-center font-extrabold'>
+					<div className='w-32 h-32'>
+						<Image src={Diagram} alt='side projects' />
 					</div>
+					<p className='dark:text-lightDefault text-default text-[2rem]'>
+						These are my side projects.
+					</p>
 				</div>
 				<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-3 w-full'>
 					{projects.map((p) => (

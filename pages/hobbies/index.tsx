@@ -22,27 +22,27 @@ const FavIndex: NextPage = () => {
 				<meta property='og:type' content='website' />
 				<meta
 					property='og:description'
-					content='This is my photos on https://unsplash.com/.'
+					content='This is my photos on https://unsplash.com'
 				/>
 				<meta
 					property='og:image'
-					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+					content={`https://images.unsplash.com/photo-1623053071809-80ed5bc65f2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80`}
 				/>
 				<meta name='twitter:title' content='Virak Khun | Portfolio' />
 				<meta
 					name='twitter:image'
-					content='https://my-image-upload-storage.s3.amazonaws.com/1665226426753banner.png'
+					content={`https://images.unsplash.com/photo-1623053071809-80ed5bc65f2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80`}
 				/>
 				<meta name='twitter:author' content='@virak' />
 				<meta name='twitter:url' content='https://virak.me' />
 				<meta name='twitter:card' content='summary_large_image' />
 				<meta
 					name='twitter:description'
-					content='I do photography on free time.'
+					content='This is my photos on https://unsplash.com'
 				/>
 				<meta
 					name='description'
-					content='This is my photos on https://unsplash.com/.'
+					content='This is my photos on https://unsplash.com'
 				/>
 				<link rel='canonical' href='https://virak.me/hobbies' />
 				<link rel='alternate' href='https://virak.me/hobbies' />
@@ -64,7 +64,11 @@ const FavIndex: NextPage = () => {
 						</div>
 					</button>
 				</div>
-				<div className='rounded-md dark:bg-default bg-lightDefault dark:text-lightDefault text-default p-4 w-full relative'>
+				<div
+					className={`rounded-md dark:bg-default bg-lightDefault dark:text-lightDefault text-default p-4 w-full relative ${
+						isAmbient ? 'dark:bg-default/20 bg-lightDefault/20' : ''
+					}`}
+				>
 					<div className='flex items-center gap-4'>
 						<a href={data.links.html} target='_blank' rel='noreferrer'>
 							<img
