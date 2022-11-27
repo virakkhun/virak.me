@@ -39,8 +39,8 @@ a {
 }
 
 .filter-150 {
-	filter: drop-shadow(0 0 1rem rgb(110, 110, 110));
-	transition: all 500ms ease-in-out;
+	filter: drop-shadow(0 0 3rem rgb(98, 74, 117));
+	transition: filter 500ms ease;
 }
 
 .filter-200 {

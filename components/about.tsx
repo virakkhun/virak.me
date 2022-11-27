@@ -14,16 +14,10 @@ const About: React.FunctionComponent<{ text: string }> = ({ text }) => {
 		<>
 			<div
 				id='about'
-				className='w-full flex flex-col justify-center gap-4 items-start'
+				className='w-full flex flex-col justify-center gap-4 items-start '
 			>
-				<span className='flex items-center gap-2 max-w-fit text-center bg-gradient-to-br from-action/50 to-primary/50 p-1 rounded shadow-xl border border-action/20'>
-					<a href='#about'>#about</a>
-					<div className='w-5 h-5'>
-						<Image src={BackpackWithNoShadow} alt='Backpack with no shadows' />
-					</div>
-				</span>
-				<div className='flex md:flex-row flex-col items-center md:gap-0 gap-6'>
-					<div className='md:w-1/2 w-full flex flex-col gap-2'>
+				<div className='flex flex-col-reverse items-center gap-6 text-[1.3rem]'>
+					<div className='md:w-3/4 w-full flex flex-col gap-2'>
 						<div className='dark:text-lightDefault text-default flex flex-col gap-2 p-4 border dark:border-secondary/50 border-lightSecondary/50 rounded-md dark:bg-lightPrimary/20 bg-primary/20 backdrop-blur-lg'>
 							<ReactMarkdown>{text}</ReactMarkdown>
 						</div>

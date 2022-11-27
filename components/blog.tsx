@@ -10,18 +10,20 @@ const Blog: React.FC<Blog> = ({ attributes, id }) => {
 			<Link href={`/blog/${blogId}`}>
 				<a>
 					<div className='dark:bg-black/80 bg-lightAction rounded-xl dark:text-lightDefault text-default shadow-xl flex flex-col gap-2 border dark:border-lightAction/20 border-action/20'>
-						<div className='overflow-hidden'>
+						<div className='overflow-hidden rounded-tr-xl rounded-tl-xl'>
 							<img
 								src={`https://portfolio-cms.virak.me${attributes.thumnail.data.attributes.url}`}
 								alt='thumnail'
-								className='w-full hover:scale-110 transition-all duration-150'
+								className='w-full hover:scale-110 transition-all duration-150 rounded-tr-xl rounded-tl-xl'
 							/>
 						</div>
-						<div className='p-2 flex flex-col gap-2'>
-							<p className='font-bold text-green-600 text-2xl'>
+						<div className='p-2 flex flex-col gap-4 px-3'>
+							<p className='font-bold text-green-600 text-[2rem]'>
 								{attributes.title}
 							</p>
-							<p>{attributes.description}</p>
+							<p className='font-semibold text-[1.2rem]'>
+								{attributes.description}
+							</p>
 							<div className='border-b dark:border-b-lightAction/20 border-b-primary/20 my-2' />
 							<div className='flex items-center justify-between'>
 								<p className='px-3 py-1 dark:bg-primary bg-lightPrimary rounded-full w-fit dark:text-lightDefault text-default text-sm'>

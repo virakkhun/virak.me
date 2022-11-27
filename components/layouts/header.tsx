@@ -7,7 +7,7 @@ const Header = () => {
 	const { theme, setTheme } = useTheme()
 	return (
 		<>
-			<div className='lg:w-full md:w-4/5 mx-auto my-2 z-50 flex justify-between items-center py-4 md:px-4'>
+			<div className='lg:w-full md:w-4/5 max-w-[90rem] mx-auto z-50 flex justify-between items-center py-4 relative md:px-[4rem] px-4 border-b dark:border-lightDefault/20 border-default/20'>
 				<Link href='/'>
 					<a className='font-bold text-2xl'>VK</a>
 				</Link>
