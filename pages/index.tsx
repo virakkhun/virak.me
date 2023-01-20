@@ -1,14 +1,14 @@
+import { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import About from '../components/about'
 import TvAsset from '../components/assets/tv'
+import Loading from '../components/loading'
 import SideProject from '../components/side'
+import useIntersectionObserver from '../hooks/useIntersectionObserver'
 import Avatar from '../public/images/Avatar.png'
 import Diagram from '../public/images/diagram.png'
-import useIntersectionObserver from '../hooks/useIntersectionObserver'
-import { NextPage } from 'next'
 import { trpc } from '../utils/trpc'
-import Loading from '../components/loading'
 
 const Home: NextPage = () => {
 	useIntersectionObserver({
