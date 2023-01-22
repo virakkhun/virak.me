@@ -3,6 +3,8 @@ import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 
 const Footer = () => {
+	const _currentDate = new Date().getFullYear()
+
 	return (
 		<div className='md:w-full w-4/5 mx-auto md:mt-24 mb-5 mt-5 flex flex-col justify-center items-center gap-4'>
 			<div className='w-full flex gap-2 justify-center'>
@@ -32,7 +34,7 @@ const Footer = () => {
 				<a className='uppercase underline underline-offset-4'>my unsplash</a>
 			</Link>
 
-			<p className='text-sm bold'>Copyright ©{new Date().getFullYear()}</p>
+			<p className='text-sm bold'>Copyright ©{_currentDate}</p>
 		</div>
 	)
 }
