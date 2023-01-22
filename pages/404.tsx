@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Error() {
+export default function ErrorPage() {
 	return (
 		<>
 			<div className='w-full h-screen flex justify-center items-center gap-4 flex-col bg-primary text-white'>

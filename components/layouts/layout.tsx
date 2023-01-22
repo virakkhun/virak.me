@@ -1,6 +1,5 @@
 import { useScrollPercent } from '../../hooks/useScrollPercent'
 import { useWindowScroll } from '../../hooks/useWindowScroll'
-import { IoMdPlanet } from 'react-icons/io'
 import TravelTop from '../assets/travel_top'
 import Footer from './footer'
 import Header from './header'
@@ -28,8 +27,8 @@ const Layout: React.FC<Props> = ({ children }) => {
 					/>
 				</div>
 				<Header />
-				<div className='max-w-[90rem] md:container mx-auto relative md:px-0 px-4'>
-					<main>{children}</main>
+				<div className='max-w-7xl md:container mx-auto relative md:px-0 px-4'>
+					{children}
 				</div>
 				<Footer />
 				<TravelTop style={ScrollY > 400 ? 'show' : ''} />
