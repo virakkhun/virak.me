@@ -6,8 +6,8 @@
 // import Head from 'next/head'
 // import Loading from '../../components/loading'
 
-// const FavIndex: NextPage = () => {
-// 	const { data } = trpc.getUnsplashInfo.useQuery()
+// const UnsplashPage: NextPage = () => {
+// 	const { data } = trpc.GetUnsplashInfoAPI.useQuery()
 // 	const [isAmbient, setIsAmbient] = useState(false)
 
 // 	if (!data) return <Loading text='Loading...' />
@@ -139,13 +139,12 @@
 // 		</>
 // 	)
 // }
-// export default FavIndex
+// export default UnsplashPage
 
 export default function UnsplashPage() {
 	return (
 		<>
-			<h1>Hello</h1>
+			<p>Hello</p>
 		</>
 	)
 }
-

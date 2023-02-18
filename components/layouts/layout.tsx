@@ -27,7 +27,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 					/>
 				</div>
 				<Header />
-				<div className='max-w-7xl md:container mx-auto relative md:px-0 px-4'>
+				<div className='max-w-7xl md:container mx-auto relative md:px-20 px-4'>
 					{children}
 				</div>
 				<Footer />

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 
 const Footer = () => {
@@ -8,13 +8,6 @@ const Footer = () => {
 	return (
 		<div className='md:w-full w-4/5 mx-auto md:mt-24 mb-5 mt-5 flex flex-col justify-center items-center gap-4'>
 			<div className='w-full flex gap-2 justify-center'>
-				<a
-					href='https://facebook.com/virakkhun.dev'
-					target='_blank'
-					rel='noreferrer'
-				>
-					<FaFacebook className='w-6 h-6 cursor-pointer fill-primary dark:fill-lightPrimary' />
-				</a>
 				<a
 					href='https://kh.linkedin.com/in/khun-virak-9025b1210'
 					target='_blank'
@@ -30,8 +23,8 @@ const Footer = () => {
 				</a>
 			</div>
 
-			<Link href='/hobbies'>
-				<a className='uppercase underline underline-offset-4'>my unsplash</a>
+			<Link href='/hobbies' className='uppercase underline underline-offset-4'>
+				my unsplash
 			</Link>
 
 			<p className='text-sm bold'>Copyright ©{_currentDate}</p>
