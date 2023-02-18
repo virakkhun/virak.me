@@ -10,17 +10,16 @@ interface InnerBlogDetailDTO
 		}
 	}> {}
 
-export interface BlogDetailDTO
-	extends BaseResponseDTO<{
-		id: number
-		attributes: {
-			title: string
-			thumnail: ThumnailDTO
-			author: string
-			tags: Array<string>
-			blog_detail: InnerBlogDetailDTO
-			publishedAt: string
-			updatedAt: string
-		}
-	}> {}
+export interface BlogDetailDTO {
+	id: number
+	attributes: {
+		title: string
+		thumnail: ThumnailDTO
+		author: string
+		tags: Array<string>
+		blog_detail: InnerBlogDetailDTO
+		publishedAt: string
+		updatedAt: string
+	}
+}
 

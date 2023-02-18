@@ -20,7 +20,7 @@ const BlogCard: React.FC<Blog> = ({
 
 	return (
 		<>
-			<Link href={`/blog/${blogId}`}>
+			<Link href={`/blogs/${blogId}`}>
 				<div className='dark:bg-black/80 bg-lightAction dark:text-lightDefault text-default shadow-xl flex flex-col gap-2 border dark:border-lightAction/20 border-action/20 rounded-lg'>
 					<div className='object-cover aspect-video overflow-hidden'>
 						<Image
@@ -37,9 +37,8 @@ const BlogCard: React.FC<Blog> = ({
 						<p className='font-md text-md max-w-full line-clamp-2'>
 							{description}
 						</p>
-						<div className='border-b dark:border-b-lightAction/20 border-b-primary/20' />
 						<div className='flex items-center justify-between'>
-							<p className='px-3 py-1 dark:bg-primary bg-lightPrimary rounded-full w-fit dark:text-lightDefault text-default text-sm'>
+							<p className='px-3 text-sm py-1 dark:bg-primary bg-lightPrimary rounded-full w-fit dark:text-lightDefault text-default'>
 								{author}
 							</p>
 							<div className='flex items-center gap-2'>
