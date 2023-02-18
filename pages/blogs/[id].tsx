@@ -67,6 +67,7 @@ languages.forEach((l) => {
 const BlogDetailPage: NextPage = () => {
 	const router = useRouter()
 	const { id } = router.query
+
 	const serialize = cryptoKit().decrypt(
 		id as string,
 		`${process.env.ENCRYPT_KEY}`,
@@ -144,46 +145,42 @@ const BlogDetailPage: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>{`${data.title} | Detail`}</title>
+				<title>{`${data.title?.toUpperCase() ?? ''} | Detail`}</title>
 				<meta property='og:site_name' content="Virak Khun's Portfolio" />
 				<meta property='og:title' content={`${data.title}`} />
-				<meta property='og:url' content={`https://virak.me/blog/${id}`} />
+				<meta property='og:url' content={`https://virak.me/blogs/${id}`} />
 				<meta property='og:type' content='article' />
 				<meta property='og:description' content={data.description} />
 				<meta
 					property='og:image'
-					content={`https://portfolio-cms.virak.me${data.thumbnailUrl}`}
+					content={`https://api.virak.me${data.thumbnailUrl}`}
 				/>
 				<meta name='twitter:title' content='Virak Khun | Portfolio' />
 				<meta
 					name='twitter:image'
-					content={`https://portfolio-cms.virak.me${data.thumbnailUrl}`}
+					content={`https://api.virak.me${data.thumbnailUrl}`}
 				/>
 				<meta name='twitter:author' content='@virak' />
-				<meta name='twitter:url' content={`https://virak.me/blog/${id}`} />
+				<meta name='twitter:url' content={`https://virak.me/blogs/${id}`} />
 				<meta name='twitter:card' content='summary_large_image' />
 				<meta name='twitter:description' content={data.description} />
 				<meta name='description' content={data.description} />
-				<link rel='canonical' href={`https://virak.me/blog/${id}`} />
-				<link rel='alternate' href={`https://virak.me/blog/${id}`} />
+				<link rel='canonical' href={`https://virak.me/blogs/${id}`} />
+				<link rel='alternate' href={`https://virak.me/blogs/${id}`} />
 			</Head>
-			<div className='mx-auto w-full md:px-4 my-6 flex gap-4 items-start'>
-				<div className='md:w-4/5 w-full py-2 px-4 dark:bg-default bg-lightSecondary rounded-xl'>
-					<div className='font-bold mb-2'>
-						<p className='text-sm'>Introducing</p>
-						<p className='text-2xl text-green-600'>{data.title}</p>
-					</div>
-					<div className='relative w-full'>
+			<div className='mx-auto w-full my-6 flex gap-4 items-start'>
+				<div className='md:w-4/5 w-full'>
+					<div className='relative w-full overflow-hidden'>
 						<div className='overflow-hidden rounded-tr-md rounded-tl-md'>
 							<img
-								src={`https://portfolio-cms.virak.me${data.thumbnailUrl}`}
+								src={`https://api.virak.me${data.thumbnailUrl}`}
 								alt={data.thumbnailAlt}
-								className='w-full hover:scale-110 transition-all duration-300'
+								className='w-full aspect-video object-contain'
 							/>
 						</div>
 					</div>
 
-					<div className='dark:bg-action bg-lightAction rounded-br-md rounded-bl-md backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
+					<div className='dark:bg-action bg-lightAction my-4 rounded-md backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
 						<p className='dark:text-lightDefault text-default'>{data.author}</p>
 						<div className='flex items-center gap-2'>
 							{data.tags.map((t, i) => (
@@ -195,6 +192,11 @@ const BlogDetailPage: NextPage = () => {
 								</span>
 							))}
 						</div>
+					</div>
+
+					<div className='font-bold mb-2'>
+						<p className='text-sm'>Introducing</p>
+						<p className='text-2xl text-green-600 capitalize'>{data.title}</p>
 					</div>
 
 					<div className='mt-4 py-2 text-sm flex justify-between items-center dark:text-action text-lightAction'>

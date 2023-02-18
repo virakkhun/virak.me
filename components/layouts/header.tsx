@@ -21,7 +21,7 @@ const Header = () => {
 				<div className='flex justify-between items-center gap-6'>
 					<Link
 						href='/blogs'
-						className='font-md py-1.5 px-4 rounded-md bg-secondary/20 hover:bg-secondary/40 focus:outline focus:outline-secondary/10 transition-all duration-200'
+						className='font-bold py-1.5 px-4 rounded-md bg-secondary/20 hover:bg-secondary/40 focus:outline focus:outline-secondary/10 transition-all duration-200'
 					>
 						BLOGS
 					</Link>

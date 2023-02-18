@@ -9,16 +9,15 @@ export const BlogDetailMapper = (): BaseResponseMapper<
 	return {
 		toDomain(dto) {
 			return {
-				author: dto.data.attributes.author,
-				description: dto.data.attributes.blog_detail.data.attributes.detail,
-				published_at: dto.data.attributes.publishedAt,
-				tableContent: dto.data.attributes.blog_detail.data.attributes.table,
-				tags: dto.data.attributes.tags,
-				thumbnailAlt:
-					dto.data.attributes.thumnail.data.attributes.alternativeText,
-				thumbnailUrl: dto.data.attributes.thumnail.data.attributes.url,
-				title: dto.data.attributes.title,
-				updated_at: dto.data.attributes.updatedAt,
+				author: dto.attributes?.author,
+				description: dto.attributes?.blog_detail.data.attributes.detail,
+				published_at: dto.attributes?.publishedAt,
+				tableContent: dto.attributes?.blog_detail.data.attributes.table ?? [''],
+				tags: dto.attributes?.tags ?? [''],
+				thumbnailAlt: dto.attributes?.thumnail.data.attributes.alternativeText,
+				thumbnailUrl: dto.attributes?.thumnail.data.attributes.url,
+				title: dto.attributes?.title,
+				updated_at: dto.attributes?.updatedAt,
 			}
 		},
 	}

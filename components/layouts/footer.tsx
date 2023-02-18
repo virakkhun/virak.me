@@ -23,7 +23,7 @@ const Footer = () => {
 				</a>
 			</div>
 
-			<Link href='/hobbies' className='uppercase underline underline-offset-4'>
+			<Link href='/unsplash' className='uppercase underline underline-offset-4'>
 				my unsplash
 			</Link>
 

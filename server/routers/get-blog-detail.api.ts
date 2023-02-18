@@ -18,6 +18,6 @@ export const GetBlogsDetailAPI = publicProcedure
 			authorization: token,
 		})
 
-		return data
+		return { data }
 	})
 
