@@ -5,7 +5,7 @@ import Layout from '../components/layouts/layout'
 import { ThemeProvider } from 'next-themes'
 import { trpc } from '../utils/trpc'
 import { type AppProps, type AppType } from 'next/app'
-
+import { Analytics } from '@vercel/analytics/react'
 const App: AppType = ({ Component, pageProps }: AppProps) => {
 	return (
 		<ThemeProvider
@@ -15,7 +15,10 @@ const App: AppType = ({ Component, pageProps }: AppProps) => {
 			defaultTheme='dark'
 		>
 			<Layout>
-				<Component {...pageProps} />
+				<>
+					<Component {...pageProps} />
+					<Analytics />
+				</>
 			</Layout>
 		</ThemeProvider>
 	)
