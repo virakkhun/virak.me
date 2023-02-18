@@ -7,10 +7,8 @@ export default function ErrorPage() {
 				<p className='text-2xl font-semibold uppercase'>
 					You look like you are losing!
 				</p>
-				<Link href='/'>
-					<a className='bg-white py-1 px-3 text-primary rounded-full'>
-						Back Home
-					</a>
+				<Link href='/' className='bg-white py-1 px-3 text-primary rounded-full'>
+					Back Home
 				</Link>
 			</div>
 		</>

@@ -5,8 +5,8 @@ import Loading from '../components/loading'
 import useIntersectionObserver from '../hooks/useIntersectionObserver'
 import HomeHeroComponent from '../modules/home/presentation/components/hero.component'
 import HomeSideProjectComponent from '../modules/home/presentation/components/side-project.component'
-import { GetSideProjectsController } from '../modules/home/app/get-side-projects.controller'
 import About from '../modules/home/presentation/components/about.component'
+import { GetSideProjectsController } from '../modules/home/app/get-side-projects.controller'
 
 const HomePage: NextPage = () => {
 	useIntersectionObserver({

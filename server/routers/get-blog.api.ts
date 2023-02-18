@@ -7,10 +7,12 @@ export const GetBlogsAPI = publicProcedure.query(async () => {
 	const url = EndpointBuilder().build('blogs?populate=thumnail')
 	const token = `Bearer ${process.env.TOKEN}`
 
-	const data = await HttpClient<Array<BlogDTO>>(url, 'GET', {
+	const { data } = await HttpClient<BlogDTO[]>(url, 'GET', {
 		authorization: token,
 	})
 
-	return data
+	return {
+		data,
+	}
 })
 
