@@ -1,68 +1,13 @@
 import Head from 'next/head'
-
-import ReactMarkdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
-import rangeParser from 'parse-numeric-range'
-import remarkGfm from 'remark-gfm'
-import remarkParse from 'remark-parse'
-import rehypeStringify from 'rehype-stringify'
-import { Components } from 'react-markdown'
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx'
-import typscript from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript'
-import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash'
-import markdown from 'react-syntax-highlighter/dist/cjs/languages/prism/markdown'
-import json from 'react-syntax-highlighter/dist/cjs/languages/prism/json'
-import javascript from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript'
-import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
-import {
-	coldarkDark,
-	a11yDark,
-	nord,
-} from 'react-syntax-highlighter/dist/cjs/styles/prism'
-
 import React, { useState } from 'react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { cryptoKit } from '../../utils/kits/crypto'
-import Loading from '../../components/loading'
-import { dateKit } from '../../utils/kits/date_kit'
 import { GetBlogDetailController } from '../../modules/blogs/app/controllers/blog-detail.controller'
-
-const languages: { name: string; obj: any }[] = [
-	{
-		name: 'tsx',
-		obj: tsx,
-	},
-	{
-		name: 'jsx',
-		obj: jsx,
-	},
-	{
-		name: 'bash',
-		obj: bash,
-	},
-	{
-		name: 'markdown',
-		obj: markdown,
-	},
-	{
-		name: 'typescript',
-		obj: typscript,
-	},
-	{
-		name: 'json',
-		obj: json,
-	},
-	{
-		name: 'javascript',
-		obj: javascript,
-	},
-]
-
-languages.forEach((l) => {
-	SyntaxHighlighter.registerLanguage(l.name, l.obj)
-})
+import { MarkdownThemes } from '../../modules/blogs/app/services/markdown-themes.service'
+import Loading from '../../components/loading'
+import MarkdownComponent from '../../modules/blogs/presentation/markdown'
+import BlogDetailFooterComponent from '../../modules/blogs/presentation/blog-detail-footer'
 
 const BlogDetailPage: NextPage = () => {
 	const router = useRouter()
@@ -75,69 +20,11 @@ const BlogDetailPage: NextPage = () => {
 
 	const data = GetBlogDetailController(serialize)
 
-	const availableTheme = [
-		{
-			name: 'coldarkDark',
-			theme: coldarkDark,
-		},
-		{
-			name: 'a11yDark',
-			theme: a11yDark,
-		},
-		{
-			name: 'nord',
-			theme: nord,
-		},
-	]
-	const [syntaxTheme, setTheme] = useState(coldarkDark)
+	const availableTheme = MarkdownThemes
+	const [syntaxTheme, setTheme] = useState(MarkdownThemes[0].theme)
 
 	const switchTheme = (idx: number) => {
 		setTheme(availableTheme[idx].theme)
-	}
-
-	const MarkdownComponents: Components = {
-		code({ node, inline, className, style, children, ...props }) {
-			const match = /language-(\w+)/.exec(className || '')
-			const hasMeta = node.data?.meta as string
-			const meta = node.data?.meta as string
-
-			const applyHighlights: object = (applyHighlights: number) => {
-				if (hasMeta) {
-					const RE = /{([\d,-]+)}/
-					const metadata = meta.replace(/\s/g, '')
-					const strlineNumbers = RE?.test(metadata)
-						? RE.exec(metadata)![1]
-						: '0'
-
-					const highlightLines = rangeParser(strlineNumbers)
-					const highlight = highlightLines
-					const data: string | null = highlight.includes(applyHighlights)
-						? 'highlight'
-						: null
-
-					return { data }
-				} else {
-					return {}
-				}
-			}
-
-			return match ? (
-				<SyntaxHighlighter
-					style={syntaxTheme}
-					language={match[1]}
-					PreTag='div'
-					className='codeStyle'
-					wrapLines={hasMeta ? true : false}
-					useInlineStyles={true}
-					lineProps={applyHighlights}
-					{...props}
-				>
-					{String(children).replace(/\n$/, '')}
-				</SyntaxHighlighter>
-			) : (
-				<code className={className} {...props} />
-			)
-		},
 	}
 
 	if (!data) return <Loading text='Blog Detail | Loading...' />
@@ -147,7 +34,7 @@ const BlogDetailPage: NextPage = () => {
 			<Head>
 				<title>{`${data.title?.toUpperCase() ?? ''} | Detail`}</title>
 				<meta property='og:site_name' content="Virak Khun's Portfolio" />
-				<meta property='og:title' content={`${data.title}`} />
+				<meta property='og:title' content={data.title} />
 				<meta property='og:url' content={`https://virak.me/blogs/${id}`} />
 				<meta property='og:type' content='article' />
 				<meta property='og:description' content={data.description} />
@@ -170,49 +57,23 @@ const BlogDetailPage: NextPage = () => {
 			</Head>
 			<div className='mx-auto w-full my-6 flex gap-4 items-start'>
 				<div className='md:w-4/5 w-full'>
-					<div className='relative w-full overflow-hidden'>
-						<div className='overflow-hidden rounded-tr-md rounded-tl-md'>
-							<img
-								src={`https://api.virak.me${data.thumbnailUrl}`}
-								alt={data.thumbnailAlt}
-								className='w-full aspect-video object-contain'
-							/>
-						</div>
-					</div>
-
-					<div className='dark:bg-action bg-lightAction my-4 rounded-md backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
-						<p className='dark:text-lightDefault text-default'>{data.author}</p>
-						<div className='flex items-center gap-2'>
-							{data.tags.map((t, i) => (
-								<span
-									key={i}
-									className='bg-lime-100 text-primary text-sm rounded-full px-1'
-								>
-									#{t}
-								</span>
-							))}
-						</div>
-					</div>
-
 					<div className='font-bold mb-2'>
-						<p className='text-sm'>Introducing</p>
 						<p className='text-2xl text-green-600 capitalize'>{data.title}</p>
 					</div>
 
-					<div className='mt-4 py-2 text-sm flex justify-between items-center dark:text-action text-lightAction'>
-						<p>{`Posted ${dateKit.format(data.published_at)}`}</p>
-						<p>{`Updated ${dateKit.format(data.updated_at)}`}</p>
+					<div className='mt-6 dark:text-lightDefault text-default rounded-md relative'>
+						<MarkdownComponent
+							content={data.description}
+							syntaxTheme={syntaxTheme}
+						/>
 					</div>
 
-					<div className='mt-6 dark:text-lightDefault text-default rounded-md relative'>
-						<ReactMarkdown
-							remarkPlugins={[remarkGfm, remarkParse]}
-							rehypePlugins={[rehypeRaw, rehypeStringify]}
-							components={MarkdownComponents}
-						>
-							{data.description}
-						</ReactMarkdown>
-					</div>
+					<BlogDetailFooterComponent
+						authorName={data.author}
+						createdAt={data.published_at}
+						updatedAt={data.updated_at}
+						tags={data.tags}
+					/>
 				</div>
 				<div className='md:w-1/5 md:block hidden sticky top-5 pl-8'>
 					<p className='uppercase dark:text-lightDefault text-default text-sm mb-2'>
@@ -238,7 +99,7 @@ const BlogDetailPage: NextPage = () => {
 							<button
 								key={i}
 								onClick={() => switchTheme(i)}
-								className={`px-3 py-1 bg-black/30 mx-1 text-[10px] rounded-full capitalize ${
+								className={`px-3 py-1 mt-1 bg-black/30 mx-1 text-[10px] rounded-full capitalize focus:outline focus:outline-secondary/30 ${
 									syntaxTheme === a.theme ? 'text-gray-300' : 'text-green-900'
 								}`}
 							>
@@ -250,7 +111,7 @@ const BlogDetailPage: NextPage = () => {
 					<div className='pl-2 border-l dark:border-lightDefault border-default mt-6 hover:dark:text-green-800 transition-colors duration-200'>
 						<button
 							className='border-b border-dotted border-spacing-2 dark:border-lightDefault border-default'
-							onClick={() => router.back()}
+							onClick={() => router.push('/blogs')}
 						>
 							Back
 						</button>

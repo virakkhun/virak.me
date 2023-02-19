@@ -16,7 +16,7 @@ const BlogCard: React.FC<Blog> = ({
 		`${process.env.ENCRYPT_KEY}`,
 	)
 
-	const thumbnail = `https://cms-service-1e6h.onrender.com${thumbnailUrl}`
+	const thumbnail = `https://api.virak.me${thumbnailUrl}`
 
 	return (
 		<>
