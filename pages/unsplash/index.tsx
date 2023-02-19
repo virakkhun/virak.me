@@ -122,7 +122,7 @@ const UnsplashPage: NextPage = () => {
 					</div>
 
 					<div className='mt-4'>
-						<div className='grid md:grid-cols-2 grid-cols-1 gap-2'>
+						<div className='flex flex-col items-center gap-2'>
 							{data.photos.map((i, index) => (
 								<div key={index}>
 									<img
