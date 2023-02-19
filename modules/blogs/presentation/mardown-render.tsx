@@ -12,11 +12,11 @@ interface Props {
 		| undefined
 }
 
-MarkdownLanguages.forEach((l) => {
-	SyntaxHighlighter.registerLanguage(l.name, l.obj)
-})
-
 const MarkdownRenderComponent = ({ syntaxTheme }: Props): Components => {
+	MarkdownLanguages.forEach((l) => {
+		SyntaxHighlighter.registerLanguage(l.name, l.obj)
+	})
+
 	return {
 		code({ node, inline, className, style, children, ...props }) {
 			const match = /language-(\w+)/.exec(className || '')
