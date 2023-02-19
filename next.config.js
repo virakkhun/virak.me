@@ -5,7 +5,7 @@ const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				hostname: 'cms-service-1e6h.onrender.com',
+				hostname: 'api.virak.me',
 				protocol: 'https',
 				port: '',
 			},
