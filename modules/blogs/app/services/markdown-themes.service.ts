@@ -2,6 +2,8 @@ import {
 	coldarkDark,
 	a11yDark,
 	nord,
+	atomDark,
+	oneDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 const MarkdownThemes = [
@@ -16,6 +18,14 @@ const MarkdownThemes = [
 	{
 		name: 'nord',
 		theme: nord,
+	},
+	{
+		name: 'atomDark',
+		theme: atomDark,
+	},
+	{
+		name: 'oneDark',
+		theme: oneDark,
 	},
 ]
 
