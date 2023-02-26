@@ -1,14 +1,10 @@
-import { trpc } from '../../../../utils/trpc'
+import { BlogsAPI } from '../../infrastructure/apis/blogs.api'
 import { BlogMapper } from '../../infrastructure/mappers/blog.mapper'
 
-export const GetBlogController = () => {
-	const { data } = trpc.GetBlogsAPI.useQuery()
-	const { toDomain } = BlogMapper()
+export const GetBlogController = async () => {
+	const data = await BlogsAPI()
+	const mapper = BlogMapper()
 
-	if (data) {
-		return toDomain(data?.data!)
-	}
-
-	return null
+	if (data.data) return mapper.toDomain(data.data)
 }
 
