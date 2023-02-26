@@ -1,6 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { cryptoKit } from '../../../utils/kits/crypto'
+import { CryptoService } from '../../../shared/services/crypto.service'
 import { Blog } from '../domain/models/blog'
 
 const BlogCard: React.FC<Blog> = ({
@@ -11,10 +13,7 @@ const BlogCard: React.FC<Blog> = ({
 	id,
 	author,
 }) => {
-	const blogId = cryptoKit().encrypt(
-		id.toString(),
-		`${process.env.ENCRYPT_KEY}`,
-	)
+	const blogId = id
 
 	const thumbnail = `https://api.virak.me${thumbnailUrl}`
 

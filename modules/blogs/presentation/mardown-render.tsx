@@ -1,3 +1,5 @@
+'use client'
+
 import { Components } from 'react-markdown'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { MarkdownLanguages } from '../app/services/markdown-language.service'

@@ -1,14 +1,10 @@
-import { SideProjectsAPI } from '../infrastructure/apis/side-project.api'
+import { SideProjectsAPI } from '../infrastructure/apis/side-projects.api'
 import { GetSideProjectMapper } from '../infrastructure/mappers/get-side-project.mapper'
 
-export const GetSideProjectsController = () => {
-	return {
-		get: () => {
-			const data = SideProjectsAPI()
+export const GetSideProjectsController = async () => {
+	const data = await SideProjectsAPI()
+	const mapper = GetSideProjectMapper()
 
-			if (data.data !== undefined)
-				return GetSideProjectMapper().toDomain(data.data)
-		},
-	}
+	if (data.data) return mapper.toDomain(data.data)
 }
 

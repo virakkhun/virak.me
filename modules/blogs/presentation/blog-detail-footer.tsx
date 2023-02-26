@@ -1,5 +1,7 @@
+'use client'
+
 import React from 'react'
-import { dateKit } from '../../../utils/kits/date_kit'
+import { DateService } from '../../../shared/services/data.service'
 
 interface Props {
 	authorName: string
@@ -14,6 +16,8 @@ const BlogDetailFooterComponent: React.FC<Props> = ({
 	createdAt,
 	updatedAt,
 }) => {
+	const { format } = DateService
+
 	return (
 		<div>
 			<div className='dark:bg-action bg-lightAction my-4 rounded-md backdrop-blur-md py-2 flex items-center justify-between w-full px-3'>
@@ -31,8 +35,8 @@ const BlogDetailFooterComponent: React.FC<Props> = ({
 			</div>
 
 			<div className='mt-4 py-2 text-sm flex justify-between items-center dark:text-action text-lightAction'>
-				<p>{`Posted ${dateKit.format(createdAt)}`}</p>
-				<p>{`Updated ${dateKit.format(updatedAt)}`}</p>
+				<p>{`Posted ${format(createdAt)}`}</p>
+				<p>{`Updated ${format(updatedAt)}`}</p>
 			</div>
 		</div>
 	)

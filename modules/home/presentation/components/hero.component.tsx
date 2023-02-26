@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Avatar from '../../../../public/images/Avatar.png'
 import { type HomeHeroEntity } from '../../domain/entities/home-hero.entity'

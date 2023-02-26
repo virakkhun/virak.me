@@ -1,25 +1,15 @@
-import { BaseResponseDTO } from '../../../../utils/infrastructure/dto/base-response.dto'
-import { ThumnailDTO } from './thumnail.dto'
+import { BlogDTO } from './blogs.dto'
 
-interface InnerBlogDetailDTO
-	extends BaseResponseDTO<{
+export interface BlogDescriptionDetailDTO {
+	data: {
 		id: number
 		attributes: {
 			detail: string
 			table: Array<string>
+			blog: BlogDTO
+			publishedAt: string
+			updatedAt: string
 		}
-	}> {}
-
-export interface BlogDetailDTO {
-	id: number
-	attributes: {
-		title: string
-		thumnail: ThumnailDTO
-		author: string
-		tags: Array<string>
-		blog_detail: InnerBlogDetailDTO
-		publishedAt: string
-		updatedAt: string
 	}
 }
 
