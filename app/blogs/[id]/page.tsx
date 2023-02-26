@@ -3,6 +3,19 @@ import BlogDetailFooterComponent from '../../../modules/blogs/presentation/blog-
 import React from 'react'
 import Link from 'next/link'
 import { GetBlogDetailController } from '../../../modules/blogs/app/controllers/blog-detail.controller'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+	return {
+		title: 'Detail - Virak Khun',
+		colorScheme: 'dark light',
+		themeColor: '#1A1A1A',
+		twitter: {
+			card: 'summary_large_image',
+			title: 'Home - Virak Khun',
+		},
+	}
+}
 
 export default async function BlogDetailPage({
 	params,

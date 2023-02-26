@@ -1,6 +1,19 @@
 import BlogHeader from '../../modules/blogs/presentation/blog-header'
 import BlogCard from '../../modules/blogs/presentation/blog-card'
 import { GetBlogController } from '../../modules/blogs/app/controllers/blog.controller'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+	return {
+		title: 'Blogs - Virak Khun',
+		colorScheme: 'dark light',
+		themeColor: '#1A1A1A',
+		twitter: {
+			card: 'summary_large_image',
+			title: 'Home - Virak Khun',
+		},
+	}
+}
 
 export default async function BlogIndex() {
 	const data = await GetBlogController()

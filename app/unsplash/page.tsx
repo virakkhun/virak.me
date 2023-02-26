@@ -1,6 +1,19 @@
+import { Metadata } from 'next'
 import { BsPatchCheckFill, BsMap } from 'react-icons/bs'
 import { FaUnsplash } from 'react-icons/fa'
 import { UnsplashController } from '../../modules/unsplash/app/unsplash.controller'
+
+export async function generateMetadata(): Promise<Metadata> {
+	return {
+		title: 'Unsplash - Virak Khun',
+		colorScheme: 'dark light',
+		themeColor: '#1A1A1A',
+		twitter: {
+			card: 'summary_large_image',
+			title: 'Home - Virak Khun',
+		},
+	}
+}
 
 export default async function UnsplashPage() {
 	const data = await UnsplashController()
