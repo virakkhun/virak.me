@@ -10,6 +10,19 @@ export interface BlogDTO {
 			author: string
 			tags: Array<string>
 		}
+	}
+}
+
+export interface BlogsDTO {
+	data: {
+		id: number
+		attributes: {
+			title: string
+			description: string
+			thumnail: ThumnailDTO
+			author: string
+			tags: Array<string>
+		}
 	}[]
 }
 
