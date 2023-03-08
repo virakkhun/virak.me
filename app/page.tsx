@@ -18,18 +18,20 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-	const _generalInfo = await GetHomeController()
-	const _sideProject = await GetSideProjectsController()
+	const [generalInfo, sideProjects] = await Promise.all([
+		GetHomeController(),
+		GetSideProjectsController(),
+	])
 
 	return (
 		<>
 			<HomeHeroComponent
-				author={_generalInfo!.author!}
-				description={_generalInfo!.description!}
-				sub_description={_generalInfo!.sub_description!}
+				author={generalInfo!.author!}
+				description={generalInfo!.description!}
+				sub_description={generalInfo!.sub_description!}
 			/>
-			<About text={_generalInfo!.about!} />
-			<HomeSideProjectComponent sideProjects={_sideProject!} />
+			<About text={generalInfo!.about!} />
+			<HomeSideProjectComponent sideProjects={sideProjects!} />
 		</>
 	)
 }
