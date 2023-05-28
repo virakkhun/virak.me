@@ -1,3 +1,5 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
@@ -13,13 +15,13 @@ body {
 	font-family: 'General Sans', sans-serif;
 }
 
-*,
 body {
 	transition: color 300ms ease;
 	transition: background-color 300ms ease;
+	background: rgba(0, 0, 0, 0.9);
 }
 
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
 	width: 4px;
 	background-color: #3f3f3f1a;
 	backdrop-filter: blur(20px);
@@ -28,104 +30,17 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
 	background-color: #99674a;
 	border-radius: 1rem;
+} */
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+	display: none;
 }
 
 a {
 	text-decoration: none;
-}
-
-.filter-100 {
-	filter: drop-shadow(0 0 1rem rgb(255, 255, 255));
-}
-
-.filter-150 {
-	filter: drop-shadow(0 0 3rem rgb(98, 74, 117));
-	transition: filter 500ms ease;
-}
-
-.filter-200 {
-	filter: drop-shadow(0 0 1rem rgb(255, 255, 255));
-}
-
-.filter-900 {
-	filter: drop-shadow(0 0 1rem rgb(255, 255, 255));
-}
-
-.filter-dark {
-	filter: drop-shadow(0 0 1rem rgb(26, 26, 26));
-}
-
-.filter-100-hover {
-	transition: all 500ms ease-out;
-	filter: drop-shadow(0 0 1rem rgb(179, 179, 179));
-}
-
-.filter-100-hover:hover {
-	transition: all 500ms ease-out;
-	filter: drop-shadow(0 0 10rem rgb(86, 84, 247));
-}
-
-.very-small-text {
-	font-size: 0.5rem;
-	rotate: 8deg;
-}
-
-.cursor-app {
-	filter: drop-shadow(0 0 1rem #fefe);
-	transition: top 500ms ease-out;
-	transition: left 500ms ease-out;
-}
-
-.hide {
-	transform: translateY(20%);
-	opacity: 0;
-	transition: all 400ms ease;
-}
-.hide.show {
-	transform: translateY(0%);
-	opacity: 1;
-}
-
-.backpack {
-	transform: translateX(50%);
-	opacity: 0;
-}
-
-.backpack.rotation {
-	transition: all 400ms ease-out;
-	transition-delay: 1s;
-	transform: translateX(0%);
-	opacity: 1;
-}
-
-.side {
-	transform: translateY(50%);
-	opacity: 0;
-}
-
-.side.fadeUp {
-	transition: all 200ms ease-out;
-	transform: translateY(0%);
-	opacity: 1;
-}
-
-table {
-	@apply bg-slate-600/50 md:w-1/3 w-3/4 md:mx-0 mx-auto;
-}
-
-table thead tr th {
-	@apply border border-gray-400 bg-slate-700 py-2;
-}
-
-table tbody tr td {
-	@apply border border-gray-400 text-center py-1;
-}
-
-h3 {
-	@apply text-xl font-medium my-4 underline decoration-dashed underline-offset-4 dark:text-lightPrimary text-primary focus:outline;
-}
-
-hr {
-	@apply border dark:border-lightPrimary/10 border-primary/10 rounded-full mt-2;
 }
 

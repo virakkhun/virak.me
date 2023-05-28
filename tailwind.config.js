@@ -6,6 +6,7 @@ module.exports = {
 		'./shared/layouts/**/*.{js,ts,jsx,tsx}',
 		'./modules/**/presentation/components/*.{tsx,jsx}',
 		'./modules/**/presentation/*.{tsx,jsx}',
+		'./core/**/*.tsx',
 	],
 	theme: {
 		extend: {

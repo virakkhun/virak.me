@@ -1,8 +1,7 @@
 {
-  "cSpell.words": [
-    "Nuxt",
-    "trpc"
-  ],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+	"cSpell.words": ["Nuxt", "trpc"],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"cSpell.ignoreWords": ["Khun", "Phnom", "Virak"]
 }
+
