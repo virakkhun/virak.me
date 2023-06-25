@@ -1,32 +1,20 @@
 {
-	"name": "personal-portfolio",
-	"version": "0.1.0",
+	"name": "virak.me",
 	"private": true,
-	"author": {
-		"name": "Virak Khun",
-		"email": "virak.dev.2000@gmail.com",
-		"url": "https://github.com/virakkhun"
-	},
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
-		"dev": "next dev --port 9000",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
+		"dev": "yarn workspace @virak.me/web dev",
+		"build": "yarn workspace @virak.me/web build",
+		"start": "yarn workspace @virak.me/web start",
+		"lint": "yarn workspace @virak.me/web lint"
 	},
 	"dependencies": {
-		"@tailwindcss/line-clamp": "^0.4.2",
-		"next": "13.4.4",
-		"next-themes": "^0.2.1",
-		"parse-numeric-range": "^1.3.0",
+		"next": "13.4.7",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-icons": "^4.7.1",
-		"react-markdown": "^8.0.5",
-		"react-syntax-highlighter": "^15.5.0",
-		"rehype-raw": "^6.1.1",
-		"rehype-stringify": "^9.0.3",
-		"remark-gfm": "^3.0.1",
-		"remark-parse": "^10.0.1",
 		"sharp": "^0.31.3",
 		"superjson": "^1.12.2"
 	},
@@ -34,7 +22,6 @@
 		"@types/node": "18.14.0",
 		"@types/react": "18.2.7",
 		"@types/react-dom": "18.2.4",
-		"@types/react-syntax-highlighter": "^15.5.6",
 		"autoprefixer": "^10.4.12",
 		"eslint": "8.34.0",
 		"eslint-config-next": "13.1.6",

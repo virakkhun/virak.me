@@ -1,0 +1,11 @@
+{
+	"name": "@virak.me/ui",
+	"version": "1.0.0",
+	"description": "Containing the collection of UI used across the application.",
+	"main": "index.ts",
+	"author": "Virak Khun",
+	"license": "MIT",
+	"dependencies": {
+		"class-variance-authority": "^0.6.0"
+	}
+}

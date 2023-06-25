@@ -1,0 +1,35 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	font-family: 'General Sans', sans-serif;
+}
+
+body {
+	transition: color 300ms ease;
+	transition: background-color 300ms ease;
+	background: rgba(0, 0, 0, 0.9);
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+}
+
