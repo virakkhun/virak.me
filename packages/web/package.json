@@ -1,0 +1,21 @@
+{
+	"name": "@virak.me/web",
+	"version": "1.0.0",
+	"private": true,
+	"author": {
+		"name": "Virak Khun",
+		"email": "virak.dev.2000@gmail.com",
+		"url": "https://github.com/virakkhun"
+	},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@virak.me/common": "1.0.0",
+		"@virak.me/ui": "1.0.0"
+	}
+}
+
