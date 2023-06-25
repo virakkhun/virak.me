@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import VirakPhoto from '../assets/images/virak_khun.JPG'
+import VirakPhoto from '../assets/images/virak_khun.jpg'
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
