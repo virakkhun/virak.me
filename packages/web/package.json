@@ -14,8 +14,8 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@vercel/og": "^0.5.8",
 		"@virak.me/common": "1.0.0",
 		"@virak.me/ui": "1.0.0"
 	}
 }
-
