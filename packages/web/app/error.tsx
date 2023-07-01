@@ -3,7 +3,8 @@
 export default function Error() {
 	return (
 		<>
-			<div>Something went wrong</div>
+			<p className='text-center mt-10'>Something went wrong</p>
 		</>
 	)
 }
+

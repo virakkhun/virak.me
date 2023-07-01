@@ -8,6 +8,15 @@ export async function generateMetadata(): Promise<Metadata> {
 		colorScheme: 'dark light',
 		themeColor: '#1A1A1A',
 		description: 'A software engineer based on Phnom Penh',
+		openGraph: {
+			images: 'https://virak.me/api/og',
+			title: 'Home - Virak Khun',
+			authors: '@virakkhun',
+			description: 'A software engineer based on Phnom Penh',
+			locale: 'en-US',
+			siteName: 'virak.me',
+			url: 'virak.me',
+		},
 		keywords: [
 			'portfolio',
 			'personal website',
@@ -32,8 +41,8 @@ export default async function Page() {
 			<div className='w-56 h-56 object-cover rounded-full overflow-hidden'>
 				<Image src={VirakPhoto} alt='a picture of virak khun' />
 			</div>
-			<div className='mt-2'>
-				<p className='text-xl font-semibold'>Hey, I&rsquo;m Virak Khun</p>
+			<div className='mt-4'>
+				<p className='text-xl font-semibold mb-2'>Hey, I&rsquo;m Virak Khun</p>
 				<p>A software engineer based in Phnom Penh, Cambodia</p>
 			</div>
 		</div>

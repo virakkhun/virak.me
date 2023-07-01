@@ -1,4 +1,4 @@
 export default function Loading() {
-	return <p>Loading...</p>
+	return <p className='text-center mt-10'>Loading...</p>
 }
 
