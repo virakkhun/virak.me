@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 			description: 'A software engineer based on Phnom Penh',
 			locale: 'en-US',
 			siteName: 'virak.me',
-			url: 'virak.me',
+			url: 'https://virak.me',
 		},
 		keywords: [
 			'portfolio',
@@ -42,8 +42,8 @@ export default async function Page() {
 				<Image src={VirakPhoto} alt='a picture of virak khun' />
 			</div>
 			<div className='mt-4'>
-				<p className='text-xl font-semibold mb-2'>Hey, I&rsquo;m Virak Khun</p>
-				<p>A software engineer based in Phnom Penh, Cambodia</p>
+				<p className='text-xl font-semibold mb-2'>Virak Khun</p>
+				<p>A software engineer based in Phnom Penh, Cambodia.</p>
 			</div>
 		</div>
 	)
