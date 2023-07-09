@@ -4,13 +4,13 @@ import VirakPhoto from '../assets/images/virak_khun.jpg'
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
-		title: 'Home - Virak Khun',
+		title: 'Virak Khun',
 		colorScheme: 'dark light',
 		themeColor: '#1A1A1A',
 		description: 'A software engineer based on Phnom Penh',
 		openGraph: {
 			images: 'https://virak.me/api/og',
-			title: 'Home - Virak Khun',
+			title: 'Virak Khun',
 			authors: '@virakkhun',
 			description: 'A software engineer based on Phnom Penh',
 			locale: 'en-US',
