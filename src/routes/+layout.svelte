@@ -23,7 +23,7 @@
 	<meta property="og:image" content="https://virak.me/api/og" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Home - Virak Khun" />
-	<link rel="icon" href="/favicon.ico" />
+	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
 <body class="black text-white relative">
