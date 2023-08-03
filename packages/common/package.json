@@ -1,8 +1,0 @@
-{
-  "name": "@virak.me/common",
-  "version": "1.0.0",
-  "description": "common is a package containing stuff that is pretty common.",
-  "main": "intex.ts",
-  "author": "Virak Khun",
-  "license": "MIT"
-}
