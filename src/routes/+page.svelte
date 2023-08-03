@@ -7,7 +7,7 @@
 		<p>Hi...welcome !!</p>
 		<p>My name is <span class="text-4xl font-bold text-emerald-500">Virak Khun</span></p>
 		<p>
-			I am a <span class="text-xl font-semibold text-gray-300 px-1">Software Engineer</span> base in
+			I am a <span class="text-xl font-semibold text-gray-300 px-1">Software Engineer</span> based in
 			Phnom Penh, Cambodia.
 		</p>
 		<SocialLink />
