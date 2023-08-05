@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import I18n from '../components/i18n.component.svelte';
 	import Powered from '../components/powered.component.svelte';
 </script>
 
@@ -27,6 +28,7 @@
 </svelte:head>
 
 <body class="black text-white relative">
+	<I18n />
 	<slot />
 	<Powered />
 </body>
