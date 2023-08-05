@@ -1,6 +1,6 @@
 <script>
 	import SocialLink from '../components/social-link.component.svelte';
-	import { t } from '../shared/services/i18n.service';
+	import { t, locale } from '../shared/services/i18n.service';
 </script>
 
 <div class="w-full h-screen flex justify-center items-center relative">
@@ -8,6 +8,9 @@
 		<p>{$t('author.greet')}</p>
 		<p>
 			{@html $t('author.name')}
+			<span class="text-4xl font-bold text-emerald-500">
+				{$locale === 'en' ? 'Virak Khun' : 'ឃុន វិរៈ'}
+			</span>
 		</p>
 		<p>
 			{@html $t('author.job')}

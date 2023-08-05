@@ -1,6 +1,6 @@
 {
 	"author.greet": "Hi... Welcome...",
-	"author.name": "My name is <span class=\"text-4xl font-bold text-emerald-500\">Virak Khun</span>",
+	"author.name": "My name is",
 	"author.job": "I am a &#8220;Software Engineer&#8220; based in Phnom Penh, Cambodia.",
 	"frameworkRef": "Made with"
 }
