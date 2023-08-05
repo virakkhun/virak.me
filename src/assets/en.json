@@ -1,6 +1,6 @@
 {
 	"author.greet": "Hi... Welcome...",
 	"author.name": "My name is <span class=\"text-4xl font-bold text-emerald-500\">Virak Khun</span>",
-	"author.job": "I am a <span class=\"text-xl font-semibold text-gray-300 px-1\">Software Engineer</span> based in Phnom Penh, Cambodia.",
-	"frameworkRef": "Made with <a href=\"https://kit.svelte.dev\" target=\"_blank\" class=\"text-orange-600 font-bold hover:text-orange-700 duration-200\">SvelteKit</a>"
+	"author.job": "I am a &#8220;Software Engineer&#8220; based in Phnom Penh, Cambodia.",
+	"frameworkRef": "Made with"
 }

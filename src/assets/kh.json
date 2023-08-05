@@ -1,6 +1,6 @@
 {
 	"author.greet": "សួស្តី... ស្វាគមន៏...",
-	"author.name": "ខ្ញុំឈ្មោះ <span class=\"text-4xl font-bold text-emerald-500\">ឃុន​ វិរ:</span>",
-	"author.job": "ខ្ញុំគឺជា​ <span class=\"text-xl font-semibold text-gray-300 px-1\">Software Engineer</span> ដែលស្នាក់នៅក្នុងទីក្រុង ភ្នំពេញ ប្រទេសកម្ពុជា",
-	"frameworkRef": "បង្កើតដោយប្រើ <a href=\"https://kit.svelte.dev\" target=\"_blank\" class=\"text-orange-600 font-bold hover:text-orange-700 duration-200\">SvelteKit</a>"
+	"author.name": "ខ្ញុំឈ្មោះ <span class=\"text-4xl font-bold text-emerald-500\">ឃុន វិរៈ</span>",
+	"author.job": "ខ្ញុំគឺជា​ &#8220;Software Engineer&#8220; ម្នាក់ដែលស្នាក់នៅក្នុងទីក្រុង ភ្នំពេញ ប្រទេសកម្ពុជា",
+	"frameworkRef": "បង្កើតដោយប្រើ"
 }
