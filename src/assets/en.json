@@ -2,5 +2,7 @@
 	"author.greet": "Hi... Welcome...",
 	"author.name": "My name is",
 	"author.job": "I am a &#8220;Software Engineer&#8220; based in Phnom Penh, Cambodia.",
-	"frameworkRef": "Made with"
+	"frameworkRef": "Made with",
+	"nav.blogs": "Blogs",
+	"blog.title": "Welcome to Blogs"
 }
