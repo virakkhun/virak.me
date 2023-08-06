@@ -8,7 +8,7 @@
 	}
 </script>
 
-<div class="h-10 border-gray-50/50 border absolute top-6 right-6 z-10">
+<div class="h-10 border-gray-50/50 border">
 	<div class="flex items-center font-bold text-sm">
 		<button
 			class="h-10 px-4 flex items-center justify-center"

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import I18n from '../components/i18n.component.svelte';
+	import Header from '../components/header.component.svelte';
 	import Powered from '../components/powered.component.svelte';
 </script>
 
@@ -27,8 +27,11 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<body class="black text-white relative">
-	<I18n />
-	<slot />
+<body class="black text-white">
+	<div class="relative container mx-auto md:px-32 px-4">
+		<Header />
+		<slot />
+	</div>
+
 	<Powered />
 </body>
