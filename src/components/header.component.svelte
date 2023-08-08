@@ -3,12 +3,15 @@
 	import I18n from './i18n.component.svelte';
 </script>
 
-<header class="flex justify-between items-center mt-2">
+<header class="flex justify-between items-center mt-8">
 	<a href="/">
-		<img src="/favicon.png" alt="virak's logo" width="64" height="64" />
+		<img src="/favicon.png" alt="virak's logo" width="42" height="42" />
 	</a>
 	<div class="flex items-center gap-4">
-		<a href="/blogs" class="font-bold uppercase">{$t('nav.blogs')}</a>
+		<div>
+			<a href="/blogs" class="font-bold lowercase">{$t('nav.blogs')}</a>
+		</div>
+		<div>|</div>
 		<I18n />
 	</div>
 </header>
