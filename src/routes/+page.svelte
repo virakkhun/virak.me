@@ -16,5 +16,8 @@
 			{@html $t('author.job')}
 		</p>
 		<SocialLink />
+		<a href="/hi" class="underline text-pink-500 mt-4 text-center" title="leave a word"
+			>leave a word</a
+		>
 	</div>
 </div>
