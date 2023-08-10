@@ -5,7 +5,10 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: vercelAdapter()
+		adapter: vercelAdapter(),
+		csrf: {
+			checkOrigin: false
+		}
 	}
 };
 
