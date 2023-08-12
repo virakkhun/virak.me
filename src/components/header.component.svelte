@@ -1,6 +1,11 @@
 <script lang="ts">
-	import { t } from '../shared/services/i18n.service';
+	import { t, type MessageKeys } from '../shared/services/i18n.service';
 	import I18n from './i18n.component.svelte';
+
+	const navContent: Array<{ href: string; name: MessageKeys }> = [
+		{ href: '/blogs', name: 'nav.blogs' },
+		{ href: '/hi', name: 'nav.hi' }
+	];
 </script>
 
 <header class="flex justify-between items-center mt-8">
@@ -8,9 +13,15 @@
 		<img src="/favicon.png" alt="virak's logo" width="42" height="42" />
 	</a>
 	<div class="flex items-center gap-4">
-		<div>
-			<a href="/blogs" class="font-bold lowercase">{$t('nav.blogs')}</a>
-		</div>
+		{#each navContent as nav}
+			<div>
+				<a
+					href={nav.href}
+					class="font-bold lowercase text-violet-300 hover:text-violet-500 text-lg underline underline-offset-2 transition-all duration-200"
+					>{$t(nav.name)}</a
+				>
+			</div>
+		{/each}
 		<div>|</div>
 		<I18n />
 	</div>

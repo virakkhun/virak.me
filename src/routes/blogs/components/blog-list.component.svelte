@@ -2,6 +2,7 @@
 	import type { Blogs } from '../models/blog';
 
 	export let blogList: Blogs;
+	$: isEmpty = blogList.length === 0;
 </script>
 
 <div class="flex flex-col gap-4 mt-10">
@@ -12,3 +13,11 @@
 		</a>
 	{/each}
 </div>
+
+{#if isEmpty}
+	<p
+		class="text-3xl font-bold text-indigo-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed"
+	>
+		There are some blogs in the future... 😁
+	</p>
+{/if}

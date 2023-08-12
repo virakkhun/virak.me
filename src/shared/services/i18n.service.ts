@@ -4,7 +4,7 @@ import en from '../../../src/assets/locale/en.json';
 import kh from '../../../src/assets/locale/kh.json';
 import type { I18nMessage, Locale } from '../models/locale';
 
-type MessageKeys = keyof typeof en;
+export type MessageKeys = keyof typeof en;
 
 const messageDict: I18nMessage = { en: { ...en }, kh: { ...kh } };
 
