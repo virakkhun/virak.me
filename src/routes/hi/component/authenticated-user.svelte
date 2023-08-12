@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { User } from '../../../shared/models/user';
 
-	export let authenticatedUser: Pick<User, 'avatar_url' | 'name' | 'bio'>;
+	export let authenticatedUser: Pick<User, 'avatar_url' | 'name' | 'bio'> | null;
 </script>
 
-{#if Object.keys(authenticatedUser).length > 0}
+{#if !!authenticatedUser}
 	<span class="uppercase text-2xl text-yellow-500 italic">{authenticatedUser.name}</span>
 	<img
 		src={authenticatedUser.avatar_url}

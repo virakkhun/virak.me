@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.3",
 		"@sveltejs/kit": "^1.22.4",
+		"@types/luxon": "^3.3.1",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.14",
@@ -35,7 +36,7 @@
 	"type": "module",
 	"dependencies": {
 		"@supabase/supabase-js": "^2.31.0",
-		"hast-util-to-html": "^8.0.4",
+		"luxon": "^3.4.0",
 		"refractor": "^4.8.1",
 		"rehype-format": "^4.0.1",
 		"rehype-prism-plus": "^1.6.2",

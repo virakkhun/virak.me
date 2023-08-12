@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 	import Header from '../components/header.component.svelte';
-	import Powered from '../components/powered.component.svelte';
 </script>
 
 <svelte:head>
@@ -32,6 +31,4 @@
 		<Header />
 		<slot />
 	</div>
-
-	<Powered />
 </body>

@@ -3,6 +3,8 @@
 	"author.name": "My name is",
 	"author.job": "I am a &#8220;Software Engineer&#8220; based in Phnom Penh, Cambodia.",
 	"frameworkRef": "Made with",
+	"blog.title": "Welcome to Blogs",
 	"nav.blogs": "Blogs",
-	"blog.title": "Welcome to Blogs"
+	"nav.hi": "Hi",
+	"form.required": "{{message}} is required"
 }
