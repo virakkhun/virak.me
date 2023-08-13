@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { VInput, VTextArea } from '@ui/virak.me';
 	import Markdown from '../../../../components/markdown.component.svelte';
 
 	let content = '';
@@ -8,43 +9,13 @@
 <div class="grid grid-cols-2 gap-2 mt-4">
 	<form method="POST" use:enhance>
 		<div class="border border-white/20 flex flex-col gap-2 p-4">
-			<input
-				type="text"
-				name="title"
-				placeholder="Title"
-				required
-				class="text-white border border-white/20 px-3 py-2 w-full"
-			/>
-			<input
-				type="text"
-				name="desc"
-				placeholder="Description"
-				required
-				class="text-white border border-white/20 px-3 py-2 w-full"
-			/>
+			<VInput type="text" name="title" placeholder="Title" required />
+			<VInput type="text" name="desc" placeholder="Description" required />
 			<div class="flex items-center gap-2">
-				<input
-					type="text"
-					name="author"
-					placeholder="Author"
-					required
-					class="text-white border border-white/20 px-3 py-2 w-full"
-				/>
-				<input
-					type="text"
-					name="tags"
-					placeholder="Tags"
-					required
-					class="text-white border border-white/20 px-3 py-2 w-full"
-				/>
+				<VInput type="text" name="author" placeholder="Author" required />
+				<VInput type="text" name="tags" placeholder="Tags" required />
 			</div>
-			<textarea
-				name="content"
-				required
-				class="text-white border border-white/20 px-3 py-2 w-full"
-				placeholder="Content"
-				bind:value={content}
-			/>
+			<VTextArea name="content" required placeholder="Content" bind:value={content} />
 		</div>
 	</form>
 

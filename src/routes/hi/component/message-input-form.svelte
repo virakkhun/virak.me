@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { VButton, VInput } from '@ui/virak.me';
 	import { userStore } from '../../../shared/store/user.store';
 
 	let isUserNotExist: boolean;
@@ -27,19 +28,14 @@
 >
 	<p class="mb-2">leave some meaningful message here...</p>
 	<div class="flex items-center gap-2">
-		<input
+		<VInput
 			name="message"
-			class="text-white border border-white/20 px-3 py-2 rounded-md w-full"
 			placeholder="message..."
 			disabled={isUserNotExist}
 			type="text"
 			required
 		/>
-		<input name="visitorName" class="hidden" value={$userStore?.name} type="text" />
-		<button
-			type="submit"
-			class="px-3 py-2 w-fit border border-yellow-600/50 rounded-md hover:border-yellow-600 cursor-pointer"
-			disabled={isUserNotExist}>send</button
-		>
+		<VInput name="visitorName" class="hidden" value={$userStore?.name} type="text" />
+		<VButton type="submit" disabled={isUserNotExist}>send</VButton>
 	</div>
 </form>

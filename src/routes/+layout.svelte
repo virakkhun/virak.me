@@ -12,7 +12,7 @@
 	/>
 	<meta name="referrer" content="no-referrer" />
 	<meta name="theme-color" content="#1A1A1A" />
-	<meta name="color-scheme" content="dark light" />
+	<meta name="color-scheme" content="dark" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="creator" content="virakkhun" />
 	<meta property="og:title" content="Virak Khun" />
@@ -26,9 +26,7 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<body class="black text-white">
-	<div class="relative container mx-auto lg:px-64 md:px-12 px-4">
-		<Header />
-		<slot />
-	</div>
-</body>
+<div class="relative container mx-auto lg:px-64 md:px-12 px-4">
+	<Header />
+	<slot />
+</div>

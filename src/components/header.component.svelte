@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { t, type MessageKeys } from '../shared/services/i18n.service';
 	import I18n from './i18n.component.svelte';
 
@@ -16,7 +17,9 @@
 		{#each navContent as nav}
 			<div>
 				<a
+					title={nav.name}
 					href={nav.href}
+					class:text-violet-100={$page.url.pathname === nav.href}
 					class="font-bold lowercase text-violet-300 hover:text-violet-500 text-lg underline underline-offset-2 transition-all duration-200"
 					>{$t(nav.name)}</a
 				>
