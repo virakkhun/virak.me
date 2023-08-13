@@ -1,0 +1,17 @@
+{
+	"name": "@ui/virak.me",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"author": {
+		"name": "Virak Khun"
+	},
+	"main": "index.ts",
+	"files": [
+		"index.ts"
+	],
+	"devDependencies": {
+		"class-variance-authority": "^0.7.0",
+		"svelte": "^4.0.5"
+	}
+}

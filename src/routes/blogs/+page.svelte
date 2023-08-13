@@ -10,7 +10,7 @@
 	<title>Blogs</title>
 </svelte:head>
 
-<div class="flex flex-col justify-center items-center mt-20">
+<div class="mt-10">
 	<BlogTitle />
 	<BlogList blogList={data.blogs} />
 </div>
