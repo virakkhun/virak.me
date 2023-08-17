@@ -31,10 +31,13 @@
 	export let _size: $$Props['_size'] = 'base';
 	export let _width: $$Props['_width'] = 'full';
 	export let error = '';
+	export let value: string | number | string[] | null | undefined = '';
 </script>
 
 <textarea
 	{...$$props}
+	on:input
+	bind:value
 	class={textarea({ _intent: error ? 'danger' : _intent, _size, _width, class: $$props.class })}
 />
 {#if error}

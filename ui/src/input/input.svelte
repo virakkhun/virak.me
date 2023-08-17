@@ -35,6 +35,8 @@
 
 <input
 	{...$$props}
+	on:input
+	bind:value={$$props.value}
 	class={input({ _intent: error ? 'danger' : _intent, _size, _width, class: $$props.class })}
 />
 {#if error}

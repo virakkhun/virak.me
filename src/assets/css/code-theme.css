@@ -29,7 +29,7 @@
  * --syntax-gutter-background-color-selected: hsl(220, 13%, 26%);
  * --syntax-cursor-line: hsla(220, 100%, 80%, 0.04);
  */
-
+code,
 code[class*='language-'],
 pre[class*='language-'] {
 	background: hsl(220, 13%, 18%);
@@ -49,6 +49,10 @@ pre[class*='language-'] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+}
+
+p code {
+	@apply rounded-md p-2 my-4;
 }
 
 /* Selection */
@@ -442,4 +446,110 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 /* Fill colour of the handle */
 .prism-previewer-easing.prism-previewer-easing circle {
 	fill: transparent;
+}
+
+/**
+ * Autolinker plugin overrides
+ * https://prismjs.com/plugins/autolinker
+ */
+
+/* Link in the code */
+.token.token a {
+	color: unset; /* default: inherit */
+}
+
+/**
+ * Line Numbers plugin overrides
+ * https://prismjs.com/plugins/line-numbers
+ * This is the second-most popular plugin
+ */
+
+/* Line separating gutter from coding area */
+.line-numbers.line-numbers .line-numbers-rows {
+	border-right-color: unset;
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows > span:before {
+	color: unset;
+}
+
+/**
+ * Line Highlight plugin overrides
+ * https://prismjs.com/plugins/line-highlight
+ * This is the most popular plugin
+ */
+
+/* The highlighted line itself */
+.line-highlight.line-highlight {
+	background: unset;
+}
+
+/* Default line numbers in Line Highlight plugin */
+.line-highlight.line-highlight:before,
+.line-highlight.line-highlight[data-end]:after {
+	background: unset;
+	color: unset;
+	padding: unset;
+	border-radius: unset;
+	box-shadow: unset;
+}
+
+/* Hovering over a linkable line number (in the gutter area) */
+/* Requires Line Numbers plugin as well */
+pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
+	background-color: unset;
+}
+
+p a {
+	@apply text-blue-500 hover:text-blue-700;
+}
+
+pre code span[line]::before {
+	content: attr(line);
+	@apply text-sm text-gray-400 pr-1 mr-4 border-r border-r-white/20;
+}
+
+p img {
+	@apply aspect-video rounded-md;
+}
+
+ol {
+	@apply pl-8;
+}
+
+ol li {
+	@apply list-decimal;
+}
+
+ul {
+	@apply pl-8;
+}
+
+ul li {
+	@apply list-disc;
+}
+
+table {
+	@apply table-auto mb-2;
+}
+
+table thead tr {
+	@apply border border-white/20;
+}
+
+table tbody tr {
+	@apply border border-white/20;
+}
+
+table thead tr th {
+	@apply border border-white/20;
+}
+
+table tbody tr td {
+	@apply border border-white/20 pl-4;
+}
+
+hr {
+	@apply opacity-50;
 }

@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Poppins', 'Kantumruy Pro', sans-serif;
 	font-display: optional;
 }
 
