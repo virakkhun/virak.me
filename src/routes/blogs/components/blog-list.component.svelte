@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '../../../shared/services/i18n.service';
 	import type { Blogs } from '../models/blog';
 
 	export let blogList: Blogs;
@@ -6,7 +7,7 @@
 </script>
 
 {#if isEmpty}
-	<p class="font-bold mt-2">There are some blogs in the future... 😁</p>
+	<p class="font-bold mt-2">{$t('blogs.message')}</p>
 {/if}
 
 {#if !isEmpty}

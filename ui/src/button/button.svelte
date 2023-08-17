@@ -6,14 +6,15 @@
 		variants: {
 			_intent: {
 				primary:
-					'border border-orange-500 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-gray-900',
+					'border border-orange-500 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-transparent',
 				secondary:
 					'border border-orange-300 focus:ring-2 focus:ring-orange-200 focus:ring-offset-2',
 				solidPrimary: 'bg-orange-500 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2',
 				solidSecondary: 'bg-orange-300 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2'
 			},
 			_size: {
-				sm: 'px-3 py-2',
+				xs: 'p-1 text-xs',
+				sm: 'px-3 py-2 text-sm',
 				base: 'px-6 py-3',
 				md: 'px-9 py-4'
 			},
@@ -33,6 +34,6 @@
 	export let _width: $$Props['_width'] = 'fit';
 </script>
 
-<button {...$$props} class={button({ _intent, _size, _width, class: $$props.class })}>
+<button {...$$restProps} on:click class={button({ _intent, _size, _width, class: $$props.class })}>
 	<slot />
 </button>

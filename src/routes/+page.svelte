@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
+	import { t, locale } from '../shared/services/i18n.service';
 	import Powered from '../components/powered.component.svelte';
 	import SocialLink from '../components/social-link.component.svelte';
-	import { t, locale } from '../shared/services/i18n.service';
+	import type { PageServerData } from './$types';
+
+	export let data: PageServerData;
 </script>
 
 <div class="flex justify-center items-center mt-20">
@@ -17,6 +20,6 @@
 			{@html $t('author.job')}
 		</p>
 		<SocialLink />
-		<Powered />
+		<Powered sha={data.sha} />
 	</div>
 </div>
