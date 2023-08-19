@@ -31,12 +31,13 @@
 	export let _size: $$Props['_size'] = 'base';
 	export let _width: $$Props['_width'] = 'full';
 	export let error = '';
+	export let value: string | number | string[] | null | undefined = '';
 </script>
 
 <input
 	{...$$props}
 	on:input
-	bind:value={$$props.value}
+	bind:value
 	class={input({ _intent: error ? 'danger' : _intent, _size, _width, class: $$props.class })}
 />
 {#if error}

@@ -4,9 +4,9 @@
 		DialogAction,
 		DialogContent,
 		DialogDescription,
-		DialogTitle,
-		VButton
-	} from '@ui/virak.me';
+		DialogTitle
+	} from '@ui/virak.me/src/dialog';
+	import { Button } from '@ui/virak.me/src/button';
 	import Markdown from '../../../../components/markdown.component.svelte';
 
 	export let open = false;
@@ -20,6 +20,6 @@
 		><Markdown {content} /></DialogContent
 	>
 	<DialogAction slot="action" justifyContent="justify-end">
-		<VButton _size="sm" on:click>close</VButton>
+		<Button _size="sm" on:click>close</Button>
 	</DialogAction>
 </Dialog>

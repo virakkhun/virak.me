@@ -15,7 +15,9 @@
 	});
 </script>
 
-<div class="flex items-center px-2 py-1 rounded-full bg-black/10 border border-orange-500/50">
+<div
+	class="flex items-center px-2 py-1 rounded-full bg-black/10 border border-orange-500/50 drop-shadow-3xl"
+>
 	<button
 		class:bg-orange-400={$locale === 'en'}
 		class="text-sm w-full px-1.5 py-1 rounded-full"

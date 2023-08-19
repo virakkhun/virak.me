@@ -6,9 +6,13 @@
 	"author": {
 		"name": "Virak Khun"
 	},
+	"markdown": "github",
 	"main": "index.ts",
 	"files": [
-		"index.ts"
+		"./src/button/index.ts",
+		"./src/dialog/index.ts",
+		"./src/input/index.ts",
+		"./src/textarea/index.ts"
 	],
 	"devDependencies": {
 		"class-variance-authority": "^0.7.0",
