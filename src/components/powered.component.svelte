@@ -3,7 +3,9 @@
 	export let sha: string | undefined;
 </script>
 
-<div class="fixed bottom-4 left-0 text-sm flex flex-col justify-center items-center w-full">
+<div
+	class="fixed bottom-4 left-0 md:text-sm text-xs flex flex-col justify-center items-center w-full"
+>
 	<div class="flex justify-center items-center gap-2 w-full mt-32">
 		<p>
 			{@html $t('frameworkRef')}
@@ -23,7 +25,7 @@
 			>
 		</p>
 	</div>
-	<div class="flex justify-center items-center gap-1">
+	<div class="flex justify-center items-center gap-1 mt-1">
 		<span class="bg-green-500 w-3 h-3 rounded-full" />
 		<span>{sha}</span>
 	</div>

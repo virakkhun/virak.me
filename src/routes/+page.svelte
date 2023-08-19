@@ -7,8 +7,10 @@
 	export let data: PageServerData;
 </script>
 
-<div class="flex justify-center items-center mt-20">
-	<div class="flex flex-col gap-4 items-center md:w-1/2 w-full md:px-0 px-4 text-lg text-center">
+<div class="flex justify-center items-center mt-20 relative">
+	<div
+		class="flex flex-col gap-4 items-center md:w-1/2 w-full md:px-0 px-4 text-lg text-center z-50"
+	>
 		<p>{$t('author.greet')}</p>
 		<p class="mt-10">
 			{@html $t('author.name')}
@@ -22,4 +24,8 @@
 		<SocialLink />
 		<Powered sha={data.sha} />
 	</div>
+
+	<div
+		class="absolute bg-gradient-to-tl from-emerald-500/10 to-orange-500/5 drop-shadow-4xl blur-3xl w-full h-full rotate-45 translate-y-1/2"
+	/>
 </div>

@@ -14,7 +14,7 @@
 </svelte:head>
 
 {#if data.blogDetail}
-	<BlogDetailWrapper>
+	<BlogDetailWrapper blogID={data.blogDetail.id} blogView={data.blogDetail.view}>
 		<BlogDetailTitle title={data.blogDetail.title} />
 		<BlogDetailAuthor authorName={data.blogDetail.author} />
 		<Markdown content={data.blogDetail.content} />

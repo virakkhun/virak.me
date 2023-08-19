@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { VButton, VInput } from '@ui/virak.me';
+	import { Input } from '@ui/virak.me/src/input';
+	import { Button } from '@ui/virak.me/src/button';
 	import { userStore } from '../../../shared/store/user.store';
 	import { t } from '../../../shared/services/i18n.service';
 
@@ -29,14 +30,14 @@
 >
 	<p class="mb-2">{$t('hi.form.label')}</p>
 	<div class="flex items-center gap-2">
-		<VInput
+		<Input
 			name="message"
 			placeholder={$t('hi.form.placeholder')}
 			disabled={isUserNotExist}
 			type="text"
 			required
 		/>
-		<VInput name="visitorName" class="hidden" value={$userStore?.name} type="text" />
-		<VButton type="submit" disabled={isUserNotExist}>{$t('hi.form.buttonText')}</VButton>
+		<Input name="visitorName" class="hidden" value={$userStore?.name} type="text" />
+		<Button type="submit" disabled={isUserNotExist}>{$t('hi.form.buttonText')}</Button>
 	</div>
 </form>
