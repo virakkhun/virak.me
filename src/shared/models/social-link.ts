@@ -1,5 +1,11 @@
+export enum SocialLinkTitle {
+	X,
+	GITHUB,
+	LINKEDIN
+}
+
 export type SocialLink = {
-	title: string;
+	title: SocialLinkTitle;
 	link: string;
 };
 
