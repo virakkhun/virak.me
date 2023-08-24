@@ -6,11 +6,12 @@
 	"blog.title": "Welcome to Blogs",
 	"blogs.message": "There are some blogs in the future... 😁",
 	"nav.blogs": "Blogs",
-	"nav.hi": "Hi",
+	"nav.library": "Library",
 	"form.required": "{{message}} is required",
 	"hi.title": "Hi, glad to have you here...",
 	"hi.hi": "Hi {{username}}",
 	"hi.form.label": "leave some meaningful message here...",
 	"hi.form.placeholder": "message...",
-	"hi.form.buttonText": "send"
+	"hi.form.buttonText": "send",
+	"letConnect": "let's connect"
 }

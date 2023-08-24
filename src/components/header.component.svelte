@@ -5,7 +5,7 @@
 
 	const navContent: Array<{ href: string; name: MessageKeys }> = [
 		{ href: '/blogs', name: 'nav.blogs' },
-		{ href: '/hi', name: 'nav.hi' }
+		{ href: '/hi', name: 'nav.library' }
 	];
 </script>
 
@@ -17,10 +17,10 @@
 		{#each navContent as nav}
 			<div>
 				<a
-					title={nav.name}
+					title={$t(nav.name)}
 					href={nav.href}
-					class:text-violet-100={$page.url.pathname === nav.href}
-					class="font-bold lowercase text-violet-300 hover:text-violet-500 text-lg underline underline-offset-2 transition-all duration-200"
+					class:text-violet-700={$page.url.pathname === nav.href}
+					class="uppercase font-bold text-violet-300 hover:text-violet-500 text-lg underline underline-offset-2 transition-all duration-200"
 					>{$t(nav.name)}</a
 				>
 			</div>
