@@ -5,7 +5,7 @@
 
 	const navContent: Array<{ href: string; name: MessageKeys }> = [
 		{ href: '/blogs', name: 'nav.blogs' },
-		{ href: '/hi', name: 'nav.library' }
+		{ href: '/library', name: 'nav.library' }
 	];
 </script>
 
