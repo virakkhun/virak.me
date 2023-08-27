@@ -501,6 +501,20 @@ pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > spa
 	background-color: unset;
 }
 
+p[class='section'] {
+	@apply my-3;
+}
+
+p[id] a {
+	@apply text-gray-500 text-xl capitalize;
+}
+
+p[id] a::before {
+	content: '🔗 ';
+	font-size: 14px;
+	line-height: 0px;
+}
+
 p a {
 	@apply text-blue-500 hover:text-blue-700;
 }

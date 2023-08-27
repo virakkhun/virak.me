@@ -11,7 +11,7 @@
 
 <header class="flex justify-between items-center mt-8">
 	<a href="/">
-		<img src="/favicon.png" alt="virak's logo" width="42" height="42" />
+		<img src="/favicon.png" alt="virak's logo" width="42" height="42" loading="lazy" />
 	</a>
 	<div class="flex items-center gap-4">
 		{#each navContent as nav}

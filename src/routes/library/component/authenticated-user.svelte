@@ -12,5 +12,6 @@
 		width="32"
 		height="32"
 		class="rounded-full object-cover mx-2"
+		loading="lazy"
 	/>
 {/if}
