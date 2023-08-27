@@ -8,6 +8,10 @@
 	export let data: PageServerData;
 </script>
 
+<svelte:head>
+	<title>Virak Khun</title>
+</svelte:head>
+
 <div class="flex justify-center items-center mt-20 relative">
 	<div
 		class="flex flex-col gap-4 items-center md:w-1/2 w-full md:px-0 px-4 text-lg text-center z-50"

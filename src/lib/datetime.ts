@@ -8,8 +8,8 @@ export const DT = {
 			timeZone: timeZone,
 			formatMatcher: 'best fit'
 		}),
-	diff: (date: string) => {
-		const todayTime = new Date().getTime();
+	diff: (date: string, today = new Date().toString()) => {
+		const todayTime = new Date(today).getTime();
 		const pastTime = new Date(date).getTime();
 		const diffTime = todayTime - pastTime;
 		const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -18,10 +18,10 @@ export const DT = {
 		const weeks = Math.floor(days / 7);
 		const months = Math.floor(weeks / 4);
 
-		if (minutes > 60) return `${hours}h ago`;
-		if (hours > 24) return `${days}d ago`;
-		if (days > 7) return `${weeks}w ago`;
-		if (weeks >= 4) `${months}s ago`;
+		if (weeks >= 4) return `${months}m ago`;
+		if (days >= 7) return `${weeks}w ago`;
+		if (hours >= 24) return `${days}d ago`;
+		if (minutes >= 60) return `${hours}h ago`;
 		return `${minutes}min ago`;
 	}
 };

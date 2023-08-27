@@ -12,5 +12,7 @@
 
 <div class="mt-10">
 	<BlogTitle />
-	<BlogList blogList={data.blogs} />
+	{#if data.blogs}
+		<BlogList blogList={data.blogs} />
+	{/if}
 </div>

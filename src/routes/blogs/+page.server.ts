@@ -11,6 +11,8 @@ export const load = (async () => {
 		blogs: blogs?.map(({ tags, ...rest }) => ({
 			...rest,
 			tags: tags.replace(/(\[|\]|"|\s+)/g, '').split(',')
-		})) as Array<Pick<Blog, 'created_at' | 'desc' | 'title' | 'id'> & { tags: Array<string> }>
+		})) as Array<
+			Pick<Blog, 'created_at' | 'desc' | 'title' | 'id' | 'view'> & { tags: Array<string> }
+		>
 	};
 }) satisfies PageServerLoad;
