@@ -12,7 +12,13 @@
 			target="_blank"
 			class="border border-emerald-500/10 bg-emerald-900/10 backdrop-blur-md w-32 h-32 rounded-md flex justify-center items-center hover:drop-shadow-emerald transition-all duration-300"
 		>
-			<img src={SOCIAL_LINK_ICON[link.title]} alt={link.link} width="24" height="24" />
+			<img
+				src={SOCIAL_LINK_ICON[link.title]}
+				alt={link.link}
+				width="24"
+				height="24"
+				loading="lazy"
+			/>
 		</a>
 	{/each}
 </div>

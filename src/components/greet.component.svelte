@@ -12,3 +12,6 @@
 <p>
 	{@html $t('author.job')}
 </p>
+<a href="/abouts" class="bg-orange-500 px-4 py-1 rounded-md hover:drop-shadow-emerald"
+	>{$t('aboutMe')}</a
+>

@@ -61,6 +61,7 @@
 		anchors.forEach((a) => {
 			if (a.parentElement?.nodeName === 'P') {
 				a.parentElement.id = new URL(a.href).hash.replace('#', '');
+				a.parentElement.className = 'section';
 			}
 		});
 	}

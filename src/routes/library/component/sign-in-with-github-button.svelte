@@ -10,5 +10,5 @@
 	href={ghOAuthUrl}
 >
 	<span>Sign In</span>
-	<img src={GithubIcon} alt="github's icon" width="24" height="24" />
+	<img src={GithubIcon} alt="github's icon" width="24" height="24" loading="lazy" />
 </a>
