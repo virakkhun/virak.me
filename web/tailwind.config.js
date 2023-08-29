@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'../ui/**/*.svelte',
-		'../dashboard/**/*.{html,jsx,tsx}'
-	],
+	content: ['./src/**/*.{html,js,svelte,ts}', '../ui/**/*.svelte'],
 	theme: {
 		extend: {
 			dropShadow: {
