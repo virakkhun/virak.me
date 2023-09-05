@@ -2,16 +2,16 @@ import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 
 import "web/src/app.css";
-import { HomeRoutes } from "./modules/homes/home.route";
 import { RootModule } from "./modules/root/root.module";
-import { BlogsRoutes } from "./modules/blogs/blogs.route";
+import { HomeModule } from "./modules/homes/home.module";
+import { BlogsModule } from "./modules/blogs/blogs.module";
 
 render(
   () => (
     <Router>
       <RootModule>
-        <HomeRoutes />
-        <BlogsRoutes />
+        <HomeModule />
+        <BlogsModule />
       </RootModule>
     </Router>
   ),

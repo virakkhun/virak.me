@@ -31,7 +31,7 @@ export function MiniUserProfileComponent({
         } justify-center gap-2`}
       >
         <p class="font-bold text-xl">{name}</p>
-        <p class="text-base text-gray-400">{position}</p>
+        <p class="text-base text-accent">{position}</p>
       </div>
     </div>
   );
