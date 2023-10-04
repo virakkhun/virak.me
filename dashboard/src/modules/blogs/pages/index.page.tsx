@@ -5,6 +5,7 @@ import { BlogService } from "../domain/blogs.service";
 
 function BlogsIndexPage() {
   const [blogList] = createResource(BlogService);
+
   return (
     <BlogWrapper>
       <Show when={!!blogList()}>

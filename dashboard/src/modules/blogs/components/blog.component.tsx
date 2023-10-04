@@ -1,14 +1,18 @@
+import { A } from "@solidjs/router";
 import { JSXElement } from "solid-js";
 
 interface Props {
+  blogId?: number;
   children: JSXElement;
 }
 
-export function BlogCard({ children }: Props) {
+export function BlogCard({ children, blogId }: Props) {
   return (
-    <div class="rounded-md p-4 bg-secondary cursor-pointer hover:shadow-md hover:shadow-default/5 transition-all duration-300">
-      {children}
-    </div>
+    <A href={`/blog/${blogId}`}>
+      <div class="rounded-md p-4 bg-secondary cursor-pointer hover:shadow-md hover:shadow-default/5 transition-all duration-300">
+        {children}
+      </div>
+    </A>
   );
 }
 
