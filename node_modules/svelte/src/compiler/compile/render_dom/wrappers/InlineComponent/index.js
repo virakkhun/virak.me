@@ -105,14 +105,19 @@ export default class InlineComponentWrapper extends Wrapper {
 		this.slots.set(name, slot_definition);
 	}
 	warn_if_reactive() {
-		const { name } = this.node;
-		const variable = this.renderer.component.var_lookup.get(name);
+		let { name } = this.node;
+		const top = name.split('.')[0]; // <T.foo/> etc. should check for T instead of "T.foo"
+		const variable = this.renderer.component.var_lookup.get(top);
 		if (!variable) {
 			return;
 		}
 		const ignores = extract_ignores_above_node(this.node);
 		this.renderer.component.push_ignores(ignores);
-		if (variable.reassigned || variable.export_name || variable.is_reactive_dependency) {
+		if (
+			variable.reassigned ||
+			variable.export_name || // or a prop
+			variable.mutated
+		) {
 			this.renderer.component.warn(this.node, compiler_warnings.reactive_component(name));
 		}
 		this.renderer.component.pop_ignores();
@@ -268,6 +273,21 @@ export default class InlineComponentWrapper extends Wrapper {
 				`);
 				if (all_dependencies.size) {
 					const condition = renderer.dirty(Array.from(all_dependencies));
+					if (this.node.name === 'svelte:component') {
+						// statements will become switch_props function body
+						// rewrite last statement, add props update logic
+						statements[statements.length - 1] = b`
+							if (#dirty !== undefined && ${condition}) {
+								${props} = @get_spread_update(${levels}, [
+									${changes}
+								]);
+							} else {
+								for (let #i = 0; #i < ${levels}.length; #i += 1) {
+									${props} = @assign(${props}, ${levels}[#i]);
+								}
+							}
+						`;
+					}
 					updates.push(b`
 						const ${name_changes} = ${condition} ? @get_spread_update(${levels}, [
 							${changes}
@@ -396,7 +416,7 @@ export default class InlineComponentWrapper extends Wrapper {
 			block.chunks.init.push(b`
 				var ${switch_value} = ${snippet};
 
-				function ${switch_props}(#ctx) {
+				function ${switch_props}(#ctx, #dirty) {
 					${
 						(this.node.attributes.length > 0 || this.node.bindings.length > 0) &&
 						b`
@@ -436,11 +456,6 @@ export default class InlineComponentWrapper extends Wrapper {
 					b`if (${name}) @claim_component(${name}.$$.fragment, ${claim_nodes});`
 				);
 			}
-			if (updates.length) {
-				block.chunks.update.push(b`
-					${updates}
-				`);
-			}
 			const tmp_anchor = this.get_or_create_anchor(block, parent_node, parent_nodes);
 			const anchor = has_css_custom_properties ? 'null' : tmp_anchor;
 			const update_mount_node = has_css_custom_properties
@@ -469,7 +484,7 @@ export default class InlineComponentWrapper extends Wrapper {
 
 					if (${switch_value}) {
 						${update_insert}
-						${name} = @construct_svelte_component(${switch_value}, ${switch_props}(#ctx));
+						${name} = @construct_svelte_component(${switch_value}, ${switch_props}(#ctx, #dirty));
 
 						${munged_bindings}
 						${munged_handlers}
@@ -481,6 +496,7 @@ export default class InlineComponentWrapper extends Wrapper {
 						${name} = null;
 					}
 				} else if (${switch_value}) {
+					${updates}
 					${updates.length > 0 && b`${name}.$set(${name_changes});`}
 				}
 			`);

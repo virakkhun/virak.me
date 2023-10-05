@@ -71,12 +71,10 @@ export default class EachBlock extends AbstractBlock {
 			component,
 			context_rest_properties: this.context_rest_properties
 		});
-		this.contexts.forEach(
-			/** @param {any} context */ (context) => {
-				if (context.type !== 'DestructuredVariable') return;
-				this.scope.add(context.key.name, this.expression.dependencies, this);
-			}
-		);
+		this.contexts.forEach((context) => {
+			if (context.type !== 'DestructuredVariable') return;
+			this.scope.add(context.key.name, this.expression.dependencies, this);
+		});
 		if (this.index) {
 			// index can only change if this is a keyed each block
 			const dependencies = info.key ? this.expression.dependencies : new Set([]);
@@ -87,12 +85,11 @@ export default class EachBlock extends AbstractBlock {
 		[this.const_tags, this.children] = get_const_tags(info.children, component, this, this);
 		if (this.has_animation) {
 			this.children = this.children.filter(
-				/** @param {any} child */ (child) => !isEmptyNode(child) && !isCommentNode(child)
+				(child) => !is_empty_node(child) && !is_comment_node(child)
 			);
 			if (this.children.length !== 1) {
 				const child = this.children.find(
-					/** @param {any} child */ (child) =>
-						!!(/** @type {import('./Element.js').default} */ (child).animation)
+					(child) => !!(/** @type {import('./Element.js').default} */ (child).animation)
 				);
 				component.error(
 					/** @type {import('./Element.js').default} */ (child).animation,
@@ -107,11 +104,11 @@ export default class EachBlock extends AbstractBlock {
 }
 
 /** @param {import('./interfaces.js').INode} node */
-function isEmptyNode(node) {
+function is_empty_node(node) {
 	return node.type === 'Text' && node.data.trim() === '';
 }
 
 /** @param {import('./interfaces.js').INode} node */
-function isCommentNode(node) {
+function is_comment_node(node) {
 	return node.type === 'Comment';
 }
