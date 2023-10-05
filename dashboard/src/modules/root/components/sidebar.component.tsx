@@ -6,7 +6,7 @@ import { SidebarMenuComponent } from "./sidebar-menu.component";
 export function SideBarComponent() {
   return (
     <>
-      <div class="h-full w-full bg-green-200 p-10 flex flex-col justify-between">
+      <div class="h-full w-full bg-secondary p-10 flex flex-col justify-between">
         <div class="flex flex-col gap-10 items-center">
           <BrandComponent />
           <SidebarMenuComponent />

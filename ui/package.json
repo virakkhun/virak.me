@@ -16,6 +16,6 @@
 	],
 	"devDependencies": {
 		"class-variance-authority": "^0.7.0",
-		"svelte": "^4.0.5"
+		"svelte": "^4.2.1"
 	}
 }

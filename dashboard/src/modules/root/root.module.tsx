@@ -11,7 +11,7 @@ export function RootModule({ children }: Props) {
       <div class="col-start-1 col-end-3">
         <SideBarComponent />
       </div>
-      <div class="col-start-3 col-end-12 p-10">{children}</div>
+      <div class="col-start-3 col-end-13 p-10">{children}</div>
     </div>
   );
 }
