@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
 import { GITHUB_API } from '../../../shared/constants/github-app';
+import type { RequestHandler } from './$types';
 
 export const GET = (async ({ fetch, cookies }) => {
 	const url = `${GITHUB_API}/user`;
