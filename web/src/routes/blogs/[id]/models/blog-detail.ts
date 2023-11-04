@@ -1,4 +1,3 @@
-import type { JoinType } from '$lib';
 import type { Blog } from '../../models/blog';
 
-export type BlogDetail = JoinType<Blog, { content: string; author: string }>;
+export type BlogDetail = Blog & { content: string; author: string };

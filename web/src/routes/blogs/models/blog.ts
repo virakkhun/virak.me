@@ -5,6 +5,7 @@ export type Blog = {
 	created_at: string;
 	tags: string;
 	view: number;
+	content: string;
 };
 
 export type Blogs = Array<Blog>;

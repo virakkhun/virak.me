@@ -1,6 +1,6 @@
 import { supabaseClient } from "../../../shared/services/supabase-client.service";
 
-export const createBlogService = async (fd: FormData) => {
+export const editBlogService = async (fd: FormData, id: string) => {
   const title = fd.get("title");
   const author = fd.get("author");
   const tags = fd.get("tags");
@@ -9,5 +9,6 @@ export const createBlogService = async (fd: FormData) => {
 
   return await supabaseClient
     .from("blogs")
-    .insert({ title, author, tags, desc, content });
+    .update({ title, author, tags, desc, content })
+    .eq("id", id);
 };
