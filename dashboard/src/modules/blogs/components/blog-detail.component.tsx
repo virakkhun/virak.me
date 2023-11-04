@@ -13,10 +13,13 @@ function Title({ children }: Props) {
 }
 
 function Desc({ children }: Props) {
-  return (
-    <p class="text-base text-secondary truncate text-ellipsis">{children}</p>
-  );
+  return <p class="text-base text-accent truncate text-ellipsis">{children}</p>;
+}
+
+function Detail({ children }: Props) {
+  return <div class="mt-10">{children}</div>;
 }
 
 BlogDetail["Title"] = Title;
 BlogDetail["Desc"] = Desc;
+BlogDetail["Detail"] = Detail;

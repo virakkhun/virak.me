@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
 	import '../app.css';
-	import Cursor from '../components/cursor.component.svelte';
 	import Header from '../components/header.component.svelte';
-	import { cursor } from '../shared/browser/cursor-position';
 	
 	onNavigate((navigation) => {
 		if(!document.startViewTransition) return
@@ -46,10 +44,7 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<svelte:window on:mousemove={cursor} />
-
 <div class="relative container mx-auto lg:px-64 md:px-12 px-4">
 	<Header />
 	<slot />
 </div>
-<Cursor />
