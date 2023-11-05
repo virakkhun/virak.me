@@ -16,6 +16,10 @@ export const BlogsRoutes = () => {
         path="/blog/create"
         component={lazy(() => import("./pages/create.page"))}
       />
+      <Route
+        path="/blog/:id/edit"
+        component={lazy(() => import("./pages/edit.page"))}
+      />
     </>
   );
 };
