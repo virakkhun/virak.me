@@ -44,7 +44,5 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<main class="relative container mx-auto lg:px-64 md:px-12 px-4">
-	<Header />
-	<slot />
-</main>
+<Header />
+<slot />

@@ -9,7 +9,7 @@
 	];
 </script>
 
-<header class="flex justify-between items-center mt-8">
+<header class="flex justify-between items-center mt-8 container mx-auto lg:px-64 md:px-12 px-4">
 	<a href="/">
 		<img src="/favicon.png" alt="virak's logo" width="42" height="42" loading="lazy" />
 	</a>
