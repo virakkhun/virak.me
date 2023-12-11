@@ -2,7 +2,7 @@
 	import { t } from '../shared/services/i18n.service';
 </script>
 
-<section class="flex flex-col justify-center items-center gap-2">
+<section class="flex flex-col justify-center items-center gap-4">
 	<p>
 		{@html $t('author.job')}
 	</p>
