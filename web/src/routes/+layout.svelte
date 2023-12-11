@@ -2,17 +2,17 @@
 	import { onNavigate } from '$app/navigation';
 	import '../app.css';
 	import Header from '../components/header.component.svelte';
-	
+
 	onNavigate((navigation) => {
-		if(!document.startViewTransition) return
+		if (!document.startViewTransition) return;
 
 		return new Promise((resolve) => {
 			document.startViewTransition(async () => {
-				resolve()
-				await navigation.complete
-			})
-		})
-	})
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <svelte:head>
@@ -44,7 +44,7 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<div class="relative container mx-auto lg:px-64 md:px-12 px-4">
+<main class="relative container mx-auto lg:px-64 md:px-12 px-4">
 	<Header />
 	<slot />
-</div>
+</main>
