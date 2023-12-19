@@ -14,13 +14,13 @@
 	<title>Virak Khun</title>
 </svelte:head>
 
-<main class="px-4 mx-auto flex flex-col gap-4 justify-center items-center text-lg text-center z-50">
-	<Hero />
-	<Greet />
-	<DailyTool />
-	<SocialLink />
-</main>
+<Hero />
+<Greet />
+<DailyTool />
+<SocialLink />
 
-<Powered sha={data.sha} />
+<footer>
+	<Powered sha={data.sha} />
+</footer>
 
 <Backdrop />

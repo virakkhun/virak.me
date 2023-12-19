@@ -44,5 +44,15 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<Header />
-<slot />
+<main class="layout-wrapper">
+	<div class="relative lg:px-64 md:px-12 px-4">
+		<Header />
+		<slot />
+	</div>
+
+	<svg>
+		<filter id="noiseFilter">
+			<feTurbulence type="fractalNoise" baseFrequency="0.6" stitchTiles="stitch" />
+		</filter>
+	</svg>
+</main>
