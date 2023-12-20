@@ -14,14 +14,14 @@
 	<p class="ml-4">
 		After graduation, I came to Phnom Penh to study Bachelor Degree. I joined Computer Science(CS)
 		back then which is now called Computer Science and Engineering(CSE) at
-		<a class="text-blue-300" href="https://www.rupp.edu.kh/">Royal University of Phnom Penh</a>.
+		<a class="text-blue-500" href="https://www.rupp.edu.kh/">Royal University of Phnom Penh</a>.
 	</p>
 	<p class="ml-4">
 		Based on my experience, CSE at RUPP was fun, also hard at the same time. School provided many
 		good courses such as <i>Data Structure and Algorithms</i>, <i>C#</i> and <i>JAVA</i>. I joined
 		CS at Generation 22nd, the first year I found that Math Computing is the hardest on among other
 		course,
-		<a class="text-blue-300" href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> is the
+		<a class="text-blue-500" href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> is the
 		most fundamental to get started in Programming, I found it was very hard to catch up. fun fact, at
 		the very first session in the lab I couldn't write the Hello World Program.
 	</p>
@@ -29,8 +29,8 @@
 	<p class="ml-4">
 		Second year, the year that was pretty hard for me <i>Data Structure and Algorithms</i> I was
 		introduced to
-		<a class="text-blue-300" href="https://www.geeksforgeeks.org/stack-data-structure/">Stack</a>,
-		<a class="text-blue-300" href="https://www.programiz.com/dsa/trees">Tree</a>, Queued,
+		<a class="text-blue-500" href="https://www.geeksforgeeks.org/stack-data-structure/">Stack</a>,
+		<a class="text-blue-500" href="https://www.programiz.com/dsa/trees">Tree</a>, Queued,
 		LinkedList, etc... but I can get 40% maybe out of it. C++ was introduced too but a very basic
 		one but it still doesn't make sense to me. First semester went well and then pandemic hit. I
 		went back to hometown, online class was pretty hard and we didn't get enough sessions from
