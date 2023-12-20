@@ -19,8 +19,8 @@
 			<a
 				title={$t(nav.name)}
 				href={nav.href}
-				class:text-violet-700={$page.url.pathname === nav.href}
-				class="lowercase font-bold text-violet-300 hover:text-violet-500 text-lg underline underline-offset-2 transition-all duration-200"
+				class:text-green-100={$page.url.pathname === nav.href}
+				class="lowercase font-bold text-green-200 hover:text-green-300 text-lg underline underline-offset-2 transition-all duration-200"
 				>{$t(nav.name)}</a
 			>
 		{/each}
