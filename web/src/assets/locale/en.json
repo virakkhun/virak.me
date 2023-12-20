@@ -6,7 +6,7 @@
 	"blog.title": "Welcome to Blogs",
 	"blogs.message": "There are some blogs in the future... 😁",
 	"nav.blogs": "Blogs",
-	"nav.library": "Library",
+	"nav.guest": "Guests",
 	"form.required": "{{message}} is required",
 	"hi.title": "Hi, glad to have you here...",
 	"hi.hi": "Hi {{username}}",

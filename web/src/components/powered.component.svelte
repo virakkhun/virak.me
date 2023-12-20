@@ -8,7 +8,7 @@
 <div class="md:text-sm text-xs flex flex-col justify-center items-center w-full my-2">
 	<div class="flex justify-center items-center gap-2 w-full mt-32">
 		<p class="flex items-center gap-2">
-			{@html $t('frameworkRef')}
+			<span>{@html $t('frameworkRef')}</span>
 			<a
 				href="https://kit.svelte.dev"
 				target="_blank"
@@ -16,6 +16,7 @@
 			>
 				<div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
 					<img
+						class="w-4 h-4"
 						src="https://a.storyblok.com/f/88751/1702x2049/619c584101/svelte_logo.png"
 						alt="sveltekit's logo"
 						width="16"
@@ -34,7 +35,7 @@
 				class="text-orange-600 font-bold hover:text-orange-700 duration-200"
 			>
 				<div class="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-					<img src={VercelLogo} alt="vercel's logo" width="16" height="16" />
+					<img src={VercelLogo} alt="vercel's logo" class="w-4 h-4" width="16" height="16" />
 				</div>
 			</a>
 		</p>

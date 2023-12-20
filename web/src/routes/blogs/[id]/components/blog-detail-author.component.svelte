@@ -1,8 +1,12 @@
 <script lang="ts">
+	import { DT } from '$lib/datetime';
+
 	export let authorName: string;
+	export let publishedDate: string;
 </script>
 
-<div class="flex items-center gap-2">
-	<span class="text-gray-200 italic">author:</span>
+<p class="flex items-center justify-start gap-2 text-gray-600">
 	<span class="font-bold">{authorName}</span>
-</div>
+	<span>-</span>
+	<span class="">{DT.parse(publishedDate)}</span>
+</p>
