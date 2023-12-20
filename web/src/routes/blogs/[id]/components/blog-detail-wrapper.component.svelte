@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { updateBlogView } from '../../services/update-view.service';
-	import { browser } from '$app/environment';
 
 	export let blogID: number;
 	export let blogView: number;
@@ -13,6 +13,6 @@
 	});
 </script>
 
-<div class="my-10 flex flex-col gap-2">
+<div class="my-10 flex flex-col gap-2 code-wrapper">
 	<slot />
 </div>

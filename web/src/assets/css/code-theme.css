@@ -51,8 +51,20 @@ pre[class*='language-'] {
 	hyphens: none;
 }
 
+.code-wrapper h1 {
+	@apply text-3xl text-gray-400 mt-2 italic;
+}
+
+.code-wrapper h2 {
+	@apply text-2xl text-gray-400 mt-2 italic;
+}
+
+.code-wrapper h3 {
+	@apply text-xl text-gray-400 mt-2 italic;
+}
+
 p code {
-	@apply rounded-md p-2 my-4;
+	@apply px-1.5 rounded-md;
 }
 
 /* Selection */
