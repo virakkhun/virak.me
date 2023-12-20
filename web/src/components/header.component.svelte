@@ -5,7 +5,8 @@
 
 	const navContent: Array<{ href: string; name: MessageKeys }> = [
 		{ href: '/blogs', name: 'nav.blogs' },
-		{ href: '/library', name: 'nav.library' }
+		{ href: '/guests', name: 'nav.guest' },
+		{ href: '/abouts', name: 'aboutMe' }
 	];
 </script>
 
@@ -15,17 +16,14 @@
 	</a>
 	<div class="flex items-center gap-4">
 		{#each navContent as nav}
-			<div>
-				<a
-					title={$t(nav.name)}
-					href={nav.href}
-					class:text-violet-700={$page.url.pathname === nav.href}
-					class="uppercase font-bold text-violet-300 hover:text-violet-500 text-lg underline underline-offset-2 transition-all duration-200"
-					>{$t(nav.name)}</a
-				>
-			</div>
+			<a
+				title={$t(nav.name)}
+				href={nav.href}
+				class:text-violet-700={$page.url.pathname === nav.href}
+				class="lowercase font-bold text-violet-300 hover:text-violet-500 text-lg underline underline-offset-2 transition-all duration-200"
+				>{$t(nav.name)}</a
+			>
 		{/each}
-		<div>|</div>
 		<I18n />
 	</div>
 </header>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Backdrop from '../components/backdrop.component.svelte';
 	import DailyTool from '../components/daily-tool.component.svelte';
-	import Greet from '../components/greet.component.svelte';
 	import Hero from '../components/hero.component.svelte';
 	import Powered from '../components/powered.component.svelte';
 	import SocialLink from '../components/social-link.component.svelte';
@@ -15,7 +14,6 @@
 </svelte:head>
 
 <Hero />
-<Greet />
 <DailyTool />
 <SocialLink />
 
