@@ -3,9 +3,10 @@ export type Blog = {
 	title: string;
 	desc: string;
 	created_at: string;
-	tags: string;
+	tags: string | string[];
 	view: number;
 	content: string;
+	slug: string;
 };
 
-export type Blogs = Array<Blog>;
+export type Blogs = Blog[];

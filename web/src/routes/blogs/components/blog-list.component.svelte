@@ -15,7 +15,7 @@
 	<div class="flex flex-col gap-4 mt-10">
 		{#each blogList as blogItem}
 			<a
-				href="/blogs/{blogItem.id}"
+				href="/blogs/{blogItem.slug}"
 				class="flex flex-col gap-2 bg-gray-800 p-4 rounded-md filter hover:drop-shadow-3xl transition-all duration-300"
 			>
 				<span class="font-bold text-xl">{blogItem.title}</span>

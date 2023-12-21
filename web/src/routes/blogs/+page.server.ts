@@ -1,6 +1,7 @@
 import { supabaseClient } from '$lib/supabase-client';
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from '../$types';
 import type { Blog } from './models/blog';
+import { blogTitleIdToSlug } from './utils/blog-title-id-to-slug.util';
 
 export const load = (async () => {
 	const { data: blogs } = await supabaseClient
@@ -10,9 +11,8 @@ export const load = (async () => {
 	return {
 		blogs: blogs?.map(({ tags, ...rest }) => ({
 			...rest,
-			tags: tags.replace(/(\[|\]|"|\s+)/g, '').split(',')
-		})) as Array<
-			Pick<Blog, 'created_at' | 'desc' | 'title' | 'id' | 'view'> & { tags: Array<string> }
-		>
+			tags: typeof tags === 'string' ? tags.replace(/(\[|\]|"|\s+)/g, '').split(',') : [''],
+			slug: blogTitleIdToSlug(rest.title, rest.id)
+		}))
 	};
 }) satisfies PageServerLoad;
