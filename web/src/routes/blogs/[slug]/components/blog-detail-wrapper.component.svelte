@@ -3,13 +3,13 @@
 	import { onMount } from 'svelte';
 	import { updateBlogView } from '../../services/update-view.service';
 
-	export let blogID: number;
+	export let blogID: number | string;
 	export let blogView: number;
 
 	onMount(async () => {
 		if (!browser) return;
-
-		await updateBlogView(blogID, blogView);
+		const blogId = typeof blogID === 'number' ? blogID : parseInt(blogID);
+		await updateBlogView(blogId ?? 0, blogView);
 	});
 </script>
 
