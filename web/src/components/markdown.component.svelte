@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '../assets/css/code-theme.css';
-	import { markdownParser } from '$lib/markdown-parser';
 	import { browser } from '$app/environment';
+	import { markdownParser } from '$lib/markdown-parser';
+	import '../assets/css/shade-of-purple.css';
 
 	const REGEX = /(`{3}\w{1})/g;
 
