@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { createEventDispatcher } from 'svelte';
 	import { t, type MessageKeys } from '../../shared/services/i18n.service';
 	import I18n from '../i18n.component.svelte';
 
-	const navContent: Array<{ href: string; name: MessageKeys }> = [
+	const dispatch = createEventDispatcher();
+
+	const navContent: { href: string; name: MessageKeys }[] = [
 		{ href: '/blogs', name: 'nav.blogs' },
 		{ href: '/guests', name: 'nav.guest' },
 		{ href: '/abouts', name: 'aboutMe' }
@@ -16,7 +19,7 @@
 		href={nav.href}
 		class:text-green-100={$page.url.pathname === nav.href}
 		class="lowercase font-bold text-green-200 hover:text-green-300 text-lg underline underline-offset-2 transition-all duration-200"
-		>{$t(nav.name)}</a
+		on:click={() => dispatch('onNavItemClick')}>{$t(nav.name)}</a
 	>
 {/each}
-<I18n />
+<I18n on:onClick={() => dispatch('onNavItemClick')} />
