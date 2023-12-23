@@ -26,7 +26,7 @@
 			transition:slide={{ duration: 300, axis: 'y', delay: 0, easing: linear }}
 			class="z-10 fixed top-0 left-0 w-full h-screen p-4 flex flex-col justify-center items-center gap-4 bg-gray-900"
 		>
-			<Menu />
+			<Menu on:onNavItemClick={toggleMenu} />
 			<CloseMenuButton on:onClick={toggleMenu} />
 		</div>
 	{/if}

@@ -1,12 +1,15 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { LOCALE_MAP } from '../shared/constants/locale-map';
 	import type { Locale } from '../shared/models/locale';
 	import { locale } from '../shared/services/i18n.service';
 
+	const dispatch = createEventDispatcher();
+
 	function setLocale(l: Locale) {
 		$locale = l;
 		localStorage.setItem('locale', $locale);
+		dispatch('onClick');
 	}
 
 	onMount(() => {
