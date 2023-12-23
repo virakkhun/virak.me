@@ -1,29 +1,33 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { t, type MessageKeys } from '../shared/services/i18n.service';
-	import I18n from './i18n.component.svelte';
+	import { linear } from 'svelte/easing';
+	import { slide } from 'svelte/transition';
+	import CloseMenuButton from './nav/close-menu-button.component.svelte';
+	import MenuMobileToggleButton from './nav/menu-mobile-toggle-button.component.svelte';
+	import Menu from './nav/menu.component.svelte';
+	import VirakLogo from './nav/virak-logo.component.svelte';
 
-	const navContent: Array<{ href: string; name: MessageKeys }> = [
-		{ href: '/blogs', name: 'nav.blogs' },
-		{ href: '/guests', name: 'nav.guest' },
-		{ href: '/abouts', name: 'aboutMe' }
-	];
+	let isShowMenu: boolean = false;
+
+	function toggleMenu() {
+		isShowMenu = !isShowMenu;
+	}
 </script>
 
 <header class="flex justify-between items-center mt-8">
-	<a href="/">
-		<img src="/favicon.png" alt="virak's logo" width="42" height="42" loading="lazy" />
-	</a>
-	<div class="flex items-center gap-4">
-		{#each navContent as nav}
-			<a
-				title={$t(nav.name)}
-				href={nav.href}
-				class:text-green-100={$page.url.pathname === nav.href}
-				class="lowercase font-bold text-green-200 hover:text-green-300 text-lg underline underline-offset-2 transition-all duration-200"
-				>{$t(nav.name)}</a
-			>
-		{/each}
-		<I18n />
+	<VirakLogo />
+	<div class="hidden md:flex items-center gap-4">
+		<Menu />
 	</div>
+
+	<MenuMobileToggleButton on:onClick={toggleMenu} />
+
+	{#if isShowMenu}
+		<div
+			transition:slide={{ duration: 300, axis: 'y', delay: 0, easing: linear }}
+			class="z-10 fixed top-0 left-0 w-full h-screen p-4 flex flex-col justify-center items-center gap-4 bg-gray-900"
+		>
+			<Menu />
+			<CloseMenuButton on:onClick={toggleMenu} />
+		</div>
+	{/if}
 </header>
