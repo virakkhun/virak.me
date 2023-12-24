@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "web:dev": "yarn --cwd web dev",
-    "web:build": "yarn --cwd web build",
-    "web:preview": "yarn --cwd web preview",
-    "web:check": "yarn --cwd web svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "web:check:watch": "yarn --cwd web svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "web:test": "yarn --cwd web vitest",
-    "web:lint": "yarn --cwd web prettier --plugin-search-dir . --check . && eslint .",
-    "web:format": "yarn --cwd web prettier --plugin-search-dir . --write ."
+    "dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"test": "vitest",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^3.1.0",
@@ -30,12 +30,12 @@
     "tslib": "^2.6.2",
     "typescript": "^5.3.2",
     "vite": "^4.0.0",
-    "vitest": "^0.34.6"
+    "vitest": "^0.34.6",
+    "class-variance-authority": "0.7.0"
   },
   "type": "module",
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
-    "@ui/virak.me": "1.0.0",
     "refractor": "^4.8.1",
     "rehype-format": "^5.0.0",
     "rehype-prism-plus": "^1.6.3",
@@ -44,9 +44,5 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "unified": "^11.0.4"
-  },
-  "workspaces": [
-    "ui",
-    "web"
-  ]
+  }
 }

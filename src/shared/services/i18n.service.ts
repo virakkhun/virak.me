@@ -1,7 +1,7 @@
 import { derived, writable } from 'svelte/store';
 
-import en from '../../../src/assets/locale/en.json';
-import kh from '../../../src/assets/locale/kh.json';
+import en from '../../assets/locale/en.json';
+import kh from '../../assets/locale/kh.json';
 import type { I18nMessage, Locale } from '../models/locale';
 
 export type MessageKeys = keyof typeof en;

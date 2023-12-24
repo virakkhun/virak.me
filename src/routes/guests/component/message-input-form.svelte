@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { Input } from '@ui/virak.me/src/input';
-	import { Button } from '@ui/virak.me/src/button';
-	import { userStore } from '../../../shared/store/user.store';
 	import { t } from '../../../shared/services/i18n.service';
+	import { userStore } from '../../../shared/store/user.store';
+	import { Button, Input } from '../../../shared/ui';
 
 	let isUserNotExist: boolean;
 	$: isUserNotExist = !$userStore;
