@@ -1,5 +1,6 @@
 <script lang="ts">
 	import VercelLogo from '../assets/icons/vercel.svg';
+	import SvelteLogo from '../assets/images/svelte_logo.png';
 	import { GITHUB_COMMIT_SHA } from '../shared/constants/github-app';
 	import { t } from '../shared/services/i18n.service';
 	export let sha: string | undefined;
@@ -16,11 +17,11 @@
 			>
 				<div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
 					<img
-						class="w-4 h-4"
-						src="https://a.storyblok.com/f/88751/1702x2049/619c584101/svelte_logo.png"
-						alt="sveltekit's logo"
+						class="w-4"
 						width="16"
-						height="16"
+						height="auto"
+						src={SvelteLogo}
+						alt="svelte's logo"
 						loading="lazy"
 					/>
 				</div>

@@ -5,7 +5,7 @@
 </script>
 
 <p class="text-center text-2xl mt-40">{$t('letConnect')}</p>
-<div class="flex justify-center items-center gap-2 mt-2">
+<div class="flex justify-center items-center gap-2 mt-4">
 	{#each SOCIAL_LINK_LIST as link}
 		<a
 			href={link.link}
