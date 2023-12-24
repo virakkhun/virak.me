@@ -2,6 +2,7 @@
 	import Backdrop from '../components/backdrop.component.svelte';
 	import DailyTool from '../components/daily-tool.component.svelte';
 	import Hero from '../components/hero.component.svelte';
+	import LatestBlogs from '../components/latest-blogs.component.svelte';
 	import Powered from '../components/powered.component.svelte';
 	import SocialLink from '../components/social-link.component.svelte';
 	import type { PageServerData } from './$types';
@@ -14,11 +15,8 @@
 </svelte:head>
 
 <Hero />
+<LatestBlogs lastTwoBlogPosts={data.latestTwoBlogs} />
 <DailyTool />
 <SocialLink />
-
-<footer>
-	<Powered sha={data.sha} />
-</footer>
-
+<Powered sha={data.sha} />
 <Backdrop />

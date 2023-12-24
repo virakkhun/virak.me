@@ -1,10 +1,12 @@
 import { supabaseClient } from '$lib';
 import { error } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
-import type { VisitorMessages } from './models/visitor-message';
+import type { VisitorMessage } from './models/visitor-message';
 
 export const load: PageServerLoad = async () => {
-	const { data } = await supabaseClient.from('visitor-messages').select<'*', VisitorMessages>('*');
+	const { data } = await supabaseClient
+		.from('visitor-messages')
+		.select<'visitor_name,message,created_at', VisitorMessage>('visitor_name,message,created_at');
 
 	return { visitorMessages: data };
 };

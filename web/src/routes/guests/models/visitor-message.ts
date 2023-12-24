@@ -4,4 +4,4 @@ export type VisitorMessage = {
 	created_at: string;
 };
 
-export type VisitorMessages = Array<VisitorMessage>;
+export type VisitorMessages = VisitorMessage[];
