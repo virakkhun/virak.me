@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { LOCALE_MAP } from '../shared/constants/locale-map';
 	import type { Locale } from '../shared/models/locale';
 	import { locale } from '../shared/services/i18n.service';
 
@@ -19,6 +18,6 @@
 </script>
 
 <button
-	class="text-sm w-16 text-center px-1.5 py-1 rounded-full"
-	on:click={() => setLocale($locale === 'en' ? 'kh' : 'en')}>{LOCALE_MAP[$locale]}</button
+	class="text-sm w-8 h-8 bg-green-500/10 border border-white/10 rounded-full flex justify-center items-center"
+	on:click={() => setLocale($locale === 'en' ? 'kh' : 'en')}>{$locale}</button
 >
