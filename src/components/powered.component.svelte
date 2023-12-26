@@ -1,6 +1,6 @@
 <script lang="ts">
+	import SvelteLogo from '../assets/icons/svelteLogo.svg';
 	import VercelLogo from '../assets/icons/vercel.svg';
-	import SvelteLogo from '../assets/images/svelte_logo.png';
 	import { GITHUB_COMMIT_SHA } from '../shared/constants/github-app';
 	import { t } from '../shared/services/i18n.service';
 	export let sha: string | undefined;
@@ -17,9 +17,9 @@
 			>
 				<div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
 					<img
-						class="w-4"
+						class="w-4 h-4"
 						width="16"
-						height="auto"
+						height="16"
 						src={SvelteLogo}
 						alt="svelte's logo"
 						loading="lazy"

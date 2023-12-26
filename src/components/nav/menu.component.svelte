@@ -18,7 +18,7 @@
 		title={$t(nav.name)}
 		href={nav.href}
 		class:text-green-100={$page.url.pathname === nav.href}
-		class="lowercase font-bold text-green-200 hover:text-green-300 text-lg underline underline-offset-2 transition-all duration-200"
+		class="lowercase font-bold text-green-500 hover:text-green-400 text-lg underline underline-offset-2 transition-all duration-200"
 		on:click={() => dispatch('onNavItemClick')}>{$t(nav.name)}</a
 	>
 {/each}
