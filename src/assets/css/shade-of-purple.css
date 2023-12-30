@@ -221,14 +221,9 @@ p[class='section'] {
 	@apply my-3;
 }
 
-p[id] a {
-	@apply text-gray-500 text-xl capitalize;
-}
-
-p[id] a::before {
-	content: '🔗 ';
-	font-size: 14px;
-	line-height: 0px;
+p[id],
+ul li > a {
+	@apply text-base text-blue-500;
 }
 
 p a {

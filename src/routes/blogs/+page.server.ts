@@ -6,7 +6,8 @@ import { blogTitleIdToSlug } from './utils/blog-title-id-to-slug.util';
 export const load = (async () => {
 	const { data: blogs } = await supabaseClient
 		.from('blogs')
-		.select<'id,title,desc,created_at,tags,view', Blog>('id,title,desc,created_at,tags,view');
+		.select<'id,title,desc,created_at,tags,view', Blog>('id,title,desc,created_at,tags,view')
+		.order('created_at', { ascending: false });
 
 	return {
 		blogs: blogs?.map(({ tags, ...rest }) => ({
