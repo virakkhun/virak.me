@@ -47,10 +47,4 @@
 		</span>
 		<a href={`${GITHUB_COMMIT_SHA}${sha}`}>{sha}</a>
 	</div>
-	<div class="flex items-center text-sm gap-2">
-		<span>grainy effect inspired by: </span>
-		<a href="https://codepen.io/Juxtopposed/pen/PoyWzEq?editors=1100" class="text-blue-500"
-			>Juxtopposed's codepen</a
-		>
-	</div>
 </div>
