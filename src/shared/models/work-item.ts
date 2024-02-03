@@ -1,12 +1,12 @@
 type Company = {
-	title: string;
+	name: string;
 	link: string;
 };
 
-export type Experience = {
+export type WorkItem = {
 	title: string;
 	company: Company;
-	timePeriod: [string, string];
+	timePeriod: string;
 	skills: string[];
 	projectLinks: string[];
 	workDetail: string;
