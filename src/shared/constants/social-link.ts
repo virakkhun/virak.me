@@ -9,9 +9,9 @@ export const SOCIAL_LINK_LIST: SocialLinks = [
 		link: LINKEDIN,
 		title: SocialLinkTitle.LINKEDIN
 	},
-	{ link: X, title: SocialLinkTitle.X },
 	{
 		link: GITHUB,
 		title: SocialLinkTitle.GITHUB
-	}
+	},
+	{ link: X, title: SocialLinkTitle.X }
 ];
