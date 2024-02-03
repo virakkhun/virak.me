@@ -4,6 +4,7 @@ export default {
 	theme: {
 		colors: {
 			text: 'var(--text)',
+			'text-secondary': 'var(--text-secondary)',
 			background: 'var(--background)',
 			primary: 'var(--primary)',
 			secondary: 'var(--secondary)',

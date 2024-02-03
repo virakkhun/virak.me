@@ -1,21 +1,21 @@
-import type { Experience } from '../models/experience';
+import type { WorkItem } from '../models/work-item';
 
-export const EXPERIENCES: Experience[] = [
+export const WORK_ITEM_LIST: WorkItem[] = [
 	{
 		title: 'Software Engineer',
-		company: { title: 'Okoone', link: 'https://okoone.com' },
+		company: { name: 'Okoone', link: 'https://okoone.com' },
 		projectLinks: [''],
 		skills: ['Angular', 'TypeScript', 'Tailwind'],
-		timePeriod: ['2022', 'Present'],
+		timePeriod: 'present',
 		workDetail: ``,
 		isCurrent: true
 	},
 	{
 		title: 'Web Developer',
-		company: { title: 'OneSala', link: 'https://onesala.com' },
+		company: { name: 'OneSala', link: 'https://onesala.com' },
 		projectLinks: [''],
 		skills: ['Nuxt', 'Vue', 'UnoCSS', 'Tailwind'],
-		timePeriod: ['2021', '2022'],
+		timePeriod: '2022 ~ 2023',
 		workDetail: ``,
 		isCurrent: false
 	}

@@ -8,6 +8,7 @@
 @layer base {
 	:root {
 		--text: #08090c;
+		--text-secondary: #525252;
 		--background: #f6f6f9;
 		--primary: #5b65b3;
 		--secondary: #a1a9dd;
@@ -15,6 +16,7 @@
 	}
 	.dark {
 		--text: #f3f4f7;
+		--text-secondary: #525252;
 		--background: #060609;
 		--primary: #4c56a4;
 		--secondary: #222a5e;
