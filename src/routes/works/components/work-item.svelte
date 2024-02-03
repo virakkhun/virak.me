@@ -7,7 +7,7 @@
 <div class="flex flex-col justify-start items-start">
 	<p class="text-sm text-text-secondary">{props.timePeriod}</p>
 	<p class="text-2xl text-text font-semibold">{props.title}</p>
-	<div class="flex items-center gap-2 my-2">
+	<div class="flex items-center gap-2 my-2 lowercase">
 		{#each props.skills as skill}
 			<span class="text-base">{skill}</span>
 		{/each}
