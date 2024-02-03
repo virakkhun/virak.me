@@ -202,15 +202,15 @@ code.language-css .token.selector > .token.pseudo-element {
 }
 
 .code-wrapper h1 {
-	@apply text-3xl text-gray-400 mt-2 italic;
+	@apply text-3xl text-secondary mt-2 italic;
 }
 
 .code-wrapper h2 {
-	@apply text-2xl text-gray-400 mt-2 italic;
+	@apply text-2xl text-secondary mt-2 italic;
 }
 
 .code-wrapper h3 {
-	@apply text-xl text-gray-400 mt-2 italic;
+	@apply text-xl text-secondary mt-2 italic;
 }
 
 p code {
@@ -223,16 +223,16 @@ p[class='section'] {
 
 p[id],
 ul li > a {
-	@apply text-base text-blue-500;
+	@apply text-base text-accent;
 }
 
 p a {
-	@apply text-blue-500 hover:text-blue-700;
+	@apply text-accent hover:text-accent;
 }
 
 pre code span[line]::before {
 	content: attr(line);
-	@apply text-sm text-gray-400 pr-1 mr-4;
+	@apply text-sm text-secondary pr-1 mr-4;
 }
 
 p img {
@@ -260,19 +260,19 @@ table {
 }
 
 table thead tr {
-	@apply border border-white/20;
+	@apply border border-primary;
 }
 
 table tbody tr {
-	@apply border border-white/20;
+	@apply border border-primary;
 }
 
 table thead tr th {
-	@apply border border-white/20;
+	@apply border border-primary;
 }
 
 table tbody tr td {
-	@apply border border-white/20 pl-4;
+	@apply border border-primary pl-4;
 }
 
 hr {

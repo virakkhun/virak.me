@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
 	import '../app.css';
-	import Header from '../components/header.component.svelte';
 
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
@@ -44,15 +43,6 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<main class="layout-wrapper">
-	<div class="relative lg:px-64 md:px-12 px-4">
-		<Header />
-		<slot />
-	</div>
-
-	<svg>
-		<filter id="noiseFilter">
-			<feTurbulence type="fractalNoise" baseFrequency="0.6" stitchTiles="stitch" />
-		</filter>
-	</svg>
+<main class="bg-background container mx-auto md:px-24 px-4">
+	<slot />
 </main>
