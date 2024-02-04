@@ -1,16 +1,32 @@
 <script lang="ts">
-	import type { Work } from '../models/work-item';
+	import type { WorkItem } from '../../../shared/models/work-item';
 
-	export let props: Work;
+	export let props: WorkItem;
+	let isShowDetail: boolean = false;
+
+	function toggleDetail() {
+		isShowDetail = !isShowDetail;
+	}
 </script>
 
 <div class="flex flex-col justify-start items-start">
-	<p class="text-sm text-text-secondary">{props.timePeriod}</p>
-	<p class="text-2xl text-text font-semibold">{props.title}</p>
+	<p class="text-sm text-text-secondary">
+		{props.timePeriod}
+	</p>
+	<p class="text-2xl text-text font-semibold">
+		{props.title}
+		<a href={props.company.link} class="text-accent text-sm uppercase">{props.company.name}</a>
+	</p>
 	<div class="flex items-center gap-2 my-2 lowercase">
 		{#each props.skills as skill}
 			<span class="text-base">{skill}</span>
 		{/each}
 	</div>
-	<button class="text-accent text-sm">see more...</button>
+	{#if !isShowDetail}
+		<button class="text-accent text-sm" on:click={toggleDetail}>see more...</button>
+	{/if}
+
+	{#if isShowDetail}
+		{@html props.workDetail}
+	{/if}
 </div>
