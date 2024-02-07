@@ -4,7 +4,7 @@
 	const works = WORK_ITEM_LIST;
 </script>
 
-<div class="mt-20 flex flex-col gap-10">
+<div class="mt-10 flex flex-col gap-10">
 	{#each works as work}
 		<WorkItem props={work} />
 	{/each}
