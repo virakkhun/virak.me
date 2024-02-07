@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DT } from '$lib/datetime';
+	import { datetime } from '$lib/datetime';
 	import type { VisitorMessages } from '../models/visitor-message';
 
 	export let visitorMessages: VisitorMessages | null;
@@ -15,7 +15,7 @@
 				<span class="text-white/80 text-base">{vm.visitor_name}</span>
 				<span class="font-bold italic md:text-xl text-md">"{vm.message}"</span>
 				<div>
-					<span class="text-white/50">on {DT.parse(vm.created_at)}</span>
+					<span class="text-white/50">on {datetime.parse(vm.created_at)}</span>
 				</div>
 			</div>
 		{/each}

@@ -3,9 +3,9 @@
 	import { markdownParser } from '$lib/markdown-parser';
 	import '../assets/css/shade-of-purple.css';
 
-	const REGEX = /(`{3}\w{1})/g;
-
 	export let content: string;
+
+	const REGEX = /(`{3}\w{1})/g;
 	let markdownValue = '';
 	let showAlert = false;
 
@@ -74,7 +74,5 @@
 {@html markdownValue}
 
 {#if showAlert}
-	<span class="text-sm p-2 rounded-md fixed bottom-4 right-4 bg-black/20 backdrop-blur-md"
-		>copied to clipboard</span
-	>
+	<span class="text-sm p-2 rounded-md fixed bottom-4 right-4"> copied to clipboard </span>
 {/if}

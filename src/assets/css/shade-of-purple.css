@@ -201,16 +201,20 @@ code.language-css .token.selector > .token.pseudo-element {
 	content: '';
 }
 
+.code-wrapper blockquote {
+	@apply my-4 pl-4 border-l-4 border-accent;
+}
+
 .code-wrapper h1 {
-	@apply text-3xl text-secondary mt-2 italic;
+	@apply text-3xl mt-2 italic;
 }
 
 .code-wrapper h2 {
-	@apply text-2xl text-secondary mt-2 italic;
+	@apply text-2xl mt-2 italic;
 }
 
 .code-wrapper h3 {
-	@apply text-xl text-secondary mt-2 italic;
+	@apply text-xl mt-2 italic;
 }
 
 p code {
@@ -221,9 +225,15 @@ p[class='section'] {
 	@apply my-3;
 }
 
-p[id],
-ul li > a {
+p[class='section'] ul li > a {
 	@apply text-base text-accent;
+}
+
+p[class='section'] > code {
+	background-color: gray;
+	border-radius: 4px;
+	padding: 3px;
+	font-size: 14px;
 }
 
 p a {

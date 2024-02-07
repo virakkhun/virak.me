@@ -1,6 +1,6 @@
 const { timeZone, locale, numberingSystem } = Intl.DateTimeFormat().resolvedOptions();
 
-export const DT = {
+export const datetime = {
 	parse: (date: string) =>
 		new Date(date).toLocaleDateString(locale, {
 			dateStyle: 'medium',
