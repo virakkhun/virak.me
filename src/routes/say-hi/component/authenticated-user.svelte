@@ -5,7 +5,7 @@
 </script>
 
 {#if !!authenticatedUser}
-	<span class="uppercase text-2xl text-yellow-500 italic">{authenticatedUser.name}</span>
+	<span class="uppercase text-2xl">{authenticatedUser.name}</span>
 	<img
 		src={authenticatedUser.avatar_url}
 		alt={authenticatedUser.bio}
