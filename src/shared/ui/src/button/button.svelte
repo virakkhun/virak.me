@@ -6,11 +6,10 @@
 		variants: {
 			_intent: {
 				primary:
-					'border border-orange-500 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-transparent',
-				secondary:
-					'border border-orange-300 focus:ring-2 focus:ring-orange-200 focus:ring-offset-2',
-				solidPrimary: 'bg-orange-500 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2',
-				solidSecondary: 'bg-orange-300 focus:ring-2 focus:ring-orange-400 focus:ring-offset-2'
+					'border border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-transparent',
+				secondary: 'border border-secondary focus:ring-2 focus:ring-secondary focus:ring-offset-2',
+				solidPrimary: 'bg-primary focus:ring-2 focus:ring-secondary focus:ring-offset-2',
+				solidSecondary: 'bg-secondary focus:ring-2 focus:ring-primary focus:ring-offset-2'
 			},
 			_size: {
 				xs: 'p-1 text-xs',

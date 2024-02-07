@@ -6,10 +6,8 @@
 		variants: {
 			_intent: {
 				primary:
-					'border border-emerald-500 focus:outline focus:outline-emerald-400 focus:outline-offset-2',
-				secondary:
-					'border border-emerald-300 focus:outline focus:outline-emerald-300 focus:outline-offset-2',
-				danger: 'border border-red-500 focus:outline focus:outline-red-400 focus:outline-offset-2'
+					'border border-primary focus:outline focus:outline-secondary focus:outline-offset-2',
+				secondary: 'border secondary focus:outline focus:outline-primary focus:outline-offset-2'
 			},
 			_size: {
 				sm: 'px-1 py-2',
@@ -38,8 +36,8 @@
 	{...$$props}
 	on:input
 	bind:value
-	class={input({ _intent: error ? 'danger' : _intent, _size, _width, class: $$props.class })}
+	class={input({ _intent, _size, _width, class: $$props.class })}
 />
 {#if error}
-	<span class="text-base text-red-500 mt-1 text-start">{error}</span>
+	<span class="text-base mt-1 text-start">{error}</span>
 {/if}
