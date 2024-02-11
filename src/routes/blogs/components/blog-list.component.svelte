@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { t } from '../../../shared/services/i18n.service';
 	import type { Blogs } from '../models/blog';
 	import BlogItem from './blog-item.component.svelte';
 
@@ -8,7 +7,7 @@
 </script>
 
 {#if isEmpty}
-	<p class="font-bold mt-2">{$t('blogs.message')}</p>
+	<p class="font-bold mt-2">no blogs are available</p>
 {/if}
 
 {#if !isEmpty}
