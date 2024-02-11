@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { t } from '../../../shared/services/i18n.service';
 	import { userStore } from '../../../shared/store/user.store';
 	import { Button, Input } from '../../../shared/ui';
 
@@ -27,16 +26,10 @@
 		};
 	}}
 >
-	<p class="mb-2">{$t('hi.form.label')}</p>
+	<p class="mb-2">leave some meaningful message here..</p>
 	<div class="flex items-center gap-2">
-		<Input
-			name="message"
-			placeholder={$t('hi.form.placeholder')}
-			disabled={isUserNotExist}
-			type="text"
-			required
-		/>
+		<Input name="message" placeholder="message..." disabled={isUserNotExist} type="text" required />
 		<Input name="visitorName" class="hidden" value={$userStore?.name} type="text" />
-		<Button type="submit" disabled={isUserNotExist}>{$t('hi.form.buttonText')}</Button>
+		<Button type="submit" disabled={isUserNotExist}>send</Button>
 	</div>
 </form>

@@ -13,6 +13,6 @@
 	});
 </script>
 
-<div class="mt-20 mb-10 flex flex-col gap-2 code-wrapper">
+<div class="mt-24 mb-10 flex flex-col gap-2 code-wrapper">
 	<slot />
 </div>
