@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CopyRight from './components/copy-right.svelte';
+	import EmailMe from './components/email-me.svelte';
 	import Hero from './components/hero.svelte';
 	import Nav from './components/nav.svelte';
 	import Social from './components/social.svelte';
@@ -16,5 +17,8 @@
 		<Nav />
 	</div>
 
-	<CopyRight />
+	<div class="flex flex-col gap-2">
+		<EmailMe />
+		<CopyRight />
+	</div>
 </div>
