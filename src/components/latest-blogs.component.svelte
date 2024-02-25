@@ -12,8 +12,8 @@
 				href={`/blogs/${blog.slug}`}
 				class="space-y-2 w-full p-4 rounded-md bg-green-100/10 border border-green-500 hover:border-green-300 transition-colors"
 			>
-				<p class="text-base font-semibold">{blog.title}</p>
-				<p class="text-base text-green-500">{blog.view} views</p>
+				<p class="text-base">{blog.title}</p>
+				<p class="text-base">{blog.view} views</p>
 			</a>
 		{/each}
 	</div>
