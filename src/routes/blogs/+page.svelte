@@ -10,7 +10,7 @@
 	<title>Blogs</title>
 </svelte:head>
 
-<div class="mt-24">
+<div class="mt-24 pb-4">
 	<BlogTitle />
 	{#if data.blogs}
 		<BlogList blogList={data.blogs} />
