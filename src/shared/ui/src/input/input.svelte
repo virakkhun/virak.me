@@ -20,7 +20,7 @@
 			}
 		},
 		defaultVariants: { _intent: 'primary', _size: 'base', _width: 'full' },
-		compoundVariants: [{ class: 'placeholder:text-white/50 bg-white text-white' }]
+		compoundVariants: [{ class: 'placeholder:text-white/50 text-text bg-background' }]
 	});
 
 	interface $$Props extends HTMLInputAttributes, VariantProps<typeof input> {}
