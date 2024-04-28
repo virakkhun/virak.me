@@ -11,7 +11,7 @@ export default {
 			accent: 'var(--accent)'
 		},
 		fontSize: {
-			sm: '0.750rem',
+			sm: '0.75rem',
 			base: '1rem',
 			xl: '1.333rem',
 			'2xl': '1.777rem',
