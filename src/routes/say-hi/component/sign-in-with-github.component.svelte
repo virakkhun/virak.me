@@ -40,7 +40,7 @@
 
 <div class="font-bold mt-4 flex gap-2 items-center">
 	<span class="font-bold">Hi</span>
-	{#if !isUserExist}
+	{#if !$userStore}
 		<span>unknown</span>
 		<span>??</span>
 		<SignInWithGithubButton />
