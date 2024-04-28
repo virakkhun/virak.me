@@ -51,7 +51,7 @@
 			'absolute text-sm top-4 right-4 p-1 rounded-md hover:bg-gray-900 bg-gray-700';
 		btnEle.value = value;
 		btnEle.addEventListener('click', (e) => {
-			copyToClipboard((e.target as HTMLButtonElement).value);
+			copyToClipboard((<HTMLInputElement>e.target).value);
 		});
 		return btnEle;
 	}
