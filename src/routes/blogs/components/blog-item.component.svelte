@@ -16,9 +16,9 @@
 			<span class="text-sm">{datetime.diff(blog.created_at)}</span>
 			<span>|</span>
 			{#each blog.tags as tag}
-				<span class="text-sm">#{tag}</span>
+				<span class="text-sm px-1 py-0.5 bg-accent rounded-lg">#{tag}</span>
 			{/each}
 		</div>
-		<span class="text-sm">{blog.view} view</span>
+		<span class="text-sm">{blog.view} views</span>
 	</div>
 </a>
