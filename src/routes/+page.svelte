@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ThemeSwitcher from '../components/theme-switcher.svelte';
 	import CopyRight from './components/copy-right.svelte';
 	import EmailMe from './components/email-me.svelte';
 	import Hero from './components/hero.svelte';
@@ -12,6 +13,7 @@
 
 <div class="w-full h-svh md:py-24 pt-24 pb-4 flex flex-col justify-between items-start">
 	<div>
+		<ThemeSwitcher />
 		<Hero />
 		<Social />
 		<Nav />

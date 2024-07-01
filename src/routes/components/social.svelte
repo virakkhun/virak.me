@@ -9,7 +9,11 @@
 <section class="mt-6">
 	<div class="flex items-center justify-start gap-3">
 		{#each socialLinks as { link, title }}
-			<a href={link} target="_blank">
+			<a
+				href={link}
+				target="_blank"
+				class="w-10 h-10 dark:bg-text rounded-full flex items-center justify-center"
+			>
 				<img
 					src={socialIcons[title]}
 					alt={link}
