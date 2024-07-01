@@ -43,6 +43,6 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<main class="bg-background container mx-auto md:px-24 px-4">
+<main class="container mx-auto md:px-24 px-4 relative">
 	<slot />
 </main>

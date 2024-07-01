@@ -18,10 +18,10 @@ export const datetime = {
 		const weeks = Math.floor(days / 7);
 		const months = Math.floor(weeks / 4);
 
-		if (weeks >= 4) return `${months}m ago`;
-		if (days >= 7) return `${weeks}w ago`;
-		if (hours >= 24) return `${days}d ago`;
-		if (minutes >= 60) return `${hours}h ago`;
-		return `${minutes}min ago`;
+		if (weeks >= 4) return `${months} months ago`;
+		if (days >= 7) return `${weeks} weeks ago`;
+		if (hours >= 24) return `${days} days ago`;
+		if (minutes >= 60) return `${hours} hours ago`;
+		return `${minutes} minutes ago`;
 	}
 };
