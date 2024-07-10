@@ -26,8 +26,7 @@ pre[class*='language-'] {
 	-ms-hyphens: none;
 	hyphens: none;
 
-	font-family: 'Operator Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
-		monospace;
+	font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-weight: 400;
 	font-size: 17px;
 	line-height: 25px;
@@ -49,7 +48,10 @@ code[class*='language-'] ::selection {
 
 /* Code blocks. */
 pre[class*='language-'] {
-	padding: 1.5em;
+	padding-top: 1.5em;
+	padding-right: 1.5em;
+	padding-bottom: 1.5em;
+	padding-left: 0.6rem;
 	margin: 0.5em 0;
 	overflow: auto;
 	border-radius: 0.5rem;
@@ -242,7 +244,7 @@ p a {
 
 pre code span[line]::before {
 	content: attr(line);
-	@apply text-sm text-secondary pr-1 mr-4;
+	@apply text-[#757575] pl-1.5 mr-5;
 }
 
 p img {
