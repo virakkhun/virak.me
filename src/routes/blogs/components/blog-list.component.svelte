@@ -2,7 +2,7 @@
 	import type { Blogs } from '../models/blog';
 	import BlogItem from './blog-item.component.svelte';
 
-	export let blogList: Blogs;
+	export let blogList: Blogs = [];
 	$: isEmpty = blogList.length === 0;
 </script>
 

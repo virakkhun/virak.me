@@ -5,10 +5,6 @@
 	import MoonIcon from '../assets/icons/moon.svg';
 
 	let theme = Theme.LIGHT;
-	const btnTextMap: Record<Theme, string> = {
-		[Theme.LIGHT]: 'light',
-		[Theme.DARK]: 'dark'
-	};
 	const btnActionMap: Record<Theme, () => void> = {
 		[Theme.LIGHT]: () => setTheme(Theme.DARK),
 		[Theme.DARK]: () => setTheme(Theme.LIGHT)
