@@ -16,7 +16,7 @@
 		markdownParser(value)
 			.then((v) => {
 				markdownValue = String(v).replaceAll(/"(\d{1})"/g, (v) => {
-					return `0${v.replaceAll('"', '')}`;
+					return `' ${v.replaceAll('"', '')}'`;
 				});
 			})
 			.then(() => {
