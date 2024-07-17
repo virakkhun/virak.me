@@ -2,6 +2,7 @@
 	import { browser } from '$app/environment';
 	import { markdownParser } from '$lib/markdown-parser';
 	import '../assets/css/shade-of-purple.css';
+	import CopyIcon from '../assets/icons/copy.svg';
 
 	export let content: string;
 
@@ -16,7 +17,7 @@
 		markdownParser(value)
 			.then((v) => {
 				markdownValue = String(v).replaceAll(/"(\d{1})"/g, (v) => {
-					return `0${v.replaceAll('"', '')}`;
+					return `' ${v.replaceAll('"', '')}'`;
 				});
 			})
 			.then(() => {
@@ -55,13 +56,13 @@
 
 	function getCopyEle(value: string) {
 		const btnEle = document.createElement('button');
-		btnEle.innerText = 'copy';
 		btnEle.className =
-			'absolute text-sm top-4 right-4 p-1 rounded-md hover:bg-gray-900 bg-gray-700';
+			'absolute text-sm top-4 right-4 p-2 rounded-md bg-primary hover:bg-secondary transition-all duratiion-200';
 		btnEle.value = value;
 		btnEle.addEventListener('click', (e) => {
 			copyToClipboard((<HTMLInputElement>e.target).value);
 		});
+		btnEle.appendChild(getCopyImgSrc());
 		return btnEle;
 	}
 
@@ -75,6 +76,15 @@
 		});
 	}
 
+	function getCopyImgSrc() {
+		const imgEle = document.createElement('img');
+		imgEle.src = CopyIcon;
+		imgEle.width = 16;
+		imgEle.height = 16;
+		imgEle.alt = 'copy icon';
+		return imgEle;
+	}
+
 	$: {
 		parseOperation(content);
 	}
@@ -83,5 +93,7 @@
 {@html markdownValue}
 
 {#if showAlert}
-	<p class="text-sm p-2 rounded-md fixed bottom-4 right-4">copied to clipboard</p>
+	<p class="text-sm p-2 rounded-md fixed bottom-4 right-4 bg-primary text-background">
+		copied to clipboard
+	</p>
 {/if}
