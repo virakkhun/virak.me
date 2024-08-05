@@ -6,25 +6,25 @@ Here are some basic commands for our daily basis for linux user. whether you are
 
 to create file we user,
 
-```ts
-touch[filename];
+```bash
+touch *filename
 ```
 
 _example_ : create a file name config.txt
 
-```ts
+```bash
 touch config.txt
 ```
 
 to delete a file or a dir,
 
-```ts
-rm[filename];
+```bash
+rm filename];
 ```
 
 _example_ : delete a file name config.txt
 
-```ts
+```bash
 // delete a file
 rm config.txt
 // delete a dir
@@ -36,13 +36,13 @@ NOTE: note that we can't recover the file after using `rm`
 
 to create a directory or folder,
 
-```ts
-mkdir[dir];
+```bash
+mkdir *dir
 ```
 
 _example_ : create a directory or folder
 
-```ts
+```bash
 mkdir config
 mkdir -p config/db // create db dir in config
 mkdir config src shared // create multiple dirs
@@ -50,16 +50,16 @@ mkdir config src shared // create multiple dirs
 
 to list content inside the dir or folder,
 
-```ts
-ls;
+```bash
+ls
 ```
 
 _example_ : to list content inside the dir or folder we use
 
-```ts
+```bash
 // listing the content
 ls
-package.json  README.md          static  tailwind.config.js  tsconfig.json  vite.config.ts
+package.json  README.md  static  tailwind.config.js  tsconfig.json  vite.config.ts
 // listing the content include hidden file
 ls -a
 .env  .git           .npmrc        .prettierignore
@@ -73,13 +73,13 @@ ls -la
 
 to edit a file we can [vim] or [nano] or [vi] ,
 
-```ts
-vim[filename];
+```bash
+vim *filename;
 ```
 
 _example_ : let edit a file name config.txt
 
-```ts
+```bash
 vim config.txt
 // to insert mode type `i`
 // to exist insert mode type `esc`

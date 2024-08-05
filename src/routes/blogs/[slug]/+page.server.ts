@@ -1,20 +1,22 @@
-import { supabaseClient } from '$lib/supabase-client';
+import { parseAsync } from 'mdx-util/node';
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from '../$types';
-import type { BlogDetail } from './models/blog-detail';
+import { buildGithubEndpoint } from '$lib/endpoints';
+import { BlogDetail } from './models/blog-detail';
+import type { PageServerLoad } from './$types';
 
-export const load = (async ({ params }) => {
-  const { slug } = <{ slug: string }>{ ...params };
-  const [encodedSlug] = slug.split('~~').reverse();
-  const id = atob(encodedSlug);
+export const load = (async ({ params, fetch, url }) => {
+	const { slug } = <{ slug: string }>{ ...params };
+	const endpoint = buildGithubEndpoint(`${slug}.md`);
+	const { pathname } = new URL(url);
+	const [_, __, title] = pathname.split('/');
 
-  const { data } = await supabaseClient.from('blogs').select<'*', BlogDetail>('*').eq('id', id);
+	const res = await fetch(endpoint);
+	if (!res.ok) throw error(res.status, { message: 'No blog detail found' });
+	const data = await res.text();
+	const content = await parseAsync(data);
 
-  if (!data) throw error(500, { message: 'No blog detail found' });
-
-  const [blogDetail] = data;
-
-  return {
-    blogDetail
-  };
+	return {
+		title,
+		content
+	} as BlogDetail;
 }) satisfies PageServerLoad;

@@ -1,8 +1,7 @@
 <script lang="ts">
 	const navContent: { href: string; name: string }[] = [
 		{ href: '/works', name: 'works' },
-		{ href: '/blogs', name: 'blogs' },
-		{ href: '/say-hi', name: 'say-hi' }
+		{ href: '/blogs', name: 'blogs' }
 	];
 </script>
 

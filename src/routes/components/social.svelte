@@ -12,7 +12,7 @@
 			<a
 				href={link}
 				target="_blank"
-				class="w-10 h-10 dark:bg-text rounded-full flex items-center justify-center"
+				class="w-10 h-10 dark:bg-text bg-[#d6d6d4] rounded-full flex items-center justify-center"
 			>
 				<img
 					src={socialIcons[title]}

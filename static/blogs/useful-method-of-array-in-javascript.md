@@ -1,4 +1,4 @@
-# a set of useful methods of Array object in JS, use to iterate a collections of data.
+a set of useful methods of Array object in JS, use to iterate a collections of data.
 
 In this blog, we will go through some of the methods from Array Object in Javascript. these methods or function are very handy to make you more productive in every day coding.
 
