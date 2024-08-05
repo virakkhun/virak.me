@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { markdownParser } from '$lib/markdown-parser';
+	import { onMount } from 'svelte';
 	import '../assets/css/shade-of-purple.css';
 	import CopyIcon from '../assets/icons/copy.svg';
 
@@ -14,17 +13,9 @@
 		if (!value) return;
 		const isCodeSyntax = REGEX.test(value.slice(-4));
 		if (isCodeSyntax) return;
-		markdownParser(value)
-			.then((v) => {
-				markdownValue = String(v).replaceAll(/"(\d{1})"/g, (v) => {
-					return `' ${v.replaceAll('"', '')}'`;
-				});
-			})
-			.then(() => {
-				if (!browser) return;
-				appendBtnEleToEachPre();
-				insertIdToParent();
-			});
+		markdownValue = String(value).replaceAll(/"(\d{1})"/g, (v) => {
+			return `' ${v.replaceAll('"', '')}'`;
+		});
 	}
 
 	function appendBtnEleToEachPre() {
@@ -88,9 +79,16 @@
 	$: {
 		parseOperation(content);
 	}
+
+	onMount(() => {
+		insertIdToParent();
+		appendBtnEleToEachPre();
+	});
 </script>
 
-{@html markdownValue}
+<div class="code-wrapper">
+	{@html markdownValue}
+</div>
 
 {#if showAlert}
 	<p class="text-sm p-2 rounded-md fixed bottom-4 right-4 bg-primary text-background">

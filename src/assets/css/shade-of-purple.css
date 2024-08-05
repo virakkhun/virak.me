@@ -208,7 +208,7 @@ code.language-css .token.selector > .token.pseudo-element {
 }
 
 .code-wrapper h1 {
-	@apply text-3xl mt-2 italic;
+	@apply text-3xl mt-2 italic line-clamp-1;
 }
 
 .code-wrapper h2 {
