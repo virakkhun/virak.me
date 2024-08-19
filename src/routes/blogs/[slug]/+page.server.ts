@@ -8,6 +8,7 @@ export const load = (async ({ fetch, url }) => {
 	const { pathname } = url;
 	const title = pathname.split('/').at(-1);
 
+	console.log(endpoint);
 	const res = await fetch(endpoint);
 	if (!res.ok) throw error(res.status, { message: 'No blog detail found' });
 	const data = await res.text();
