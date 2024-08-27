@@ -1,6 +1,15 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
 	import '../app.css';
+	import Keymaps from '../components/keymaps.svelte';
+	import { keyPressEventMap } from '../shared/constants/key-press-event-map';
+
+	let keyMapVisible: boolean = false;
+
+	function toggle() {
+		console.log('hello');
+		keyMapVisible = !keyMapVisible;
+	}
 
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
@@ -43,6 +52,12 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
+<svelte:document on:keypress={(e) => keyPressEventMap[e.key] && keyPressEventMap[e.key](toggle)} />
+
 <main class="container mx-auto md:px-24 px-4 relative">
 	<slot />
+
+	{#if keyMapVisible}
+		<Keymaps />
+	{/if}
 </main>
