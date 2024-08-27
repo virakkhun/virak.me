@@ -216,7 +216,9 @@ code.language-css .token.selector > .token.pseudo-element {
 }
 
 .code-wrapper h3 {
-	@apply text-xl mt-2 italic;
+	font-size: 1rem;
+	font-weight: 500;
+	@apply mt-2 italic;
 }
 
 p code {
