@@ -10,10 +10,21 @@
 	function toggle() {
 		collaped = !collaped;
 	}
+
+	function registerKeyEvent(e: KeyboardEvent) {
+		const isT = e.key === 't';
+		isT && toggle();
+	}
 </script>
 
-<button class="flex flex-col gap-1" on:click={toggle}>
-	<div class="flex gap-1 items-center">
+<svelte:document on:keypress={registerKeyEvent} />
+
+<div class="flex flex-col gap-1">
+	<button
+		on:click={toggle}
+		class="outline-none border-b border-b-[rgba(0,0,0,0)] flex gap-1 items-center"
+		datatype="directory"
+	>
 		<img
 			class="w-2 h-2 {collaped ? '-rotate-90' : 'rotate-0'}"
 			src={ChevronIcon}
@@ -21,15 +32,13 @@
 		/>
 		<img class="w-3 h-3" src={DirIcon} alt="dir open icon" />
 		<p class="font-semibold">{dir.label}</p>
-	</div>
+	</button>
 
-	{#if !collaped}
-		<div class="flex flex-col gap-1 ml-4">
-			{#if dir?.leaf}
-				{#each dir.leaf as file}
-					<File {file} />
-				{/each}
-			{/if}
-		</div>
-	{/if}
-</button>
+	<div class="flex flex-col gap-1 ml-4 {collaped && 'hidden'}">
+		{#if dir?.leaf}
+			{#each dir.leaf as file}
+				<File {file} />
+			{/each}
+		{/if}
+	</div>
+</div>

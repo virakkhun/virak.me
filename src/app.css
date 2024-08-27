@@ -41,3 +41,7 @@ body {
 body::-webkit-scrollbar {
 	display: none;
 }
+
+.focus {
+	@apply border-b border-b-accent;
+}
