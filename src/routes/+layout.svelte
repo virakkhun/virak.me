@@ -1,14 +1,27 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
+	import { afterNavigate, onNavigate } from '$app/navigation';
 	import '../app.css';
 	import Keymaps from '../components/keymaps.svelte';
 	import { keyPressEventMap } from '../shared/constants/key-press-event-map';
 
-	let keyMapVisible: boolean = false;
+	const localEvent: Record<string, () => void> = {
+		...keyPressEventMap,
+		Esc: close,
+		K: toggle
+	};
+
+	let keyMapsRef: Keymaps;
 
 	function toggle() {
-		console.log('hello');
-		keyMapVisible = !keyMapVisible;
+		keyMapsRef.toogle();
+	}
+
+	function close() {
+		keyMapsRef.close();
+	}
+
+	function onKeyPress(e: KeyboardEvent) {
+		localEvent[e.key] && localEvent[e.key]();
 	}
 
 	onNavigate((navigation) => {
@@ -20,6 +33,10 @@
 				await navigation.complete;
 			});
 		});
+	});
+
+	afterNavigate(() => {
+		close();
 	});
 </script>
 
@@ -52,12 +69,22 @@
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
-<svelte:document on:keypress={(e) => keyPressEventMap[e.key] && keyPressEventMap[e.key](toggle)} />
+<svelte:document on:keypress={onKeyPress} />
 
 <main class="container mx-auto md:px-24 px-4 relative">
 	<slot />
 
-	{#if keyMapVisible}
-		<Keymaps />
-	{/if}
+	<Keymaps bind:this={keyMapsRef} />
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Virak Khun",
+			"url": "https://virak.vercel.app",
+			"image": [
+				"https://media.licdn.com/dms/image/v2/D5603AQE6EDPn_HqMdw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1695958815370?e=2147483647&v=beta&t=9brfW4HANqoNceE_xNf4ebRtnLIcHPvZGrrDJdIuW74"
+			],
+			"description": "a Software Engineer based in Phnom Penh, graduated from RUPP majored in Computer Science"
+		}
+	</script>
 </main>

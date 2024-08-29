@@ -11,6 +11,5 @@ export const keyPressEventMap: Record<string, (callback: () => void) => void> = 
 	b: () => goto('/blogs'),
 	h: () => goto('/'),
 	j: () => scroll(60),
-	k: () => scroll(-60),
-	K: (cb) => cb && cb()
+	k: () => scroll(-60)
 };
