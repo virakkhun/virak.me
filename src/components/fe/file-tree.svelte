@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 	import { type FsTree } from './entity';
 	import FileNode from './file-node.svelte';
-	import { goto } from '$app/navigation';
+	import { type KeyPressEvent } from '../../shared/constants/key-press-event-map';
+	import KeymapStore from '../keymap-store.svelte';
 
 	export let tree: FsTree;
 	let el: HTMLDivElement;
@@ -32,13 +33,12 @@
 	}
 
 	function onKeyPress(e: KeyboardEvent) {
-		const func = keyPressEventMap[e.key];
-		func && func();
+		keyPressEventMap[e.key] && keyPressEventMap[e.key].func();
 	}
 
 	function onKeyDown(e: KeyboardEvent) {
 		const func = keyDownEventMap[e.key];
-		func && func();
+		func && func.func();
 	}
 
 	function setFocusOnFirstNode() {
@@ -46,23 +46,30 @@
 		nodeEls.at(0)?.classList.add('focus');
 	}
 
-	const keyPressEventMap: Record<string, () => void> = {
-		o: () => {
-			const activeEl = nodeEls.find((el) => el.classList.contains('focus'));
-			if (activeEl?.nodeName !== 'DIV') return;
-			const anchorEl = activeEl?.querySelector('a');
-			anchorEl && anchorEl.click();
-		},
-		b: () => {
-			goto('/');
+	const keyPressEventMap: KeyPressEvent = {
+		o: {
+			desc: 'go blog detail',
+			func: () => {
+				const activeEl = nodeEls.find((el) => el.classList.contains('focus'));
+				if (activeEl?.nodeName !== 'DIV') return;
+				const anchorEl = activeEl?.querySelector('a');
+				anchorEl && anchorEl.click();
+			},
+			type: 'naviation'
 		}
 	};
 
-	const keyDownEventMap: Record<string, () => void> = {
-		ArrowUp: () => move('down'),
-		ArrowDown: () => move('up'),
-		j: () => move('down'),
-		k: () => move('up')
+	const keyDownEventMap: KeyPressEvent = {
+		j: {
+			func: () => move('down'),
+			desc: 'move down',
+			type: 'movement'
+		},
+		k: {
+			func: () => move('up'),
+			desc: 'move up',
+			type: 'movement'
+		}
 	};
 
 	onMount(() => {
@@ -71,6 +78,10 @@
 			nodeEls.push(_el);
 		});
 		setFocusOnFirstNode();
+
+		return () => {
+			document.querySelector("[data-key='local']")?.remove();
+		};
 	});
 </script>
 
@@ -81,3 +92,5 @@
 		<FileNode node={tree} />
 	</div>
 </div>
+
+<KeymapStore key="local" keymaps={{ ...keyPressEventMap, ...keyDownEventMap }} />
