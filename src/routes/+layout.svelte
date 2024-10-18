@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { afterNavigate, onNavigate } from '$app/navigation';
 	import '../app.css';
+	import KeymapStore from '../components/keymap-store.svelte';
 	import Keymaps from '../components/keymaps.svelte';
-	import { keyPressEventMap } from '../shared/constants/key-press-event-map';
+	import { keyPressEventMap, type KeyPressEvent } from '../shared/constants/key-press-event-map';
 
-	const localEvent: Record<string, () => void> = {
+	const localEvent: KeyPressEvent = {
 		...keyPressEventMap,
-		Esc: close,
-		K: toggle
+		x: { func: close, desc: 'close shortcuts menu', type: 'event' },
+		K: { func: toggle, desc: 'toggle shortcuts menu', type: 'event' }
 	};
 
 	let keyMapsRef: Keymaps;
@@ -21,7 +22,7 @@
 	}
 
 	function onKeyPress(e: KeyboardEvent) {
-		localEvent[e.key] && localEvent[e.key]();
+		localEvent[e.key] && localEvent[e.key].func();
 	}
 
 	onNavigate((navigation) => {
@@ -74,7 +75,6 @@
 <main class="container mx-auto md:px-24 px-4 relative">
 	<slot />
 
-	<Keymaps bind:this={keyMapsRef} />
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -88,3 +88,6 @@
 		}
 	</script>
 </main>
+
+<KeymapStore keymaps={localEvent} />
+<Keymaps bind:this={keyMapsRef} />
