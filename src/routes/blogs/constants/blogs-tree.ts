@@ -18,6 +18,11 @@ export const BLOGS_TREE: FsNode = {
 			type: FsType.FILE,
 			label: 'useful-method-of-array-in-javascript.md',
 			link: '/blogs/useful-method-of-array-in-javascript'
+		},
+		{
+			type: FsType.FILE,
+			label: 'how-to-git-diff.md',
+			link: '/blogs/how-to-git-diff'
 		}
 	]
 };
