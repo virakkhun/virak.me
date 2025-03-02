@@ -5,7 +5,7 @@ on:
     branches: ['main']
 
 jobs:
-  build_site:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,13 +25,18 @@ jobs:
         run: |
           pnpm build
 
+      - name: generate 404 page
+        run: |
+          if [ ! -f build/404.html ]; then cp static/404.html build/404.html; fi;
+          echo "done!!"
+
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'build/'
 
   deploy:
-    needs: build_site
+    needs: build
     runs-on: ubuntu-latest
 
     permissions:
