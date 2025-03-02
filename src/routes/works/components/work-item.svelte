@@ -2,11 +2,6 @@
 	import type { WorkItem } from '../../../shared/models/work-item';
 
 	export let props: WorkItem;
-	let isShowDetail: boolean = false;
-
-	function toggleDetail() {
-		isShowDetail = !isShowDetail;
-	}
 </script>
 
 <div class="flex flex-col justify-start items-start">
@@ -22,11 +17,4 @@
 			<span class="text-base">{skill}</span>
 		{/each}
 	</div>
-	{#if !isShowDetail}
-		<button class="text-accent text-sm" on:click={toggleDetail}>see more...</button>
-	{/if}
-
-	{#if isShowDetail}
-		{@html props.workDetail}
-	{/if}
 </div>
