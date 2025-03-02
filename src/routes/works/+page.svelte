@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import Breadcrumb from '../../components/breadcrumb.svelte';
 	import { keyPressEventMap } from '../../shared/constants/key-press-event-map';
 	import Title from './components/title.svelte';
@@ -6,7 +7,7 @@
 
 	const breadcrumbs = [
 		{ link: '/', label: 'home' },
-		{ link: '/works', label: 'works' }
+		{ link: `${base}/works`, label: 'works' }
 	];
 </script>
 

@@ -2,11 +2,12 @@
 	import Breadcrumb from '../../components/breadcrumb.svelte';
 	import { BLOGS_TREE } from './constants/blogs-tree';
 	import FileTree from '../../components/fe/file-tree.svelte';
+	import { base } from '$app/paths';
 
 	const blogsTree = BLOGS_TREE;
 	const _breadcrumbs = [
-		{ link: '/', label: 'home' },
-		{ link: '/blogs', label: 'blogs' }
+		{ link: `/${base}`, label: 'home' },
+		{ link: `/${base}/blogs`, label: 'blogs' }
 	];
 </script>
 

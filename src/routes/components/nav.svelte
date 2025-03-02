@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	const navContent: { href: string; name: string }[] = [
-		{ href: '/works', name: 'works' },
-		{ href: '/blogs', name: 'blogs' }
+		{ href: `${base}/works`, name: 'works' },
+		{ href: `${base}/blogs`, name: 'blogs' }
 	];
 </script>
 

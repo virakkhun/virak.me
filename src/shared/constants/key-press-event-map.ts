@@ -1,4 +1,5 @@
 import { goto } from '$app/navigation';
+import { base } from '$app/paths';
 
 const scroll = (offset: number) =>
 	window.scrollBy({
@@ -17,12 +18,12 @@ export type KeyPressEvent = Record<
 
 export const keyPressEventMap: KeyPressEvent = {
 	w: {
-		func: () => goto('/works'),
+		func: () => goto(`${base}/works`),
 		desc: 'go to /works page',
 		type: 'naviation'
 	},
 	b: {
-		func: () => goto('/blogs'),
+		func: () => goto(`${base}/blogs`),
 		desc: 'go to /blogs page',
 		type: 'naviation'
 	},

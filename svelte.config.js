@@ -13,7 +13,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: ''
+			base: process.argv.includes('dev') ? '/virak.me' : process.env.BASE_PATH
 		},
 		prerender: {
 			handleMissingId: 'ignore'
