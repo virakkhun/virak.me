@@ -6,8 +6,8 @@
 
 	const blogsTree = BLOGS_TREE;
 	const _breadcrumbs = [
-		{ link: `/${base}`, label: 'home' },
-		{ link: `/${base}/blogs`, label: 'blogs' }
+		{ link: `${base}/`, label: 'home' },
+		{ link: `${base}/blogs`, label: 'blogs' }
 	];
 </script>
 

@@ -6,7 +6,7 @@
 	import WorkList from './components/work-list.svelte';
 
 	const breadcrumbs = [
-		{ link: '/', label: 'home' },
+		{ link: `${base}/`, label: 'home' },
 		{ link: `${base}/works`, label: 'works' }
 	];
 </script>

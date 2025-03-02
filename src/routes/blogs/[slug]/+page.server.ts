@@ -1,6 +1,6 @@
 import { parseAsync } from 'mdx-util/node';
 import { error } from '@sveltejs/kit';
-import { BlogDetail } from './models/blog-detail';
+import type { BlogDetail } from './models/blog-detail';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ fetch, url }) => {

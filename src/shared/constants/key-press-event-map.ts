@@ -28,7 +28,7 @@ export const keyPressEventMap: KeyPressEvent = {
 		type: 'naviation'
 	},
 	h: {
-		func: () => goto('/'),
+		func: () => goto(`${base}/`),
 		desc: 'go to / page',
 		type: 'naviation'
 	},

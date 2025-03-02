@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import Breadcrumb from '../../../components/breadcrumb.svelte';
 	import Markdown from '../../../components/markdown.svelte';
 	import type { PageServerData } from '../[slug]/$types';
@@ -6,8 +7,8 @@
 
 	export let data: PageServerData;
 	const breadcrumbs = [
-		{ link: '/', label: 'home' },
-		{ link: '/blogs', label: 'blogs' }
+		{ link: `${base}/`, label: 'home' },
+		{ link: `${base}/blogs`, label: 'blogs' }
 	];
 </script>
 
@@ -17,7 +18,7 @@
 
 {#if data?.content}
 	<Breadcrumb
-		breadcrumbs={[...breadcrumbs, { label: data?.title, link: `/blogs/${data?.title}` }]}
+		breadcrumbs={[...breadcrumbs, { label: data?.title, link: `${base}/blogs/${data?.title}` }]}
 	/>
 	<BlogDetailWrapper>
 		<Markdown content={data?.content} />
