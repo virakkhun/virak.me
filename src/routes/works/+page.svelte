@@ -14,7 +14,7 @@
 	<title>Work | Virak Khun</title>
 </svelte:head>
 
-<svelte:document on:keypress={(e) => keyPressEventMap[e.key] && keyPressEventMap[e.key]()} />
+<svelte:document on:keypress={(e) => keyPressEventMap[e.key] && keyPressEventMap[e.key]} />
 <Breadcrumb {breadcrumbs} />
 <Title />
 <WorkList />

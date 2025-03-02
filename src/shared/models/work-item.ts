@@ -9,6 +9,5 @@ export type WorkItem = {
 	timePeriod: string;
 	skills: string[];
 	projectLinks: string[];
-	workDetail: string;
 	isCurrent: boolean;
 };
