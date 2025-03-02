@@ -1,6 +1,8 @@
 <script>
 	import { base } from '$app/paths';
-	import { page } from '$app/stores';
+	import { getStores } from '$app/stores';
+
+	const { page } = getStores();
 </script>
 
 {#if $page.error}

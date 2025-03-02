@@ -16,8 +16,7 @@ const config = {
 			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		},
 		prerender: {
-			handleMissingId: 'ignore',
-			handleHttpError: 'ignore'
+			handleMissingId: 'ignore'
 		}
 	}
 };
