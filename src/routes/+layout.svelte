@@ -67,7 +67,6 @@
 	<meta property="og:image" content="https://avatars.githubusercontent.com/u/86554927?v=4" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Virak Khun" />
-	<link rel="icon" href="/favicon.png" />
 </svelte:head>
 
 <svelte:document on:keypress={onKeyPress} />
